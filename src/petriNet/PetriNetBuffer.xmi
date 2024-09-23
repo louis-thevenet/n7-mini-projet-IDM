@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<petriNet:PetriNet
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:petriNet="http://petrinet"
+    xsi:schemaLocation="http://petrinet PetriNet.ecore"
+    Name="Consumer">
+  <netElements
+      xsi:type="petriNet:Place"
+      arcs="//@netElements.11 //@netElements.12"
+      Name="Buffer"/>
+  <netElements
+      xsi:type="petriNet:Place"
+      arcs="//@netElements.8 //@netElements.9"
+      Name="Producer2"/>
+  <netElements
+      xsi:type="petriNet:Place"/>
+  <netElements
+      xsi:type="petriNet:Place"
+      Name="Consumer1"/>
+  <netElements
+      xsi:type="petriNet:Place"
+      tokens="1"
+      arcs="//@netElements.13 //@netElements.14 //@netElements.15 //@netElements.16"
+      Name="Consumer2"/>
+  <netElements
+      xsi:type="petriNet:Transition"
+      arcs="//@netElements.7 //@netElements.8 //@netElements.11"
+      Name="ProducerToBuffer"/>
+  <netElements
+      xsi:type="petriNet:Transition"
+      arcs="//@netElements.12 //@netElements.13 //@netElements.16"
+      Name="ConsumerToBuffer"/>
+  <netElements
+      xsi:type="petriNet:Arc"
+      linkToPlace="//@netElements.17"
+      linkToTransition="//@netElements.5"
+      Name=""/>
+  <netElements
+      xsi:type="petriNet:Arc"
+      type="transitionToPlace"
+      linkToPlace="//@netElements.1"
+      linkToTransition="//@netElements.5"
+      Name=""/>
+  <netElements
+      xsi:type="petriNet:Arc"
+      linkToPlace="//@netElements.1"
+      linkToTransition="//@netElements.18"/>
+  <netElements
+      xsi:type="petriNet:Arc"
+      type="transitionToPlace"
+      linkToPlace="//@netElements.17"
+      linkToTransition="//@netElements.18"/>
+  <netElements
+      xsi:type="petriNet:Arc"
+      type="transitionToPlace"
+      linkToPlace="//@netElements.0"
+      linkToTransition="//@netElements.5"/>
+  <netElements
+      xsi:type="petriNet:Arc"
+      linkToPlace="//@netElements.0"
+      linkToTransition="//@netElements.6"/>
+  <netElements
+      xsi:type="petriNet:Arc"
+      type="transitionToPlace"
+      linkToPlace="//@netElements.4"
+      linkToTransition="//@netElements.6"/>
+  <netElements
+      xsi:type="petriNet:Arc"
+      linkToPlace="//@netElements.4"
+      linkToTransition="//@netElements.19"/>
+  <netElements
+      xsi:type="petriNet:Arc"
+      type="transitionToPlace"
+      linkToPlace="//@netElements.4"
+      linkToTransition="//@netElements.19"/>
+  <netElements
+      xsi:type="petriNet:Arc"
+      linkToPlace="//@netElements.4"
+      linkToTransition="//@netElements.6"/>
+  <netElements
+      xsi:type="petriNet:Place"
+      tokens="1"
+      arcs="//@netElements.7 //@netElements.10"
+      Name="Producer1"/>
+  <netElements
+      xsi:type="petriNet:Transition"
+      arcs="//@netElements.9 //@netElements.10"
+      Name="Producer"/>
+  <netElements
+      xsi:type="petriNet:Transition"
+      arcs="//@netElements.14 //@netElements.15"
+      Name="Consumer"/>
+</petriNet:PetriNet>
