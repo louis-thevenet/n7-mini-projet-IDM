@@ -11,7 +11,7 @@ Bundle-RequiredExecutionEnvironment: JavaSE-21
 Export-Package: simplepdl,
  simplepdl.impl,
  simplepdl.util
+Import-Package: org.eclipse.emf.ecore.xmi.impl
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport
 Bundle-ActivationPolicy: lazy
-Import-Package: org.eclipse.emf.ecore.xmi.impl;version="[2.38.0,3.0.0)"

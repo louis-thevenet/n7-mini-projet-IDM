@@ -9,6 +9,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
+import org.eclipse.emf.ecore.xml.type.impl.XMLTypeFactoryImpl;
 
 import simplepdl.Process;
 import simplepdl.WorkDefinition;
@@ -28,7 +29,7 @@ public class SimplePDLCreator {
 		// l'aide d'un objet "XMIResourceFactoryImpl"
 		Resource.Factory.Registry reg = Resource.Factory.Registry.INSTANCE;
 		Map<String, Object> m = reg.getExtensionToFactoryMap();
-		m.put("xmi", new XMIResourceFactoryImpl());
+		m.put("xmi", new XMLTypeFactoryImpl());
 		
 		// CrÃ©er un objet resourceSetImpl qui contiendra une ressource EMF (le modÃ¨le)
 		ResourceSet resSet = new ResourceSetImpl();

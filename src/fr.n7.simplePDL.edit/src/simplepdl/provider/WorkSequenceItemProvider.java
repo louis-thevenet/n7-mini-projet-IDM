@@ -162,8 +162,6 @@ public class WorkSequenceItemProvider extends ProcessElementItemProvider {
 
 		switch (notification.getFeatureID(WorkSequence.class)) {
 			case SimplepdlPackage.WORK_SEQUENCE__LINK_TYPE:
-			case SimplepdlPackage.WORK_SEQUENCE__PREDECESSOR:
-			case SimplepdlPackage.WORK_SEQUENCE__SUCCESSOR:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

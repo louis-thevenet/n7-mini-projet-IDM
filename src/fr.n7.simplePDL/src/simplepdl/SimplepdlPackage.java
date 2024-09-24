@@ -114,13 +114,22 @@ public interface SimplepdlPackage extends EPackage {
 	int PROCESS_ELEMENT = 3;
 
 	/**
+	 * The feature id for the '<em><b>Process</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROCESS_ELEMENT__PROCESS = 0;
+
+	/**
 	 * The number of structural features of the '<em>Process Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROCESS_ELEMENT_FEATURE_COUNT = 0;
+	int PROCESS_ELEMENT_FEATURE_COUNT = 1;
 
 	/**
 	 * The number of operations of the '<em>Process Element</em>' class.
@@ -140,6 +149,15 @@ public interface SimplepdlPackage extends EPackage {
 	 * @generated
 	 */
 	int WORK_DEFINITION = 1;
+
+	/**
+	 * The feature id for the '<em><b>Process</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WORK_DEFINITION__PROCESS = PROCESS_ELEMENT__PROCESS;
 
 	/**
 	 * The feature id for the '<em><b>Links To Predecessors</b></em>' reference list.
@@ -197,6 +215,15 @@ public interface SimplepdlPackage extends EPackage {
 	int WORK_SEQUENCE = 2;
 
 	/**
+	 * The feature id for the '<em><b>Process</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WORK_SEQUENCE__PROCESS = PROCESS_ELEMENT__PROCESS;
+
+	/**
 	 * The feature id for the '<em><b>Link Type</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -250,6 +277,15 @@ public interface SimplepdlPackage extends EPackage {
 	 * @generated
 	 */
 	int GUIDANCE = 4;
+
+	/**
+	 * The feature id for the '<em><b>Process</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GUIDANCE__PROCESS = PROCESS_ELEMENT__PROCESS;
 
 	/**
 	 * The feature id for the '<em><b>Text</b></em>' attribute.
@@ -427,6 +463,17 @@ public interface SimplepdlPackage extends EPackage {
 	EClass getProcessElement();
 
 	/**
+	 * Returns the meta object for the reference '{@link simplepdl.ProcessElement#getProcess <em>Process</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Process</em>'.
+	 * @see simplepdl.ProcessElement#getProcess()
+	 * @see #getProcessElement()
+	 * @generated
+	 */
+	EReference getProcessElement_Process();
+
+	/**
 	 * Returns the meta object for class '{@link simplepdl.Guidance <em>Guidance</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -594,6 +641,14 @@ public interface SimplepdlPackage extends EPackage {
 		 * @generated
 		 */
 		EClass PROCESS_ELEMENT = eINSTANCE.getProcessElement();
+
+		/**
+		 * The meta object literal for the '<em><b>Process</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROCESS_ELEMENT__PROCESS = eINSTANCE.getProcessElement_Process();
 
 		/**
 		 * The meta object literal for the '{@link simplepdl.impl.GuidanceImpl <em>Guidance</em>}' class.

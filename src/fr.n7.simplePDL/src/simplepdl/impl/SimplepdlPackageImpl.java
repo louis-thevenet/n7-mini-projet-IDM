@@ -253,6 +253,16 @@ public class SimplepdlPackageImpl extends EPackageImpl implements SimplepdlPacka
 	 * @generated
 	 */
 	@Override
+	public EReference getProcessElement_Process() {
+		return (EReference)processElementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getGuidance() {
 		return guidanceEClass;
 	}
@@ -331,6 +341,7 @@ public class SimplepdlPackageImpl extends EPackageImpl implements SimplepdlPacka
 		createEReference(workSequenceEClass, WORK_SEQUENCE__SUCCESSOR);
 
 		processElementEClass = createEClass(PROCESS_ELEMENT);
+		createEReference(processElementEClass, PROCESS_ELEMENT__PROCESS);
 
 		guidanceEClass = createEClass(GUIDANCE);
 		createEAttribute(guidanceEClass, GUIDANCE__TEXT);
@@ -388,6 +399,7 @@ public class SimplepdlPackageImpl extends EPackageImpl implements SimplepdlPacka
 		initEReference(getWorkSequence_Successor(), this.getWorkDefinition(), this.getWorkDefinition_LinksToPredecessors(), "successor", null, 1, 1, WorkSequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(processElementEClass, ProcessElement.class, "ProcessElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getProcessElement_Process(), this.getProcess(), null, "process", null, 0, 1, ProcessElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(guidanceEClass, Guidance.class, "Guidance", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getGuidance_Text(), ecorePackage.getEString(), "text", null, 0, 1, Guidance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

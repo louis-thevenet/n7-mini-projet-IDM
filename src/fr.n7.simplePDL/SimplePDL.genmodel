@@ -26,7 +26,9 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SimplePDL.ecore#//WorkSequence/predecessor"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SimplePDL.ecore#//WorkSequence/successor"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="SimplePDL.ecore#//ProcessElement"/>
+    <genClasses image="false" ecoreClass="SimplePDL.ecore#//ProcessElement">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SimplePDL.ecore#//ProcessElement/process"/>
+    </genClasses>
     <genClasses ecoreClass="SimplePDL.ecore#//Guidance">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimplePDL.ecore#//Guidance/text"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SimplePDL.ecore#//Guidance/elements"/>

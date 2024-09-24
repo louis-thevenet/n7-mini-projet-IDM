@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<simplepdl:Process
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:simplepdl="http://simplepdl"
+    name="TestValidate">
+  <ProcessElements
+      xsi:type="simplepdl:WorkDefinition"
+      process="/"
+      linksToPredecessors="//@ProcessElements.5"
+      name="Tester"/>
+  <ProcessElements
+      xsi:type="simplepdl:WorkDefinition"
+      process="/"
+      linksToSuccessors="//@ProcessElements.4"
+      name="Concevoir"/>
+  <ProcessElements
+      xsi:type="simplepdl:WorkDefinition"
+      process="/"
+      linksToPredecessors="//@ProcessElements.4"
+      name="Programmer"/>
+  <ProcessElements
+      xsi:type="simplepdl:WorkDefinition"
+      process="/"
+      linksToSuccessors="//@ProcessElements.5"
+      name="Documenter"/>
+  <ProcessElements
+      xsi:type="simplepdl:WorkSequence"
+      process="/"
+      linkType="startToFinish"
+      predecessor="//@ProcessElements.1"
+      successor="//@ProcessElements.2"/>
+  <ProcessElements
+      xsi:type="simplepdl:WorkSequence"
+      process="/"
+      predecessor="//@ProcessElements.3"
+      successor="//@ProcessElements.0"/>
+</simplepdl:Process>
