@@ -121,7 +121,13 @@ public class SimplePDLValidator extends SimplepdlSwitch<Boolean> {
 				 !(object
 						 .getLinksToSuccessors()
 						 .stream()
-						 .filter(ws -> object.getLinksToSuccessors().stream().anyMatch(ws2 -> ws!=ws2 && ws.getSuccessor().equals(ws2.getSuccessor()) && ws.getLinkType().equals(ws2.getLinkType())))
+						 .filter(ws -> object
+								 .getLinksToSuccessors()
+								 .stream()
+								 .anyMatch(
+										 ws2 -> ws!=ws2 
+										 && ws.getSuccessor().equals(ws2.getSuccessor()) 
+										 && ws.getLinkType().equals(ws2.getLinkType())))
 						 .count() > 0),
 				 object, 
 				 object.getName() + " a deux dépendances différentes de même type vers la même activité"

@@ -20,15 +20,20 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Arc" eSuperTypes="#//NetElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="weight" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//ArcType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="arcType" eType="#//ArcType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="linkDirection" eType="#//LinkDirection"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="linkToPlace" eType="#//Place"
         eOpposite="#//Place/arcs"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="linkToTransition" eType="#//Transition"
         eOpposite="#//Transition/arcs"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="ArcType">
+  <eClassifiers xsi:type="ecore:EEnum" name="LinkDirection">
     <eLiterals name="placeToTransition" literal="placeToTransition"/>
     <eLiterals name="transitionToPlace" value="1" literal="transitionToPlace"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ArcType">
+    <eLiterals name="arc"/>
+    <eLiterals name="readArc" value="1"/>
   </eClassifiers>
 </ecore:EPackage>
