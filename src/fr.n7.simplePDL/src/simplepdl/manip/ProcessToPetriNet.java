@@ -80,19 +80,19 @@ public class ProcessToPetriNet {
 				ready.setName(wd.getName() + "_ready");
 				
 				Place started =petriNetFactory.createPlace();
-				ready.setName(wd.getName() + "_started");
+				started.setName(wd.getName() + "_started");
 				
 				Place running =petriNetFactory.createPlace();
-				ready.setName(wd.getName() + "_running");
+				running.setName(wd.getName() + "_running");
 				
 				Place finished =petriNetFactory.createPlace();
-				ready.setName(wd.getName() + "_finished");
+				finished.setName(wd.getName() + "_finished");
 				
 				Transition start = petriNetFactory.createTransition();
 				start.setName(wd.getName() + "_start");
 				
 				Transition finish = petriNetFactory.createTransition();
-				start.setName(wd.getName() + "_finish");
+				finish.setName(wd.getName() + "_finish");
 				
 				netElements.add(ready);
 				netElements.add(started);
@@ -115,6 +115,28 @@ public class ProcessToPetriNet {
 				arc.setArcType(ArcType.READ_ARC);
 				arc.setLinkDirection(LinkDirection.PLACE_TO_TRANSITION);
 				// Parcourir WorkDefinition pour trouver les next et pred et les relier
+				
+				for (Object obj : process.getProcessElements()) {
+					if (obj instanceof WorkDefinition) {
+						WorkDefinition wd = (WorkDefinition) wd;
+						
+						EList<WorkSequence> predecessors = wd.getLinksToPredecessors;
+						EList<WorkSequence> successors = wd.getLinksToSuccessors;
+						
+						for (WorkSequence predecessor : predecessors) {
+							if (predecessor == next) {
+								arc.setLinkToTransition(next)
+							}
+						}
+						
+						for (WorkSequence successor : successors) {
+							if (successor == pred) {
+								arc.setLinkToTransition(pred);
+							}
+						}
+						
+					}
+				}
 			}
 		}
 				
