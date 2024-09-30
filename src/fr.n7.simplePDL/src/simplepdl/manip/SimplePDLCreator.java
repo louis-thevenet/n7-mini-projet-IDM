@@ -29,7 +29,7 @@ public class SimplePDLCreator {
 		// l'aide d'un objet "XMIResourceFactoryImpl"
 		Resource.Factory.Registry reg = Resource.Factory.Registry.INSTANCE;
 		Map<String, Object> m = reg.getExtensionToFactoryMap();
-		m.put("xmi", new XMLTypeFactoryImpl());
+		m.put("xmi", new XMIResourceFactoryImpl());
 		
 		// CrÃ©er un objet resourceSetImpl qui contiendra une ressource EMF (le modÃ¨le)
 		ResourceSet resSet = new ResourceSetImpl();

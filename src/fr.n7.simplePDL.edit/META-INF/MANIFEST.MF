@@ -8,7 +8,7 @@ Bundle-ClassPath: .
 Bundle-Activator: simplepdl.provider.SimplePDLEditPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: JavaSE-21
+Bundle-RequiredExecutionEnvironment: JavaSE-17
 Export-Package: simplepdl.provider
 Require-Bundle: org.eclipse.core.runtime,
  fr.n7.simplePDL;visibility:=reexport,

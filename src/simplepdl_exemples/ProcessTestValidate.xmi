@@ -8,32 +8,50 @@
   <ProcessElements
       xsi:type="simplepdl:WorkDefinition"
       process="/"
-      linksToPredecessors="//@ProcessElements.5"
+      linksToPredecessors="//@ProcessElements.5 //@ProcessElements.6"
       name="Tester"/>
   <ProcessElements
       xsi:type="simplepdl:WorkDefinition"
       process="/"
-      linksToSuccessors="//@ProcessElements.4"
+      linksToSuccessors="//@ProcessElements.4 //@ProcessElements.6 //@ProcessElements.7 //@ProcessElements.8"
       name="Concevoir"/>
   <ProcessElements
       xsi:type="simplepdl:WorkDefinition"
       process="/"
       linksToPredecessors="//@ProcessElements.4"
+      linksToSuccessors="//@ProcessElements.5"
       name="Programmer"/>
   <ProcessElements
       xsi:type="simplepdl:WorkDefinition"
       process="/"
-      linksToSuccessors="//@ProcessElements.5"
+      linksToPredecessors="//@ProcessElements.7 //@ProcessElements.8"
       name="Documenter"/>
   <ProcessElements
       xsi:type="simplepdl:WorkSequence"
       process="/"
-      linkType="startToFinish"
+      linkType="finishToStart"
       predecessor="//@ProcessElements.1"
       successor="//@ProcessElements.2"/>
   <ProcessElements
       xsi:type="simplepdl:WorkSequence"
       process="/"
-      predecessor="//@ProcessElements.3"
+      linkType="finishToFinish"
+      predecessor="//@ProcessElements.2"
       successor="//@ProcessElements.0"/>
+  <ProcessElements
+      xsi:type="simplepdl:WorkSequence"
+      process="/"
+      predecessor="//@ProcessElements.1"
+      successor="//@ProcessElements.0"/>
+  <ProcessElements
+      xsi:type="simplepdl:WorkSequence"
+      process="/"
+      predecessor="//@ProcessElements.1"
+      successor="//@ProcessElements.3"/>
+  <ProcessElements
+      xsi:type="simplepdl:WorkSequence"
+      process="/"
+      linkType="finishToFinish"
+      predecessor="//@ProcessElements.1"
+      successor="//@ProcessElements.3"/>
 </simplepdl:Process>
