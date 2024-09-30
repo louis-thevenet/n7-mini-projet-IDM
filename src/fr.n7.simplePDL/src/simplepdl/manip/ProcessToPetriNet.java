@@ -1,5 +1,6 @@
 package simplepdl.manip;
 
+import java.io.IOException;
 import java.util.Collections;
 import java.util.Map;
 
@@ -38,35 +39,36 @@ public class ProcessToPetriNet {
 		return (Process) resource.getContents().get(0);
 	}
 	
-	static PetriNet init_petri_net() {
-		// CrÃ©er un objet resourceSetImpl qui contiendra une ressource EMF (notre modÃ¨le)
-		ResourceSet resSet = new ResourceSetImpl();
-				
-		// Enregistrer l'extension ".xmi" comme devant Ãªtre ouverte Ã 
-		// l'aide d'un objet "XMIResourceFactoryImpl"
-		Resource.Factory.Registry reg = Resource.Factory.Registry.INSTANCE;
-		Map<String, Object> m = reg.getExtensionToFactoryMap();
-		m.put("xmi", new XMIResourceFactoryImpl());
-				
-		// DÃ©finir la ressource (le modÃ¨le)
-		URI modelURI = URI.createURI("models/process_to_petri_net.xmi");
-		Resource resource = resSet.createResource(modelURI);
-				
-		// La fabrique pour fabriquer les Ã©lÃ©ments de SimplePDL
-		PetriNetFactory petriNetFactory = PetriNetFactory.eINSTANCE;
-
-		// CrÃ©er un Ã©lÃ©ment Process
-		return petriNetFactory.createPetriNet();
-	}
+	
 	public static void main(String... args) {
 		// Chargement des packages afin de les enregistrer dans le registre d'Eclipse.
 		PetriNetPackage petriNetPackageInstance = PetriNetPackage.eINSTANCE;
 		SimplepdlPackage simplePDLPackageInstance = SimplepdlPackage.eINSTANCE;
 
+		// ******************
+		// Load Process from args
+		// ******************
 		Process process = load_process_model(args[0]);
-		PetriNet net = init_petri_net();
 		
+		// ******************
+		// Create new PetriNet
+		// ******************
+
+		Resource.Factory.Registry reg = Resource.Factory.Registry.INSTANCE;
+		Map<String, Object> m = reg.getExtensionToFactoryMap();
+		m.put("xmi", new XMIResourceFactoryImpl());
+						
+		// CrÃ©er un objet resourceSetImpl qui contiendra une ressource EMF (notre modÃ¨le)
+		ResourceSet resSet = new ResourceSetImpl();
+		// DÃ©finir la ressource (le modÃ¨le)
+		URI modelURI = URI.createURI("models/ProcessToPetriNet.xmi");
+		Resource resource = resSet.createResource(modelURI);
+		
+		// La fabrique pour fabriquer les Ã©lÃ©ments de PetriNet
 		PetriNetFactory petriNetFactory = PetriNetFactory.eINSTANCE;
+
+		PetriNet net = petriNetFactory.createPetriNet();
+		resource.getContents().add(net);
 
 		net.setName(process.getName());
 		
@@ -80,19 +82,19 @@ public class ProcessToPetriNet {
 				ready.setName(wd.getName() + "_ready");
 				
 				Place started =petriNetFactory.createPlace();
-				started.setName(wd.getName() + "_started");
+				ready.setName(wd.getName() + "_started");
 				
 				Place running =petriNetFactory.createPlace();
-				running.setName(wd.getName() + "_running");
+				ready.setName(wd.getName() + "_running");
 				
 				Place finished =petriNetFactory.createPlace();
-				finished.setName(wd.getName() + "_finished");
+				ready.setName(wd.getName() + "_finished");
 				
 				Transition start = petriNetFactory.createTransition();
 				start.setName(wd.getName() + "_start");
 				
 				Transition finish = petriNetFactory.createTransition();
-				finish.setName(wd.getName() + "_finish");
+				start.setName(wd.getName() + "_finish");
 				
 				netElements.add(ready);
 				netElements.add(started);
@@ -104,9 +106,10 @@ public class ProcessToPetriNet {
 			}
 			
 		}
-		for (Object o : process.getProcessElements()) {
-			if (o instanceof WorkSequence) {
-				WorkSequence ws =(WorkSequence) o;
+		
+		for (Object processObject : process.getProcessElements()) {
+			if (processObject instanceof WorkSequence) {
+				WorkSequence ws =(WorkSequence) processObject;
 
 				String pred = ws.getPredecessor().getName();
 				String next = ws.getSuccessor().getName();
@@ -114,30 +117,31 @@ public class ProcessToPetriNet {
 				Arc arc = petriNetFactory.createArc();
 				arc.setArcType(ArcType.READ_ARC);
 				arc.setLinkDirection(LinkDirection.PLACE_TO_TRANSITION);
-				// Parcourir WorkDefinition pour trouver les next et pred et les relier
-				
-				for (Object obj : process.getProcessElements()) {
-					if (obj instanceof WorkDefinition) {
-						WorkDefinition wd = (WorkDefinition) wd;
-						
-						EList<WorkSequence> predecessors = wd.getLinksToPredecessors;
-						EList<WorkSequence> successors = wd.getLinksToSuccessors;
-						
-						for (WorkSequence predecessor : predecessors) {
-							if (predecessor == next) {
-								arc.setLinkToTransition(next)
-							}
+					
+				for (Object netObject : net.getNetElements()) {
+					if (netObject instanceof Place) {
+						Place place = (Place)netObject;
+						if (place.getName() == pred) {
+							arc.setLinkToPlace(place);
 						}
-						
-						for (WorkSequence successor : successors) {
-							if (successor == pred) {
-								arc.setLinkToTransition(pred);
-							}
+
+					}
+					if (netObject instanceof Transition) {
+						Transition transition = (Transition) netObject;
+						if (transition.getName() == next) {
+							arc.setLinkToTransition(transition);
 						}
-						
+
 					}
 				}
+				net.getNetElements().add(arc);
 			}
+		}
+		
+		try {
+	    	resource.save(Collections.EMPTY_MAP);
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
 				
 	}
