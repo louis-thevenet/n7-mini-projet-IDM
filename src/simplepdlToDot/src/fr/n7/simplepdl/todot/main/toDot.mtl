@@ -1,0 +1,33 @@
+[comment encoding = UTF-8 /]
+[module toDot('http://simplepdl')]
+
+
+[template public ProcessToDot(aProcess : Process)]
+[comment @main/]
+[file (aProcess.name+'.dot', false, 'UTF-8')]
+
+digraph [aProcess.name/] {
+
+
+
+
+[let pes : OrderedSet(WorkSequence) = aProcess.ProcessElements ] 
+	[if (pes->size() > 0)]
+  
+	[for (pe : ProcessElement | pes)]
+		[if (pe.oclIsKindOf(WorkSequence))]
+			[let ws: WorkSequence = pe.oclAsType(WorkSequence)]
+				[ws.predecessor.name/] -> [ws.successor.name/] ['['/]arrowhead=vee label=[ws.linkType/][']'/]
+			[/let]
+
+		[/if]
+	[/for]
+	  
+
+	[/if]
+[/let]
+
+}
+
+[/file]
+[/template]
