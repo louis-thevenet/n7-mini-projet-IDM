@@ -13,7 +13,7 @@ import simplepdl.SimplepdlPackage;
 /**
  * RÃ©alise la validation de modÃ¨les conformes Ã  SimplePDL Ã  l'aide du validateur et
  * affiche le rÃ©sultat.
- * 
+ * 	
  * Les modÃ¨les sont donnÃ©s dans les arguments de la ligne de commande, et le rÃ©sultat
  * est affichÃ© dans le terminal.
  * 

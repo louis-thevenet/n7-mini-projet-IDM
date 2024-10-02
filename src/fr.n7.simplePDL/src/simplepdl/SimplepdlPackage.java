@@ -306,7 +306,7 @@ public interface SimplepdlPackage extends EPackage {
 	int GUIDANCE__TEXT = PROCESS_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Elements</b></em>' reference.
+	 * The feature id for the '<em><b>Elements</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -361,13 +361,22 @@ public interface SimplepdlPackage extends EPackage {
 	int RESOURCE__NAME = PROCESS_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Total</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE__TOTAL = PROCESS_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Resource</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESOURCE_FEATURE_COUNT = PROCESS_ELEMENT_FEATURE_COUNT + 1;
+	int RESOURCE_FEATURE_COUNT = PROCESS_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Resource</em>' class.
@@ -634,10 +643,10 @@ public interface SimplepdlPackage extends EPackage {
 	EAttribute getGuidance_Text();
 
 	/**
-	 * Returns the meta object for the reference '{@link simplepdl.Guidance#getElements <em>Elements</em>}'.
+	 * Returns the meta object for the reference list '{@link simplepdl.Guidance#getElements <em>Elements</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Elements</em>'.
+	 * @return the meta object for the reference list '<em>Elements</em>'.
 	 * @see simplepdl.Guidance#getElements()
 	 * @see #getGuidance()
 	 * @generated
@@ -664,6 +673,17 @@ public interface SimplepdlPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getResource_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link simplepdl.Resource#getTotal <em>Total</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Total</em>'.
+	 * @see simplepdl.Resource#getTotal()
+	 * @see #getResource()
+	 * @generated
+	 */
+	EAttribute getResource_Total();
 
 	/**
 	 * Returns the meta object for class '{@link simplepdl.ResourceUsage <em>Resource Usage</em>}'.
@@ -891,7 +911,7 @@ public interface SimplepdlPackage extends EPackage {
 		EAttribute GUIDANCE__TEXT = eINSTANCE.getGuidance_Text();
 
 		/**
-		 * The meta object literal for the '<em><b>Elements</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Elements</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -915,6 +935,14 @@ public interface SimplepdlPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute RESOURCE__NAME = eINSTANCE.getResource_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Total</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RESOURCE__TOTAL = eINSTANCE.getResource_Total();
 
 		/**
 		 * The meta object literal for the '{@link simplepdl.impl.ResourceUsageImpl <em>Resource Usage</em>}' class.

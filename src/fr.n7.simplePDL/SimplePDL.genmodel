@@ -36,6 +36,7 @@
     </genClasses>
     <genClasses ecoreClass="SimplePDL.ecore#//Resource">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimplePDL.ecore#//Resource/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimplePDL.ecore#//Resource/total"/>
     </genClasses>
     <genClasses ecoreClass="SimplePDL.ecore#//ResourceUsage">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimplePDL.ecore#//ResourceUsage/need"/>

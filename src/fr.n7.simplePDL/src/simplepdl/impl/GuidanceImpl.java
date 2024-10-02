@@ -2,13 +2,14 @@
  */
 package simplepdl.impl;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import simplepdl.Guidance;
 import simplepdl.ProcessElement;
 import simplepdl.SimplepdlPackage;
@@ -49,14 +50,14 @@ public class GuidanceImpl extends ProcessElementImpl implements Guidance {
 	protected String text = TEXT_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getElements() <em>Elements</em>}' reference.
+	 * The cached value of the '{@link #getElements() <em>Elements</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getElements()
 	 * @generated
 	 * @ordered
 	 */
-	protected ProcessElement elements;
+	protected EList<ProcessElement> elements;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -106,38 +107,11 @@ public class GuidanceImpl extends ProcessElementImpl implements Guidance {
 	 * @generated
 	 */
 	@Override
-	public ProcessElement getElements() {
-		if (elements != null && elements.eIsProxy()) {
-			InternalEObject oldElements = (InternalEObject)elements;
-			elements = (ProcessElement)eResolveProxy(oldElements);
-			if (elements != oldElements) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SimplepdlPackage.GUIDANCE__ELEMENTS, oldElements, elements));
-			}
+	public EList<ProcessElement> getElements() {
+		if (elements == null) {
+			elements = new EObjectResolvingEList<ProcessElement>(ProcessElement.class, this, SimplepdlPackage.GUIDANCE__ELEMENTS);
 		}
 		return elements;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ProcessElement basicGetElements() {
-		return elements;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setElements(ProcessElement newElements) {
-		ProcessElement oldElements = elements;
-		elements = newElements;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SimplepdlPackage.GUIDANCE__ELEMENTS, oldElements, elements));
 	}
 
 	/**
@@ -151,8 +125,7 @@ public class GuidanceImpl extends ProcessElementImpl implements Guidance {
 			case SimplepdlPackage.GUIDANCE__TEXT:
 				return getText();
 			case SimplepdlPackage.GUIDANCE__ELEMENTS:
-				if (resolve) return getElements();
-				return basicGetElements();
+				return getElements();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -162,6 +135,7 @@ public class GuidanceImpl extends ProcessElementImpl implements Guidance {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -169,7 +143,8 @@ public class GuidanceImpl extends ProcessElementImpl implements Guidance {
 				setText((String)newValue);
 				return;
 			case SimplepdlPackage.GUIDANCE__ELEMENTS:
-				setElements((ProcessElement)newValue);
+				getElements().clear();
+				getElements().addAll((Collection<? extends ProcessElement>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -187,7 +162,7 @@ public class GuidanceImpl extends ProcessElementImpl implements Guidance {
 				setText(TEXT_EDEFAULT);
 				return;
 			case SimplepdlPackage.GUIDANCE__ELEMENTS:
-				setElements((ProcessElement)null);
+				getElements().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -204,7 +179,7 @@ public class GuidanceImpl extends ProcessElementImpl implements Guidance {
 			case SimplepdlPackage.GUIDANCE__TEXT:
 				return TEXT_EDEFAULT == null ? text != null : !TEXT_EDEFAULT.equals(text);
 			case SimplepdlPackage.GUIDANCE__ELEMENTS:
-				return elements != null;
+				return elements != null && !elements.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

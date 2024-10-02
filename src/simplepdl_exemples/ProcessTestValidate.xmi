@@ -60,7 +60,8 @@
   <ProcessElements
       xsi:type="simplepdl:Resource"
       process="/"
-      name="Ordinateurs"/>
+      name="Ordinateurs"
+      total="100"/>
   <ProcessElements
       xsi:type="simplepdl:ResourceUsage"
       process="/"
@@ -71,14 +72,15 @@
   <ProcessElements
       xsi:type="simplepdl:ResourceUsage"
       process="/"
-      need="100"
+      need="80"
       resource="//@ProcessElements.9"
       name="Programmer Ordinateur Usage"
       linkToWorkDefinition="//@ProcessElements.2"/>
   <ProcessElements
       xsi:type="simplepdl:Resource"
       process="/"
-      name="Humain"/>
+      name="Humain"
+      total="100"/>
   <ProcessElements
       xsi:type="simplepdl:ResourceUsage"
       process="/"
