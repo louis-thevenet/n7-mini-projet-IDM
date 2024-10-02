@@ -187,13 +187,22 @@ public interface SimplepdlPackage extends EPackage {
 	int WORK_DEFINITION__NAME = PROCESS_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Resource Used</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WORK_DEFINITION__RESOURCE_USED = PROCESS_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Work Definition</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int WORK_DEFINITION_FEATURE_COUNT = PROCESS_ELEMENT_FEATURE_COUNT + 3;
+	int WORK_DEFINITION_FEATURE_COUNT = PROCESS_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Work Definition</em>' class.
@@ -324,6 +333,125 @@ public interface SimplepdlPackage extends EPackage {
 	int GUIDANCE_OPERATION_COUNT = PROCESS_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link simplepdl.impl.ResourceImpl <em>Resource</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see simplepdl.impl.ResourceImpl
+	 * @see simplepdl.impl.SimplepdlPackageImpl#getResource()
+	 * @generated
+	 */
+	int RESOURCE = 5;
+
+	/**
+	 * The feature id for the '<em><b>Process</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE__PROCESS = PROCESS_ELEMENT__PROCESS;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE__NAME = PROCESS_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Resource</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_FEATURE_COUNT = PROCESS_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Resource</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_OPERATION_COUNT = PROCESS_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link simplepdl.impl.ResourceUsageImpl <em>Resource Usage</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see simplepdl.impl.ResourceUsageImpl
+	 * @see simplepdl.impl.SimplepdlPackageImpl#getResourceUsage()
+	 * @generated
+	 */
+	int RESOURCE_USAGE = 6;
+
+	/**
+	 * The feature id for the '<em><b>Process</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_USAGE__PROCESS = PROCESS_ELEMENT__PROCESS;
+
+	/**
+	 * The feature id for the '<em><b>Need</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_USAGE__NEED = PROCESS_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Resource</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_USAGE__RESOURCE = PROCESS_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_USAGE__NAME = PROCESS_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Link To Work Definition</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_USAGE__LINK_TO_WORK_DEFINITION = PROCESS_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of structural features of the '<em>Resource Usage</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_USAGE_FEATURE_COUNT = PROCESS_ELEMENT_FEATURE_COUNT + 4;
+
+	/**
+	 * The number of operations of the '<em>Resource Usage</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_USAGE_OPERATION_COUNT = PROCESS_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link simplepdl.WorkSequenceType <em>Work Sequence Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -331,7 +459,7 @@ public interface SimplepdlPackage extends EPackage {
 	 * @see simplepdl.impl.SimplepdlPackageImpl#getWorkSequenceType()
 	 * @generated
 	 */
-	int WORK_SEQUENCE_TYPE = 5;
+	int WORK_SEQUENCE_TYPE = 7;
 
 
 	/**
@@ -408,6 +536,17 @@ public interface SimplepdlPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getWorkDefinition_Name();
+
+	/**
+	 * Returns the meta object for the reference list '{@link simplepdl.WorkDefinition#getResourceUsed <em>Resource Used</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Resource Used</em>'.
+	 * @see simplepdl.WorkDefinition#getResourceUsed()
+	 * @see #getWorkDefinition()
+	 * @generated
+	 */
+	EReference getWorkDefinition_ResourceUsed();
 
 	/**
 	 * Returns the meta object for class '{@link simplepdl.WorkSequence <em>Work Sequence</em>}'.
@@ -506,6 +645,81 @@ public interface SimplepdlPackage extends EPackage {
 	EReference getGuidance_Elements();
 
 	/**
+	 * Returns the meta object for class '{@link simplepdl.Resource <em>Resource</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Resource</em>'.
+	 * @see simplepdl.Resource
+	 * @generated
+	 */
+	EClass getResource();
+
+	/**
+	 * Returns the meta object for the attribute '{@link simplepdl.Resource#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see simplepdl.Resource#getName()
+	 * @see #getResource()
+	 * @generated
+	 */
+	EAttribute getResource_Name();
+
+	/**
+	 * Returns the meta object for class '{@link simplepdl.ResourceUsage <em>Resource Usage</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Resource Usage</em>'.
+	 * @see simplepdl.ResourceUsage
+	 * @generated
+	 */
+	EClass getResourceUsage();
+
+	/**
+	 * Returns the meta object for the attribute '{@link simplepdl.ResourceUsage#getNeed <em>Need</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Need</em>'.
+	 * @see simplepdl.ResourceUsage#getNeed()
+	 * @see #getResourceUsage()
+	 * @generated
+	 */
+	EAttribute getResourceUsage_Need();
+
+	/**
+	 * Returns the meta object for the reference '{@link simplepdl.ResourceUsage#getResource <em>Resource</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Resource</em>'.
+	 * @see simplepdl.ResourceUsage#getResource()
+	 * @see #getResourceUsage()
+	 * @generated
+	 */
+	EReference getResourceUsage_Resource();
+
+	/**
+	 * Returns the meta object for the attribute '{@link simplepdl.ResourceUsage#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see simplepdl.ResourceUsage#getName()
+	 * @see #getResourceUsage()
+	 * @generated
+	 */
+	EAttribute getResourceUsage_Name();
+
+	/**
+	 * Returns the meta object for the reference '{@link simplepdl.ResourceUsage#getLinkToWorkDefinition <em>Link To Work Definition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Link To Work Definition</em>'.
+	 * @see simplepdl.ResourceUsage#getLinkToWorkDefinition()
+	 * @see #getResourceUsage()
+	 * @generated
+	 */
+	EReference getResourceUsage_LinkToWorkDefinition();
+
+	/**
 	 * Returns the meta object for enum '{@link simplepdl.WorkSequenceType <em>Work Sequence Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -599,6 +813,14 @@ public interface SimplepdlPackage extends EPackage {
 		EAttribute WORK_DEFINITION__NAME = eINSTANCE.getWorkDefinition_Name();
 
 		/**
+		 * The meta object literal for the '<em><b>Resource Used</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference WORK_DEFINITION__RESOURCE_USED = eINSTANCE.getWorkDefinition_ResourceUsed();
+
+		/**
 		 * The meta object literal for the '{@link simplepdl.impl.WorkSequenceImpl <em>Work Sequence</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -675,6 +897,66 @@ public interface SimplepdlPackage extends EPackage {
 		 * @generated
 		 */
 		EReference GUIDANCE__ELEMENTS = eINSTANCE.getGuidance_Elements();
+
+		/**
+		 * The meta object literal for the '{@link simplepdl.impl.ResourceImpl <em>Resource</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see simplepdl.impl.ResourceImpl
+		 * @see simplepdl.impl.SimplepdlPackageImpl#getResource()
+		 * @generated
+		 */
+		EClass RESOURCE = eINSTANCE.getResource();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RESOURCE__NAME = eINSTANCE.getResource_Name();
+
+		/**
+		 * The meta object literal for the '{@link simplepdl.impl.ResourceUsageImpl <em>Resource Usage</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see simplepdl.impl.ResourceUsageImpl
+		 * @see simplepdl.impl.SimplepdlPackageImpl#getResourceUsage()
+		 * @generated
+		 */
+		EClass RESOURCE_USAGE = eINSTANCE.getResourceUsage();
+
+		/**
+		 * The meta object literal for the '<em><b>Need</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RESOURCE_USAGE__NEED = eINSTANCE.getResourceUsage_Need();
+
+		/**
+		 * The meta object literal for the '<em><b>Resource</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RESOURCE_USAGE__RESOURCE = eINSTANCE.getResourceUsage_Resource();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RESOURCE_USAGE__NAME = eINSTANCE.getResourceUsage_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Link To Work Definition</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RESOURCE_USAGE__LINK_TO_WORK_DEFINITION = eINSTANCE.getResourceUsage_LinkToWorkDefinition();
 
 		/**
 		 * The meta object literal for the '{@link simplepdl.WorkSequenceType <em>Work Sequence Type</em>}' enum.

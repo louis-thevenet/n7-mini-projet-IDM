@@ -9,7 +9,8 @@
       xsi:type="simplepdl:WorkDefinition"
       process="/"
       linksToPredecessors="//@ProcessElements.5 //@ProcessElements.6"
-      name="Tester"/>
+      name="Tester"
+      resourceUsed="//@ProcessElements.10"/>
   <ProcessElements
       xsi:type="simplepdl:WorkDefinition"
       process="/"
@@ -20,12 +21,14 @@
       process="/"
       linksToPredecessors="//@ProcessElements.4"
       linksToSuccessors="//@ProcessElements.5"
-      name="Programmer"/>
+      name="Programmer"
+      resourceUsed="//@ProcessElements.11 //@ProcessElements.13"/>
   <ProcessElements
       xsi:type="simplepdl:WorkDefinition"
       process="/"
       linksToPredecessors="//@ProcessElements.7 //@ProcessElements.8"
-      name="Documenter"/>
+      name="Documenter"
+      resourceUsed="//@ProcessElements.14"/>
   <ProcessElements
       xsi:type="simplepdl:WorkSequence"
       process="/"
@@ -54,4 +57,40 @@
       linkType="finishToFinish"
       predecessor="//@ProcessElements.1"
       successor="//@ProcessElements.3"/>
+  <ProcessElements
+      xsi:type="simplepdl:Resource"
+      process="/"
+      name="Ordinateurs"/>
+  <ProcessElements
+      xsi:type="simplepdl:ResourceUsage"
+      process="/"
+      need="40"
+      resource="//@ProcessElements.9"
+      name="Tester Ordinateur Usage"
+      linkToWorkDefinition="//@ProcessElements.0"/>
+  <ProcessElements
+      xsi:type="simplepdl:ResourceUsage"
+      process="/"
+      need="100"
+      resource="//@ProcessElements.9"
+      name="Programmer Ordinateur Usage"
+      linkToWorkDefinition="//@ProcessElements.2"/>
+  <ProcessElements
+      xsi:type="simplepdl:Resource"
+      process="/"
+      name="Humain"/>
+  <ProcessElements
+      xsi:type="simplepdl:ResourceUsage"
+      process="/"
+      need="100"
+      resource="//@ProcessElements.12"
+      name="Programmer Humain Usage"
+      linkToWorkDefinition="//@ProcessElements.2"/>
+  <ProcessElements
+      xsi:type="simplepdl:ResourceUsage"
+      process="/"
+      need="20"
+      resource="//@ProcessElements.12"
+      name="Documenter Humain Usage"
+      linkToWorkDefinition="//@ProcessElements.3"/>
 </simplepdl:Process>

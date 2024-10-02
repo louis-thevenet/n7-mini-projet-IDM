@@ -16,6 +16,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link simplepdl.WorkDefinition#getLinksToPredecessors <em>Links To Predecessors</em>}</li>
  *   <li>{@link simplepdl.WorkDefinition#getLinksToSuccessors <em>Links To Successors</em>}</li>
  *   <li>{@link simplepdl.WorkDefinition#getName <em>Name</em>}</li>
+ *   <li>{@link simplepdl.WorkDefinition#getResourceUsed <em>Resource Used</em>}</li>
  * </ul>
  *
  * @see simplepdl.SimplepdlPackage#getWorkDefinition()
@@ -72,5 +73,19 @@ public interface WorkDefinition extends ProcessElement {
 	 * @generated
 	 */
 	void setName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Resource Used</b></em>' reference list.
+	 * The list contents are of type {@link simplepdl.ResourceUsage}.
+	 * It is bidirectional and its opposite is '{@link simplepdl.ResourceUsage#getLinkToWorkDefinition <em>Link To Work Definition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Resource Used</em>' reference list.
+	 * @see simplepdl.SimplepdlPackage#getWorkDefinition_ResourceUsed()
+	 * @see simplepdl.ResourceUsage#getLinkToWorkDefinition
+	 * @model opposite="linkToWorkDefinition"
+	 * @generated
+	 */
+	EList<ResourceUsage> getResourceUsed();
 
 } // WorkDefinition

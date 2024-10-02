@@ -20,6 +20,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SimplePDL.ecore#//WorkDefinition/linksToPredecessors"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SimplePDL.ecore#//WorkDefinition/linksToSuccessors"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimplePDL.ecore#//WorkDefinition/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SimplePDL.ecore#//WorkDefinition/resourceUsed"/>
     </genClasses>
     <genClasses ecoreClass="SimplePDL.ecore#//WorkSequence">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimplePDL.ecore#//WorkSequence/linkType"/>
@@ -32,6 +33,15 @@
     <genClasses ecoreClass="SimplePDL.ecore#//Guidance">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimplePDL.ecore#//Guidance/text"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SimplePDL.ecore#//Guidance/elements"/>
+    </genClasses>
+    <genClasses ecoreClass="SimplePDL.ecore#//Resource">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimplePDL.ecore#//Resource/name"/>
+    </genClasses>
+    <genClasses ecoreClass="SimplePDL.ecore#//ResourceUsage">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimplePDL.ecore#//ResourceUsage/need"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SimplePDL.ecore#//ResourceUsage/resource"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimplePDL.ecore#//ResourceUsage/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SimplePDL.ecore#//ResourceUsage/linkToWorkDefinition"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

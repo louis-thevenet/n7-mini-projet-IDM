@@ -13,10 +13,10 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import simplepdl.ResourceUsage;
 import simplepdl.SimplepdlPackage;
 import simplepdl.WorkDefinition;
 import simplepdl.WorkSequence;
@@ -32,6 +32,7 @@ import simplepdl.WorkSequence;
  *   <li>{@link simplepdl.impl.WorkDefinitionImpl#getLinksToPredecessors <em>Links To Predecessors</em>}</li>
  *   <li>{@link simplepdl.impl.WorkDefinitionImpl#getLinksToSuccessors <em>Links To Successors</em>}</li>
  *   <li>{@link simplepdl.impl.WorkDefinitionImpl#getName <em>Name</em>}</li>
+ *   <li>{@link simplepdl.impl.WorkDefinitionImpl#getResourceUsed <em>Resource Used</em>}</li>
  * </ul>
  *
  * @generated
@@ -76,6 +77,16 @@ public class WorkDefinitionImpl extends ProcessElementImpl implements WorkDefini
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getResourceUsed() <em>Resource Used</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getResourceUsed()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ResourceUsage> resourceUsed;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -150,6 +161,19 @@ public class WorkDefinitionImpl extends ProcessElementImpl implements WorkDefini
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public EList<ResourceUsage> getResourceUsed() {
+		if (resourceUsed == null) {
+			resourceUsed = new EObjectWithInverseResolvingEList<ResourceUsage>(ResourceUsage.class, this, SimplepdlPackage.WORK_DEFINITION__RESOURCE_USED, SimplepdlPackage.RESOURCE_USAGE__LINK_TO_WORK_DEFINITION);
+		}
+		return resourceUsed;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -158,6 +182,8 @@ public class WorkDefinitionImpl extends ProcessElementImpl implements WorkDefini
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getLinksToPredecessors()).basicAdd(otherEnd, msgs);
 			case SimplepdlPackage.WORK_DEFINITION__LINKS_TO_SUCCESSORS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getLinksToSuccessors()).basicAdd(otherEnd, msgs);
+			case SimplepdlPackage.WORK_DEFINITION__RESOURCE_USED:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getResourceUsed()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -174,6 +200,8 @@ public class WorkDefinitionImpl extends ProcessElementImpl implements WorkDefini
 				return ((InternalEList<?>)getLinksToPredecessors()).basicRemove(otherEnd, msgs);
 			case SimplepdlPackage.WORK_DEFINITION__LINKS_TO_SUCCESSORS:
 				return ((InternalEList<?>)getLinksToSuccessors()).basicRemove(otherEnd, msgs);
+			case SimplepdlPackage.WORK_DEFINITION__RESOURCE_USED:
+				return ((InternalEList<?>)getResourceUsed()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -192,6 +220,8 @@ public class WorkDefinitionImpl extends ProcessElementImpl implements WorkDefini
 				return getLinksToSuccessors();
 			case SimplepdlPackage.WORK_DEFINITION__NAME:
 				return getName();
+			case SimplepdlPackage.WORK_DEFINITION__RESOURCE_USED:
+				return getResourceUsed();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -216,6 +246,10 @@ public class WorkDefinitionImpl extends ProcessElementImpl implements WorkDefini
 			case SimplepdlPackage.WORK_DEFINITION__NAME:
 				setName((String)newValue);
 				return;
+			case SimplepdlPackage.WORK_DEFINITION__RESOURCE_USED:
+				getResourceUsed().clear();
+				getResourceUsed().addAll((Collection<? extends ResourceUsage>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -237,6 +271,9 @@ public class WorkDefinitionImpl extends ProcessElementImpl implements WorkDefini
 			case SimplepdlPackage.WORK_DEFINITION__NAME:
 				setName(NAME_EDEFAULT);
 				return;
+			case SimplepdlPackage.WORK_DEFINITION__RESOURCE_USED:
+				getResourceUsed().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -255,6 +292,8 @@ public class WorkDefinitionImpl extends ProcessElementImpl implements WorkDefini
 				return linksToSuccessors != null && !linksToSuccessors.isEmpty();
 			case SimplepdlPackage.WORK_DEFINITION__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case SimplepdlPackage.WORK_DEFINITION__RESOURCE_USED:
+				return resourceUsed != null && !resourceUsed.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

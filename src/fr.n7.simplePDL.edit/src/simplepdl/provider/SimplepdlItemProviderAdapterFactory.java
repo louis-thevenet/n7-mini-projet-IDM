@@ -164,6 +164,52 @@ public class SimplepdlItemProviderAdapterFactory extends SimplepdlAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link simplepdl.Resource} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ResourceItemProvider resourceItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link simplepdl.Resource}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createResourceAdapter() {
+		if (resourceItemProvider == null) {
+			resourceItemProvider = new ResourceItemProvider(this);
+		}
+
+		return resourceItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link simplepdl.ResourceUsage} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ResourceUsageItemProvider resourceUsageItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link simplepdl.ResourceUsage}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createResourceUsageAdapter() {
+		if (resourceUsageItemProvider == null) {
+			resourceUsageItemProvider = new ResourceUsageItemProvider(this);
+		}
+
+		return resourceUsageItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -272,6 +318,8 @@ public class SimplepdlItemProviderAdapterFactory extends SimplepdlAdapterFactory
 		if (workDefinitionItemProvider != null) workDefinitionItemProvider.dispose();
 		if (workSequenceItemProvider != null) workSequenceItemProvider.dispose();
 		if (guidanceItemProvider != null) guidanceItemProvider.dispose();
+		if (resourceItemProvider != null) resourceItemProvider.dispose();
+		if (resourceUsageItemProvider != null) resourceUsageItemProvider.dispose();
 	}
 
 }

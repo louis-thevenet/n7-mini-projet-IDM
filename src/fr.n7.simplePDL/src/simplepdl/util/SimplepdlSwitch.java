@@ -9,6 +9,8 @@ import org.eclipse.emf.ecore.util.Switch;
 
 import simplepdl.Guidance;
 import simplepdl.ProcessElement;
+import simplepdl.Resource;
+import simplepdl.ResourceUsage;
 import simplepdl.SimplepdlPackage;
 import simplepdl.WorkDefinition;
 import simplepdl.WorkSequence;
@@ -103,6 +105,20 @@ public class SimplepdlSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case SimplepdlPackage.RESOURCE: {
+				Resource resource = (Resource)theEObject;
+				T result = caseResource(resource);
+				if (result == null) result = caseProcessElement(resource);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case SimplepdlPackage.RESOURCE_USAGE: {
+				ResourceUsage resourceUsage = (ResourceUsage)theEObject;
+				T result = caseResourceUsage(resourceUsage);
+				if (result == null) result = caseProcessElement(resourceUsage);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -179,6 +195,36 @@ public class SimplepdlSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseGuidance(Guidance object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Resource</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Resource</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseResource(Resource object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Resource Usage</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Resource Usage</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseResourceUsage(ResourceUsage object) {
 		return null;
 	}
 
