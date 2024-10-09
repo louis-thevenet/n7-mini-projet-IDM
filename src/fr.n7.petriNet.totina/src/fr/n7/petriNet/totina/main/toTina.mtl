@@ -1,0 +1,31 @@
+[comment encoding = UTF-8 /]
+[module toTina('http://petrinet')]
+
+
+[template public PetriNetToTina(aPetriNet : PetriNet)]
+[comment @main/]
+[file (aPetriNet.Name+'.net', false, 'UTF-8')]
+
+net [aPetriNet.Name/]
+[let nes : OrderedSet(NetElement) = aPetriNet.netElements ] 
+	[if (nes->size() > 0)]
+	[for (ne : NetElement | nes)]
+		[if (ne.oclIsKindOf(Place))]
+			[let pl: Place = ne.oclAsType(Place)]
+pl [pl.Name/] ([pl.tokens/])
+			[/let]
+		[/if]
+	[/for]
+	[for (ne : NetElement | nes)]
+		[if (ne.oclIsKindOf(Transition))]
+			[let tr: Transition = ne.oclAsType(Transition)]
+tr [tr.Name/] [for (arc : Arc | tr.arcs)][if (arc.linkDirection=(LinkDirection::placeToTransition))][arc.linkToPlace.Name/]*[arc.weight/] [/if][/for]-> [for (arc : Arc | tr.arcs)][if (arc.linkDirection=(LinkDirection::transitionToPlace))][arc.linkToPlace.Name/]*[arc.weight/] [/if][/for]
+			[/let]
+		[/if]
+	[/for]
+
+	[/if]
+[/let]
+
+[/file]
+[/template]

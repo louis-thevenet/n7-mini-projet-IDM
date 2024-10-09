@@ -27,12 +27,13 @@ package petriNet;
 public interface Arc extends NetElement {
 	/**
 	 * Returns the value of the '<em><b>Weight</b></em>' attribute.
+	 * The default value is <code>"1"</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Weight</em>' attribute.
 	 * @see #setWeight(int)
 	 * @see petriNet.PetriNetPackage#getArc_Weight()
-	 * @model
+	 * @model default="1"
 	 * @generated
 	 */
 	int getWeight();

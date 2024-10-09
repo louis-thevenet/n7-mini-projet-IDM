@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.Map;
 
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.resource.Resource;
+
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
@@ -13,6 +13,8 @@ import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import petriNet.*;
 import simplepdl.Guidance;
 import simplepdl.Process;
+import simplepdl.Resource;
+import simplepdl.ResourceUsage;
 import simplepdl.SimplepdlFactory;
 import simplepdl.SimplepdlPackage;
 import simplepdl.WorkDefinition;
@@ -23,7 +25,7 @@ import simplepdl.validation.SimplePDLValidator;
 public class ProcessToPetriNet {
 
 	static Process load_process_model(String modelPath) {
-		Resource.Factory.Registry reg = Resource.Factory.Registry.INSTANCE;
+		org.eclipse.emf.ecore.resource.Resource.Factory.Registry reg = org.eclipse.emf.ecore.resource.Resource.Factory.Registry.INSTANCE;
 		Map<String, Object> m = reg.getExtensionToFactoryMap();
 		m.put("xmi", new XMIResourceFactoryImpl());
 
@@ -34,19 +36,26 @@ public class ProcessToPetriNet {
 		// Charger la ressource (notre modÃ¨le)
 		URI modelURI = URI.createURI(modelPath);
 		System.out.println(modelPath);
-		Resource resource = resSet.getResource(modelURI, true);
+		org.eclipse.emf.ecore.resource.Resource resource = resSet.getResource(modelURI, true);
 
 		// RÃ©cupÃ©rer le premier Ã©lÃ©ment du modÃ¨le (Ã©lÃ©ment racine)
 		return (Process) resource.getContents().get(0);
 	}
 
-	static Arc create_arc(String name, Place place, Transition transition, ArcType arcType) {
+	// Creates a new arc
+	static Arc create_arc(String name, Place place, Transition transition, ArcType arcType, LinkDirection linkDirection, int weight) {
 		Arc arc = petriNetFactory.createArc();
 		arc.setName(name);
 		arc.setLinkToPlace(place);
 		arc.setLinkToTransition(transition);
+		arc.setLinkDirection(linkDirection);
 		arc.setArcType(arcType);
+		arc.setWeight(weight);
 		return arc;
+	}
+	// Creates a new arc with weight 1
+	static Arc create_arc(String name, Place place, Transition transition, ArcType arcType, LinkDirection linkDirection) {
+		return create_arc(name, place, transition, arcType, linkDirection, 1);
 	}
 
 	// La fabrique pour fabriquer les Ã©lÃ©ments de PetriNet
@@ -66,7 +75,7 @@ public class ProcessToPetriNet {
 		// Create new PetriNet
 		// ******************
 
-		Resource.Factory.Registry reg = Resource.Factory.Registry.INSTANCE;
+		org.eclipse.emf.ecore.resource.Resource.Factory.Registry reg = org.eclipse.emf.ecore.resource.Resource.Factory.Registry.INSTANCE;
 		Map<String, Object> m = reg.getExtensionToFactoryMap();
 		m.put("xmi", new XMIResourceFactoryImpl());
 
@@ -75,13 +84,25 @@ public class ProcessToPetriNet {
 		ResourceSet resSet = new ResourceSetImpl();
 		// DÃ©finir la ressource (le modÃ¨le)
 		URI modelURI = URI.createURI("models/ProcessToPetriNet.xmi");
-		Resource resource = resSet.createResource(modelURI);
+		org.eclipse.emf.ecore.resource.Resource resource = resSet.createResource(modelURI);
 
 		PetriNet net = petriNetFactory.createPetriNet();
 		resource.getContents().add(net);
 
 		net.setName(process.getName());
 
+		for (Object o : process.getProcessElements()) {
+			if (o instanceof Resource) {
+				Resource rs = (Resource)o;
+				var netElements = net.getNetElements();
+
+				Place rs_pl = petriNetFactory.createPlace();
+				rs_pl.setName(rs.getName());
+				rs_pl.setTokens(rs.getTotal());
+				netElements.add(rs_pl);
+			}
+		}
+		
 		for (Object o : process.getProcessElements()) {
 			if (o instanceof WorkDefinition) {
 				WorkDefinition wd = (WorkDefinition) o;
@@ -107,14 +128,36 @@ public class ProcessToPetriNet {
 				Transition finish = petriNetFactory.createTransition();
 				finish.setName(wd.getName() + "_finish");
 
-				Arc readyToStartArc = create_arc(wd.getName() + "_ready_to_start", ready, start, ArcType.ARC);
-				Arc startToRunningArc = create_arc(wd.getName() + "_start_to_running", running, start, ArcType.ARC);
-				Arc startToStartedArc = create_arc(wd.getName() + "_start_to_started", started, start, ArcType.ARC);
+				Arc readyToStartArc = create_arc(wd.getName() + "_ready_to_start", ready, start, ArcType.ARC, LinkDirection.PLACE_TO_TRANSITION);
+				Arc startToRunningArc = create_arc(wd.getName() + "_start_to_running", running, start, ArcType.ARC, LinkDirection.TRANSITION_TO_PLACE);
+				Arc startToStartedArc = create_arc(wd.getName() + "_start_to_started", started, start, ArcType.ARC, LinkDirection.TRANSITION_TO_PLACE);
 
-				Arc runningToFinishArc = create_arc(wd.getName() + "_running_to_finish", running, finish, ArcType.ARC);
+				Arc runningToFinishArc = create_arc(wd.getName() + "_running_to_finish", running, finish, ArcType.ARC, LinkDirection.PLACE_TO_TRANSITION);
 				Arc finishToFinishedArc = create_arc(wd.getName() + "_finish_to_finished", finished, finish,
-						ArcType.ARC);
+						ArcType.ARC, LinkDirection.TRANSITION_TO_PLACE);
 
+				for (ResourceUsage rs_usage : wd.getResourceUsed()){
+					for (Object netObject : net.getNetElements()) {
+						
+						if (netObject instanceof Place && ((Place)netObject).getName().equals(rs_usage.getResource().getName())){
+							
+							Place rs_pl = (Place)netObject;
+											
+							Arc rsToStartArc = create_arc(wd.getName() + "_start_to_" +rs_usage.getResource().getName(), rs_pl,start, ArcType.ARC, LinkDirection.PLACE_TO_TRANSITION, rs_usage.getNeed());
+							
+							Arc finishToRsArc = create_arc(wd.getName() + "_finish_to_" + rs_usage.getResource().getName(), rs_pl, finish, ArcType.ARC, LinkDirection.TRANSITION_TO_PLACE, rs_usage.getNeed());
+							finishToRsArc.setWeight(rs_usage.getNeed());
+							
+							netElements.add(rsToStartArc);
+							netElements.add(finishToRsArc);
+							
+							break;
+							
+						}
+					}
+					
+				}
+				
 				netElements.add(ready);
 				netElements.add(started);
 				netElements.add(running);
@@ -155,7 +198,7 @@ public class ProcessToPetriNet {
 					nextNameMatch = next+"_start";
 				}
 				
-				System.out.println("Searching for (pl, tr): (" + predNameMatch + ", " + nextNameMatch +")");
+				// System.out.println("Searching for (pl, tr): (" + predNameMatch + ", " + nextNameMatch +")");
 				
 				
 				Arc arc = petriNetFactory.createArc();
@@ -165,20 +208,20 @@ public class ProcessToPetriNet {
 				for (Object netObject : net.getNetElements()) {
 					if (netObject instanceof Place) {
 						Place place = (Place) netObject;
-						System.out.println("Looking at pl : " + place.getName());
+						// System.out.println("Looking at pl : " + place.getName());
 
 						if (place.getName().contentEquals(predNameMatch)) {
-							System.out.println("Found it");
+							// System.out.println("Found it");
 							arc.setLinkToPlace(place);
 						}
 
 					}
 					if (netObject instanceof Transition) {
 						Transition transition = (Transition) netObject;
-						System.out.println("Looking at tr : " + transition.getName());
+						// System.out.println("Looking at tr : " + transition.getName());
 
 						if (transition.getName().contentEquals(nextNameMatch)) {
-							System.out.println("Found it");
+							// System.out.println("Found it");
 							arc.setLinkToTransition(transition);
 						}
 

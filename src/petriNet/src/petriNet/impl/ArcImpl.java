@@ -44,7 +44,7 @@ public class ArcImpl extends NetElementImpl implements Arc {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int WEIGHT_EDEFAULT = 0;
+	protected static final int WEIGHT_EDEFAULT = 1;
 
 	/**
 	 * The cached value of the '{@link #getWeight() <em>Weight</em>}' attribute.
