@@ -1,0 +1,91 @@
+[comment encoding = UTF-8 /]
+[comment]
+Transformation M2T en Acceleo pour convertir un modÃ¨le Ã©vÃ©nementiel (mÃ©ta-modÃ¨le
+TaskMaster) en DOT pour affichage avec Graphviz
+
+EntrÃ©e : modÃ¨le conforme Ã  TaskMaster (objet EventBundle)
+Sortie : fichier .dot contenant le graphe de dÃ©pendance entre les Ã©vÃ©nements
+         du modÃ¨le
+Ã‰lÃ©ments supportÃ©s :
+  - Ã©vÃ©nements (Events)
+  - stock (Supply)
+  - dÃ©pendances causales (Causal)
+  - dÃ©pendances physiques (Physical)
+
+Version : 1.0
+Auteur  : G. Dupont
+[/comment]
+[module toDot('http://taskmaster')]
+
+[comment Template principal. Met en place l'architecture de code basique 
+  pour DOT et appelle les sous-template pour chaque Ã©lÃ©ments.
+/]
+[template public generateElement(aEventBundle : EventBundle)]
+[comment @main/]
+[file (aEventBundle.name + '.dot', false, 'UTF-8')]
+digraph {
+[for (e : Supply | aEventBundle.supplies)]
+[e.generateSupply() /]
+[/for]
+
+[for (e : Event | aEventBundle.events)]
+[e.generateEvent() /]
+[for (r : Requirement | e.requirements)]
+[r.generateRequirement() /]
+[/for]
+
+[/for]
+}
+[/file]
+[/template]
+
+[comment GÃ©nÃ¨re sous forme de noeud un stock (Supply). Les stocks
+  consommables sont reprÃ©sentÃ©s par des losanges, les non-consommables
+  par des rectangles. La quantitÃ© est indiquÃ©e en-dessous du nom du
+  stock
+/]
+[template private generateSupply(aSupply : Supply)]
+  "[aSupply.name /]" ['['/]shape=[if (aSupply.consumable)]
+diamond[else]
+rectangle[/if] label=<[aSupply.name/]<BR />([aSupply.available/])>[']'/];
+[/template]
+
+[comment GÃ©nÃ¨re sous forme de noeud un Ã©vÃ©nement (Event). Les Ã©vÃ©nements
+  sont reprÃ©sentÃ©s par des ellipses avec le nom de l'Ã©vÃ©nement en guise
+  de label.
+/]
+[template private generateEvent(aEvent : Event)]
+  "[aEvent.name /]" ['['/]shape=ellipse[']'/];
+[/template]
+
+[comment GÃ©nÃ¨re une dÃ©pendance (quelconque) sous forme de lien/edge.
+    Les dÃ©pendances causales (Causal) ont une tÃªte de flÃ¨che classique (vee
+  en DOT), les dÃ©pendances physiques (Physical) ont une tÃªte de flÃ¨che en
+  forme de rond (dot en DOT).
+    Les autres dÃ©pendances (si jamais) n'ont pas de tÃªte de flÃ¨che associÃ©e,
+  mais un lien est quand mÃªme ajoutÃ© au diagramme.
+/]
+[template private generateRequirement(aRequirement : Requirement)]
+  "[aRequirement.getTargetName() /]" -> "[aRequirement.event.name/]" ['['/]arrowhead=[if (aRequirement.oclIsKindOf(Causal))]
+vee[elseif(aRequirement.oclIsKindOf(Physical))]
+dot label="[aRequirement.oclAsType(Physical).requested/]"[else]
+none[/if] [']'/];
+[/template]
+
+[comment RÃ©cupÃ¨re le nom de la cible d'une dÃ©pendance, qui peut Ãªtre soit
+  un nom de stock (Supply pour Physical)) soit un nom d'Ã©vÃ©nement (Event
+  pour Causal).
+    Une autre dÃ©pendance aura un nom vide ('').
+/]
+[query private getTargetName(r : Requirement) : String =
+	if r.oclIsKindOf(Causal) then
+		r.oclAsType(Causal).target.name
+    else if r.oclIsKindOf(Physical) then
+        r.oclAsType(Physical).target.name
+    else
+        ''
+    endif endif
+/]
+
+
+

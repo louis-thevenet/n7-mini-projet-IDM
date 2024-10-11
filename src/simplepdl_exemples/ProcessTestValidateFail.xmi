@@ -5,40 +5,40 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:simplepdl="http://simplepdl"
     name="TestValidate">
-  <ProcessElements
+  <processElements
       xsi:type="simplepdl:WorkDefinition"
       process="/"
-      linksToPredecessors="//@ProcessElements.5 //@ProcessElements.6"
+      linksToPredecessors="//@processElements.5 //@processElements.6"
       name="Tester"/>
-  <ProcessElements
+  <processElements
       xsi:type="simplepdl:WorkDefinition"
       process="/"
-      linksToSuccessors="//@ProcessElements.4"
+      linksToSuccessors="//@processElements.4"
       name="Concevoir"/>
-  <ProcessElements
+  <processElements
       xsi:type="simplepdl:WorkDefinition"
       process="/"
-      linksToPredecessors="//@ProcessElements.4"
+      linksToPredecessors="//@processElements.4"
       name="Programmer"/>
-  <ProcessElements
+  <processElements
       xsi:type="simplepdl:WorkDefinition"
       process="/"
-      linksToSuccessors="//@ProcessElements.5 //@ProcessElements.6"
+      linksToSuccessors="//@processElements.5 //@processElements.6"
       name="Documenter"/>
-  <ProcessElements
+  <processElements
       xsi:type="simplepdl:WorkSequence"
       process="/"
       linkType="startToFinish"
-      predecessor="//@ProcessElements.1"
-      successor="//@ProcessElements.2"/>
-  <ProcessElements
+      predecessor="//@processElements.1"
+      successor="//@processElements.2"/>
+  <processElements
       xsi:type="simplepdl:WorkSequence"
       process="/"
-      predecessor="//@ProcessElements.3"
-      successor="//@ProcessElements.0"/>
-  <ProcessElements
+      predecessor="//@processElements.3"
+      successor="//@processElements.0"/>
+  <processElements
       xsi:type="simplepdl:WorkSequence"
       process="/"
-      predecessor="//@ProcessElements.3"
-      successor="//@ProcessElements.0"/>
+      predecessor="//@processElements.3"
+      successor="//@processElements.0"/>
 </simplepdl:Process>
