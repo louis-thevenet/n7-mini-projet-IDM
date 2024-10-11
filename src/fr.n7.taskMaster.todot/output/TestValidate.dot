@@ -1,0 +1,34 @@
+digraph {
+  "resource_Ordinateurs" [shape=rectangle label=<resource_Ordinateurs<BR />(100)>];
+  "resource_Humain" [shape=rectangle label=<resource_Humain<BR />(100)>];
+
+  "Tester_start" [shape=ellipse];
+  "Concevoir_start" -> "Tester_start" [arrowhead=vee];
+  "resource_Ordinateurs" -> "Tester_start" [arrowhead=dot label="40"];
+
+  "Tester_finish" [shape=ellipse];
+  "Tester_start" -> "Tester_finish" [arrowhead=vee];
+  "Programmer_finish" -> "Tester_finish" [arrowhead=vee];
+
+  "Concevoir_start" [shape=ellipse];
+
+  "Concevoir_finish" [shape=ellipse];
+  "Concevoir_start" -> "Concevoir_finish" [arrowhead=vee];
+
+  "Programmer_start" [shape=ellipse];
+  "Concevoir_finish" -> "Programmer_start" [arrowhead=vee];
+  "resource_Ordinateurs" -> "Programmer_start" [arrowhead=dot label="80"];
+  "resource_Humain" -> "Programmer_start" [arrowhead=dot label="100"];
+
+  "Programmer_finish" [shape=ellipse];
+  "Programmer_start" -> "Programmer_finish" [arrowhead=vee];
+
+  "Documenter_start" [shape=ellipse];
+  "Concevoir_start" -> "Documenter_start" [arrowhead=vee];
+  "resource_Humain" -> "Documenter_start" [arrowhead=dot label="20"];
+
+  "Documenter_finish" [shape=ellipse];
+  "Documenter_start" -> "Documenter_finish" [arrowhead=vee];
+  "Concevoir_finish" -> "Documenter_finish" [arrowhead=vee];
+
+}

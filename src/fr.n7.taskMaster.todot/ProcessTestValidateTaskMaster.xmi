@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<taskmaster:EventBundle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:taskmaster="http://taskmaster" name="TestValidate">
+  <supplies name="resource_Ordinateurs" available="100"/>
+  <supplies name="resource_Humain" available="100"/>
+  <events name="Tester_start">
+    <requirements xsi:type="taskmaster:Causal" target="//@events.2"/>
+    <requirements xsi:type="taskmaster:Physical" requested="40" target="//@supplies.0"/>
+  </events>
+  <events name="Tester_finish">
+    <requirements xsi:type="taskmaster:Causal" target="//@events.0"/>
+    <requirements xsi:type="taskmaster:Causal" target="//@events.5"/>
+  </events>
+  <events name="Concevoir_start"/>
+  <events name="Concevoir_finish">
+    <requirements xsi:type="taskmaster:Causal" target="//@events.2"/>
+  </events>
+  <events name="Programmer_start">
+    <requirements xsi:type="taskmaster:Causal" target="//@events.3"/>
+    <requirements xsi:type="taskmaster:Physical" requested="80" target="//@supplies.0"/>
+    <requirements xsi:type="taskmaster:Physical" requested="100" target="//@supplies.1"/>
+  </events>
+  <events name="Programmer_finish">
+    <requirements xsi:type="taskmaster:Causal" target="//@events.4"/>
+  </events>
+  <events name="Documenter_start">
+    <requirements xsi:type="taskmaster:Causal" target="//@events.2"/>
+    <requirements xsi:type="taskmaster:Physical" requested="20" target="//@supplies.1"/>
+  </events>
+  <events name="Documenter_finish">
+    <requirements xsi:type="taskmaster:Causal" target="//@events.6"/>
+    <requirements xsi:type="taskmaster:Causal" target="//@events.3"/>
+  </events>
+</taskmaster:EventBundle>

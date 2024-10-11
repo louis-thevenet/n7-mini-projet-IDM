@@ -14,7 +14,7 @@
     </genEnums>
     <genClasses ecoreClass="SimplePDL.ecore#//Process">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimplePDL.ecore#//Process/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SimplePDL.ecore#//Process/ProcessElements"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SimplePDL.ecore#//Process/processElements"/>
     </genClasses>
     <genClasses ecoreClass="SimplePDL.ecore#//WorkDefinition">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SimplePDL.ecore#//WorkDefinition/linksToPredecessors"/>
