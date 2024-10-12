@@ -24,7 +24,7 @@
 [/template]
 
 [query public getWDs(p: Process) : OrderedSet(WorkDefinition) = 
-	p.ProcessElements->select( e | e.oclIsTypeOf(WorkDefinition) )
+	p.processElements->select( e | e.oclIsTypeOf(WorkDefinition) )
 		->collect( e | e.oclAsType(WorkDefinition) )
 		->asOrderedSet()
 /]

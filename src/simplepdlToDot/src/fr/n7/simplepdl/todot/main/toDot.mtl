@@ -11,7 +11,7 @@ digraph [aProcess.name/] {
 
 
 
-[let pes : OrderedSet(WorkSequence) = aProcess.ProcessElements ] 
+[let pes : OrderedSet(WorkSequence) = aProcess.processElements ] 
 	[if (pes->size() > 0)]
   
 	[for (pe : ProcessElement | pes)]

@@ -29,13 +29,13 @@ import petriNet.PetriNetPackage;
  *
  * @generated
  */
-public class ToTina extends AbstractAcceleoGenerator {
+public class PetriNet2Tina extends AbstractAcceleoGenerator {
   /**
    * The name of the module.
    *
    * @generated
    */
-  public static final String MODULE_FILE_NAME = "/fr/n7/petriNet/totina/main/toTina";
+  public static final String MODULE_FILE_NAME = "/fr/n7/petriNet/totina/main/PetriNet2Tina";
 
   /**
    * The name of the templates that are to be generated.
@@ -62,7 +62,7 @@ public class ToTina extends AbstractAcceleoGenerator {
    *
    * @generated
    */
-  public ToTina() {
+  public PetriNet2Tina() {
         // Empty implementation
     }
 
@@ -78,7 +78,7 @@ public class ToTina extends AbstractAcceleoGenerator {
    *     cannot be loaded, or the model cannot be loaded.
    * @generated
    */
-  public ToTina(URI modelURI, File targetFolder, List<? extends Object> arguments)
+  public PetriNet2Tina(URI modelURI, File targetFolder, List<? extends Object> arguments)
       throws IOException {
         initialize(modelURI, targetFolder, arguments);
     }
@@ -96,7 +96,7 @@ public class ToTina extends AbstractAcceleoGenerator {
    *     cannot be loaded.
    * @generated
    */
-  public ToTina(EObject model, File targetFolder, List<? extends Object> arguments)
+  public PetriNet2Tina(EObject model, File targetFolder, List<? extends Object> arguments)
       throws IOException {
         initialize(model, targetFolder, arguments);
     }
@@ -130,7 +130,7 @@ public class ToTina extends AbstractAcceleoGenerator {
                  * add in "arguments" this "String" attribute.
                  */
                 
-                ToTina generator = new ToTina(modelURI, folder, arguments);
+                PetriNet2Tina generator = new PetriNet2Tina(modelURI, folder, arguments);
                 
                 /*
                  * Add the properties from the launch arguments.
