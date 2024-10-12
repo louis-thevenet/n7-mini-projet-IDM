@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project default="toDot" name="fr.n7.simplepdl.todot">
-    <property name="ECLIPSE_HOME" value="../../../../../../mnt/n7fs/ens/tp_dupont/modelling-2023-09/eclipse"/>
-    <property name="ECLIPSE_WORKSPACE" value="../../../../eclipse-modelling-workspaceaaaaaa"/>
+    <property name="ECLIPSE_HOME" value="../../../../../../../../../../mnt/n7fs/ens/tp_dupont/modelling-2023-09/eclipse"/>
+    <property name="ECLIPSE_WORKSPACE" value="../../../../../../../../eclipse-modelling-workspace"/>
 
     <!-- The classpath with only the dependencies used by the project -->
     <path id="fr.n7.simplepdl.todot.libraryclasspath">
