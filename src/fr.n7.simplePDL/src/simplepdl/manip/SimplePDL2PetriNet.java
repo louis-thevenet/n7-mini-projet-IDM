@@ -16,7 +16,7 @@ import simplepdl.WorkDefinition;
 import simplepdl.WorkSequence;
 import simplepdl.WorkSequenceType;
 
-public class ProcessToPetriNet {
+public class SimplePDL2PetriNet {
 
   static Process load_process_model(String modelPath) {
     org.eclipse.emf.ecore.resource.Resource.Factory.Registry reg =
