@@ -1,0 +1,11 @@
+digraph Simple {
+
+P1 -> T1 [arrowhead=vee label=1]
+T1 -> P2 [arrowhead=vee label=1]
+T1 -> P3 [arrowhead=vee label=1]
+P2 -> T2 [arrowhead=vee label=1]
+P3 -> T2 [arrowhead=vee label=1]
+T2 -> P4 [arrowhead=vee label=1]
+T2 -> P1 [arrowhead=vee label=1]
+
+}
