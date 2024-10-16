@@ -29,6 +29,8 @@
             inputsFrom = [
               config.treefmt.build.devShell
             ];
+
+            packages =with pkgs;[typst];
           };
 
           # Add your auto-formatters here.
