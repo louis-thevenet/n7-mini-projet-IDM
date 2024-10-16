@@ -266,6 +266,16 @@ public class PetriNetPackageImpl extends EPackageImpl implements PetriNetPackage
 
 		/**
 	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getTransition_TempsMaxBorne() {
+		return (EAttribute)transitionEClass.getEStructuralFeatures().get(4);
+	}
+
+		/**
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -399,6 +409,7 @@ public class PetriNetPackageImpl extends EPackageImpl implements PetriNetPackage
 		createEAttribute(transitionEClass, TRANSITION__NAME);
 		createEAttribute(transitionEClass, TRANSITION__TEMPS_MIN);
 		createEAttribute(transitionEClass, TRANSITION__TEMPS_MAX);
+		createEAttribute(transitionEClass, TRANSITION__TEMPS_MAX_BORNE);
 
 		arcEClass = createEClass(ARC);
 		createEAttribute(arcEClass, ARC__WEIGHT);
@@ -462,6 +473,7 @@ public class PetriNetPackageImpl extends EPackageImpl implements PetriNetPackage
 		initEAttribute(getTransition_Name(), ecorePackage.getEString(), "Name", null, 0, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTransition_TempsMin(), ecorePackage.getEInt(), "tempsMin", null, 0, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTransition_TempsMax(), ecorePackage.getEInt(), "tempsMax", null, 0, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTransition_TempsMaxBorne(), ecorePackage.getEBoolean(), "tempsMaxBorne", null, 0, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(arcEClass, Arc.class, "Arc", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getArc_Weight(), ecorePackage.getEInt(), "weight", "1", 0, 1, Arc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

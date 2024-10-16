@@ -91,7 +91,7 @@ public class SimplePDL2PetriNet {
     // modÃ¨le)
     ResourceSet resSet = new ResourceSetImpl();
     // DÃ©finir la ressource (le modÃ¨le)
-    URI modelURI = URI.createURI("models/ProcessToPetriNet.xmi");
+    URI modelURI = URI.createURI("models/" +process.getName()+".xmi");
     org.eclipse.emf.ecore.resource.Resource resource = resSet.createResource(modelURI);
 
     PetriNet net = petriNetFactory.createPetriNet();

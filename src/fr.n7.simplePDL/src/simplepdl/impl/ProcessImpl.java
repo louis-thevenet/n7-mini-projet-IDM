@@ -15,234 +15,203 @@ import simplepdl.ProcessElement;
 import simplepdl.SimplepdlPackage;
 
 /**
- *
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Process</b></em>'.
  * <!-- end-user-doc -->
- *
- * <p>The following features are implemented:
- *
+ * <p>
+ * The following features are implemented:
+ * </p>
  * <ul>
- *   <li>{@link simplepdl.impl.ProcessImpl#getName <em>Name</em>}
- *   <li>{@link simplepdl.impl.ProcessImpl#getProcessElements <em>Process Elements</em>}
+ *   <li>{@link simplepdl.impl.ProcessImpl#getName <em>Name</em>}</li>
+ *   <li>{@link simplepdl.impl.ProcessImpl#getProcessElements <em>Process Elements</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class ProcessImpl extends MinimalEObjectImpl.Container implements simplepdl.Process {
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   *
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
   protected static final String NAME_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   *
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getProcessElements() <em>Process Elements</em>}' containment
-   * reference list.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getProcessElements() <em>Process Elements</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   *
-   * @see #getProcessElements()
-   * @generated
-   * @ordered
-   */
+	 * @see #getProcessElements()
+	 * @generated
+	 * @ordered
+	 */
   protected EList<ProcessElement> processElements;
 
   /**
-   *
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   *
-   * @generated
-   */
+	 * @generated
+	 */
   protected ProcessImpl() {
-    super();
-  }
+		super();
+	}
 
   /**
-   *
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   *
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   protected EClass eStaticClass() {
-    return SimplepdlPackage.Literals.PROCESS;
-  }
+		return SimplepdlPackage.Literals.PROCESS;
+	}
 
   /**
-   *
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   *
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public String getName() {
-    return name;
-  }
+		return name;
+	}
 
   /**
-   *
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   *
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public void setName(String newName) {
-    String oldName = name;
-    name = newName;
-    if (eNotificationRequired())
-      eNotify(
-          new ENotificationImpl(
-              this, Notification.SET, SimplepdlPackage.PROCESS__NAME, oldName, name));
-  }
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SimplepdlPackage.PROCESS__NAME, oldName, name));
+	}
 
   /**
-   *
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   *
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public EList<ProcessElement> getProcessElements() {
-    if (processElements == null) {
-      processElements =
-          new EObjectContainmentEList<ProcessElement>(
-              ProcessElement.class, this, SimplepdlPackage.PROCESS__PROCESS_ELEMENTS);
-    }
-    return processElements;
-  }
+		if (processElements == null) {
+			processElements = new EObjectContainmentEList<ProcessElement>(ProcessElement.class, this, SimplepdlPackage.PROCESS__PROCESS_ELEMENTS);
+		}
+		return processElements;
+	}
 
   /**
-   *
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   *
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public NotificationChain eInverseRemove(
       InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-    switch (featureID) {
-      case SimplepdlPackage.PROCESS__PROCESS_ELEMENTS:
-        return ((InternalEList<?>) getProcessElements()).basicRemove(otherEnd, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
-  }
+		switch (featureID) {
+			case SimplepdlPackage.PROCESS__PROCESS_ELEMENTS:
+				return ((InternalEList<?>)getProcessElements()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
   /**
-   *
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   *
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType) {
-    switch (featureID) {
-      case SimplepdlPackage.PROCESS__NAME:
-        return getName();
-      case SimplepdlPackage.PROCESS__PROCESS_ELEMENTS:
-        return getProcessElements();
-    }
-    return super.eGet(featureID, resolve, coreType);
-  }
+		switch (featureID) {
+			case SimplepdlPackage.PROCESS__NAME:
+				return getName();
+			case SimplepdlPackage.PROCESS__PROCESS_ELEMENTS:
+				return getProcessElements();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
   /**
-   *
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   *
-   * @generated
-   */
+	 * @generated
+	 */
   @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue) {
-    switch (featureID) {
-      case SimplepdlPackage.PROCESS__NAME:
-        setName((String) newValue);
-        return;
-      case SimplepdlPackage.PROCESS__PROCESS_ELEMENTS:
-        getProcessElements().clear();
-        getProcessElements().addAll((Collection<? extends ProcessElement>) newValue);
-        return;
-    }
-    super.eSet(featureID, newValue);
-  }
+		switch (featureID) {
+			case SimplepdlPackage.PROCESS__NAME:
+				setName((String)newValue);
+				return;
+			case SimplepdlPackage.PROCESS__PROCESS_ELEMENTS:
+				getProcessElements().clear();
+				getProcessElements().addAll((Collection<? extends ProcessElement>)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
   /**
-   *
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   *
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public void eUnset(int featureID) {
-    switch (featureID) {
-      case SimplepdlPackage.PROCESS__NAME:
-        setName(NAME_EDEFAULT);
-        return;
-      case SimplepdlPackage.PROCESS__PROCESS_ELEMENTS:
-        getProcessElements().clear();
-        return;
-    }
-    super.eUnset(featureID);
-  }
+		switch (featureID) {
+			case SimplepdlPackage.PROCESS__NAME:
+				setName(NAME_EDEFAULT);
+				return;
+			case SimplepdlPackage.PROCESS__PROCESS_ELEMENTS:
+				getProcessElements().clear();
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
   /**
-   *
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   *
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public boolean eIsSet(int featureID) {
-    switch (featureID) {
-      case SimplepdlPackage.PROCESS__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case SimplepdlPackage.PROCESS__PROCESS_ELEMENTS:
-        return processElements != null && !processElements.isEmpty();
-    }
-    return super.eIsSet(featureID);
-  }
+		switch (featureID) {
+			case SimplepdlPackage.PROCESS__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case SimplepdlPackage.PROCESS__PROCESS_ELEMENTS:
+				return processElements != null && !processElements.isEmpty();
+		}
+		return super.eIsSet(featureID);
+	}
 
   /**
-   *
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   *
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public String toString() {
-    if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-    StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(')');
-    return result.toString();
-  }
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (name: ");
+		result.append(name);
+		result.append(')');
+		return result.toString();
+	}
 } // ProcessImpl

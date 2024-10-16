@@ -233,13 +233,22 @@ public interface PetriNetPackage extends EPackage {
 	int TRANSITION__TEMPS_MAX = NET_ELEMENT_FEATURE_COUNT + 3;
 
 		/**
+	 * The feature id for the '<em><b>Temps Max Borne</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSITION__TEMPS_MAX_BORNE = NET_ELEMENT_FEATURE_COUNT + 4;
+
+		/**
 	 * The number of structural features of the '<em>Transition</em>' class.
 	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-  int TRANSITION_FEATURE_COUNT = NET_ELEMENT_FEATURE_COUNT + 4;
+  int TRANSITION_FEATURE_COUNT = NET_ELEMENT_FEATURE_COUNT + 5;
 
   /**
 	 * The number of operations of the '<em>Transition</em>' class.
@@ -492,6 +501,17 @@ public interface PetriNetPackage extends EPackage {
 	EAttribute getTransition_TempsMax();
 
 		/**
+	 * Returns the meta object for the attribute '{@link petriNet.Transition#isTempsMaxBorne <em>Temps Max Borne</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Temps Max Borne</em>'.
+	 * @see petriNet.Transition#isTempsMaxBorne()
+	 * @see #getTransition()
+	 * @generated
+	 */
+	EAttribute getTransition_TempsMaxBorne();
+
+		/**
 	 * Returns the meta object for class '{@link petriNet.Arc <em>Arc</em>}'.
 	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -723,6 +743,14 @@ public interface PetriNetPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute TRANSITION__TEMPS_MAX = eINSTANCE.getTransition_TempsMax();
+
+				/**
+		 * The meta object literal for the '<em><b>Temps Max Borne</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TRANSITION__TEMPS_MAX_BORNE = eINSTANCE.getTransition_TempsMaxBorne();
 
 				/**
 		 * The meta object literal for the '{@link petriNet.impl.ArcImpl <em>Arc</em>}' class.

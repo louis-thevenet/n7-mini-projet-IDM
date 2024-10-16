@@ -4,7 +4,7 @@
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:petriNet="http://petrinet"
-    Name="SimpleTemporel">
+    Name="SimpleFail">
   <netElements
       xsi:type="petriNet:Place"
       tokens="1"
@@ -27,15 +27,17 @@
   <netElements
       xsi:type="petriNet:Transition"
       arcs="//@netElements.6 //@netElements.7 //@netElements.8"
-      Name="T1"
-      tempsMin="2"
-      tempsMax="20"/>
+      Name="T1"/>
   <netElements
       xsi:type="petriNet:Transition"
       arcs="//@netElements.9 //@netElements.10 //@netElements.11 //@netElements.12"
-      Name="T2"/>
+      Name="T2"
+      tempsMin="10"
+      tempsMax="5"/>
   <netElements
       xsi:type="petriNet:Arc"
+      arcType="readArc"
+      linkDirection="transitionToPlace"
       linkToPlace="//@netElements.0"
       linkToTransition="//@netElements.4"
       Name="A1"/>
@@ -58,6 +60,7 @@
       Name="A4"/>
   <netElements
       xsi:type="petriNet:Arc"
+      weight="-15"
       linkToPlace="//@netElements.2"
       linkToTransition="//@netElements.5"
       Name="A5"/>

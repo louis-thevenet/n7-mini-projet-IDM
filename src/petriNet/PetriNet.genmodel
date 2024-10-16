@@ -29,6 +29,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PetriNet.ecore#//Transition/Name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PetriNet.ecore#//Transition/tempsMin"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PetriNet.ecore#//Transition/tempsMax"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PetriNet.ecore#//Transition/tempsMaxBorne"/>
     </genClasses>
     <genClasses ecoreClass="PetriNet.ecore#//Arc">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PetriNet.ecore#//Arc/weight"/>

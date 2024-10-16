@@ -44,6 +44,7 @@ public class TransitionItemProvider extends NetElementItemProvider {
 			addNamePropertyDescriptor(object);
 			addTempsMinPropertyDescriptor(object);
 			addTempsMaxPropertyDescriptor(object);
+			addTempsMaxBornePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -137,6 +138,28 @@ public class TransitionItemProvider extends NetElementItemProvider {
 	}
 
 		/**
+	 * This adds a property descriptor for the Temps Max Borne feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTempsMaxBornePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Transition_tempsMaxBorne_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Transition_tempsMaxBorne_feature", "_UI_Transition_type"),
+				 PetriNetPackage.Literals.TRANSITION__TEMPS_MAX_BORNE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+		/**
 	 * This returns Transition.gif.
 	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -176,6 +199,7 @@ public class TransitionItemProvider extends NetElementItemProvider {
 			case PetriNetPackage.TRANSITION__NAME:
 			case PetriNetPackage.TRANSITION__TEMPS_MIN:
 			case PetriNetPackage.TRANSITION__TEMPS_MAX:
+			case PetriNetPackage.TRANSITION__TEMPS_MAX_BORNE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

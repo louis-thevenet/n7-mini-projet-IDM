@@ -7,6 +7,10 @@ import org.eclipse.emf.ecore.resource.Resource;
 import petriNet.Arc;
 import petriNet.ArcType;
 import petriNet.LinkDirection;
+import petriNet.NetElement;
+import petriNet.PetriNet;
+import petriNet.Place;
+import petriNet.Transition;
 import petriNet.util.PetriNetSwitch;
 
 
@@ -51,10 +55,44 @@ public class PetriNetValidator extends PetriNetSwitch<Boolean> {
     return this.result;
   }
 
-  
-
   /**
-   * MÃ©thode appelÃ©e lorsque l'objet visitÃ© est une Guidance.
+   * MÃ©thode appelÃ©e lorsque l'objet visitÃ© est une Place.
+   *
+   * @param object Ã©lÃ©ment visitÃ©
+   * @return rÃ©sultat de validation (null ici, ce qui permet de poursuivre la visite vers les
+   *     classes parentes, le cas Ã©chÃ©ant)
+   */
+  @Override
+  public Boolean casePetriNet(PetriNet object) {
+	  for (NetElement elt : object.getNetElements()) {
+		  doSwitch(elt);
+	  }
+   
+
+    return null;
+  }
+  
+  /**
+   * MÃ©thode appelÃ©e lorsque l'objet visitÃ© est une Place.
+   *
+   * @param object Ã©lÃ©ment visitÃ©
+   * @return rÃ©sultat de validation (null ici, ce qui permet de poursuivre la visite vers les
+   *     classes parentes, le cas Ã©chÃ©ant)
+   */
+  @Override
+  public Boolean casePlace(Place object) {
+  
+    this.result.recordIfFailed(
+    		(object.getTokens()>=0),
+            object,
+            "La place possède un nombre de jetons strictement négatif");
+
+
+    return null;
+  }
+  
+  /**
+   * MÃ©thode appelÃ©e lorsque l'objet visitÃ© est un Arc.
    *
    * @param object Ã©lÃ©ment visitÃ©
    * @return rÃ©sultat de validation (null ici, ce qui permet de poursuivre la visite vers les
@@ -62,16 +100,42 @@ public class PetriNetValidator extends PetriNetSwitch<Boolean> {
    */
   @Override
   public Boolean caseArc(Arc object) {
+    this.result.recordIfFailed(
+    		(object.getWeight()>=0),
+            object,
+            "L'arc possède un poids strictement négatif");
+
+    
+    if (object.getArcType() == ArcType.READ_ARC) {   
+	    this.result.recordIfFailed(
+	    		 (object.getLinkDirection() == LinkDirection.PLACE_TO_TRANSITION),
+	            object,
+	            "L'arc est un read-arc mais relie une transition à une place");
+    }
+
+    return null;
+  }
+
+  /**
+   * MÃ©thode appelÃ©e lorsque l'objet visitÃ© est une Transition.
+   *
+   * @param object Ã©lÃ©ment visitÃ©
+   * @return rÃ©sultat de validation (null ici, ce qui permet de poursuivre la visite vers les
+   *     classes parentes, le cas Ã©chÃ©ant)
+   */
+  @Override
+  public Boolean caseTransition(Transition object) {
   
     this.result.recordIfFailed(
-    		(object.getArcType() == ArcType.READ_ARC) && (object.getLinkDirection() == LinkDirection.PLACE_TO_TRANSITION),
-            object,
-            "L'arc est un read-arc mais relie une place à une transition");
+    		(object.isTempsMaxBorne() || object.getTempsMin() <= object.getTempsMax()),
+    		object,
+            "Contrainte temporelle invalide, tempsMin > TempsMax");
 
 
     return null;
   }
 
+  
   /**
    * Cas par dÃ©faut, lorsque l'objet visitÃ© ne correspond pas Ã  un des autres cas. Cette mÃ©thode
    * est aussi appelÃ©e lorsqu'une mÃ©thode renvoie null (comme une sorte de fallback). On pourrait

@@ -5,6 +5,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import simplepdl.Guidance;
 import simplepdl.ProcessElement;
+import simplepdl.ResourceUsage;
 import simplepdl.SimplepdlPackage;
 import simplepdl.WorkDefinition;
 import simplepdl.WorkSequence;
@@ -86,6 +87,59 @@ public class SimplePDLValidator extends SimplepdlSwitch<Boolean> {
   public Boolean caseProcessElement(ProcessElement object) {
     return null;
   }
+  
+  /**
+   * MÃ©thode appelÃ©e lorsque l'objet visitÃ© est une Resource.
+   *
+   * @param object Ã©lÃ©ment visitÃ©
+   * @return rÃ©sultat de validation (null ici, ce qui permet de poursuivre la visite vers les
+   *     classes parentes, le cas Ã©chÃ©ant)
+   */
+  @Override
+  public Boolean caseResource(simplepdl.Resource object) {
+    this.result.recordIfFailed(
+    	(!(object.getName() == null) && !object.getName().isEmpty()),
+        object,
+    	"La Resource n'a pas de nom");
+    
+    this.result.recordIfFailed(
+    		(object.getTotal() >0 ),
+    		object,
+    		"Le nombre de ressources disponibles est initialisé à 0"
+    		);
+	    
+	    return null;
+  }
+  
+  /**
+   * MÃ©thode appelÃ©e lorsque l'objet visitÃ© est une Resource.
+   *
+   * @param object Ã©lÃ©ment visitÃ©
+   * @return rÃ©sultat de validation (null ici, ce qui permet de poursuivre la visite vers les
+   *     classes parentes, le cas Ã©chÃ©ant)
+   */
+  @Override
+  public Boolean caseResourceUsage(ResourceUsage object) {
+    this.result.recordIfFailed(
+    		(object.getResource()!=null),
+    		object,
+    		"La ResourceUsage n'est liée à aucune Resource"
+    		);
+    
+    this.result.recordIfFailed(
+    		(object.getNeed()>0),
+    		object,
+    		"La ResourceUsage n'utilise pas la Resource"
+    		);
+    
+    this.result.recordIfFailed(
+    		(object.getLinkToWorkDefinition()!=null),
+    		object,
+    		"La ResourceUsage n'est liée à aucune WorkDefinition"
+    	);
+	    
+	    return null;
+  }
 
   /**
    * MÃ©thode appelÃ©e lorsque l'objet visitÃ© est une WorkDefinition.
@@ -103,12 +157,17 @@ public class SimplePDLValidator extends SimplepdlSwitch<Boolean> {
         "Le nom de l'activitÃ© ne respecte pas les conventions Java");
 
     this.result.recordIfFailed(
+            object.getName().length()>=2,
+            object,
+            "Le nom de l'activitÃ© (" + object.getName() + ") ne contient pas au moins deux caractères");
+    
+    this.result.recordIfFailed(
         object.getProcess().getProcessElements().stream()
             .filter(p -> p.eClass().getClassifierID() == SimplepdlPackage.WORK_DEFINITION)
             .allMatch(
                 pe ->
                     (pe.equals(object)
-                        || !((WorkDefinition) pe).getName().contains(object.getName()))),
+                        || !((WorkDefinition) pe).getName().equals(object.getName()))),
         object,
         "Le nom de l'activitÃ© (" + object.getName() + ") n'est pas unique");
 
@@ -156,7 +215,11 @@ public class SimplePDLValidator extends SimplepdlSwitch<Boolean> {
    */
   @Override
   public Boolean caseGuidance(Guidance object) {
-    return !object.getText().isEmpty();
+	    this.result.recordIfFailed(
+	    		(!(object.getText()==null) && !object.getText().isEmpty()),
+	        object,
+"Le contenu de la Guidance est vide");
+	    return null;
   }
 
   /**

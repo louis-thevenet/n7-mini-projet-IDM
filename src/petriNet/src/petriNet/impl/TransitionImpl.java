@@ -26,6 +26,7 @@ import petriNet.Transition;
  *   <li>{@link petriNet.impl.TransitionImpl#getName <em>Name</em>}</li>
  *   <li>{@link petriNet.impl.TransitionImpl#getTempsMin <em>Temps Min</em>}</li>
  *   <li>{@link petriNet.impl.TransitionImpl#getTempsMax <em>Temps Max</em>}</li>
+ *   <li>{@link petriNet.impl.TransitionImpl#isTempsMaxBorne <em>Temps Max Borne</em>}</li>
  * </ul>
  *
  * @generated
@@ -100,6 +101,26 @@ public class TransitionImpl extends NetElementImpl implements Transition {
 	 * @ordered
 	 */
 	protected int tempsMax = TEMPS_MAX_EDEFAULT;
+
+		/**
+	 * The default value of the '{@link #isTempsMaxBorne() <em>Temps Max Borne</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isTempsMaxBorne()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean TEMPS_MAX_BORNE_EDEFAULT = false;
+
+		/**
+	 * The cached value of the '{@link #isTempsMaxBorne() <em>Temps Max Borne</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isTempsMaxBorne()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean tempsMaxBorne = TEMPS_MAX_BORNE_EDEFAULT;
 
 		/**
 	 * <!-- begin-user-doc -->
@@ -204,6 +225,29 @@ public class TransitionImpl extends NetElementImpl implements Transition {
 
 		/**
 	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean isTempsMaxBorne() {
+		return tempsMaxBorne;
+	}
+
+		/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setTempsMaxBorne(boolean newTempsMaxBorne) {
+		boolean oldTempsMaxBorne = tempsMaxBorne;
+		tempsMaxBorne = newTempsMaxBorne;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PetriNetPackage.TRANSITION__TEMPS_MAX_BORNE, oldTempsMaxBorne, tempsMaxBorne));
+	}
+
+		/**
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -249,6 +293,8 @@ public class TransitionImpl extends NetElementImpl implements Transition {
 				return getTempsMin();
 			case PetriNetPackage.TRANSITION__TEMPS_MAX:
 				return getTempsMax();
+			case PetriNetPackage.TRANSITION__TEMPS_MAX_BORNE:
+				return isTempsMaxBorne();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -275,6 +321,9 @@ public class TransitionImpl extends NetElementImpl implements Transition {
 			case PetriNetPackage.TRANSITION__TEMPS_MAX:
 				setTempsMax((Integer)newValue);
 				return;
+			case PetriNetPackage.TRANSITION__TEMPS_MAX_BORNE:
+				setTempsMaxBorne((Boolean)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -299,6 +348,9 @@ public class TransitionImpl extends NetElementImpl implements Transition {
 			case PetriNetPackage.TRANSITION__TEMPS_MAX:
 				setTempsMax(TEMPS_MAX_EDEFAULT);
 				return;
+			case PetriNetPackage.TRANSITION__TEMPS_MAX_BORNE:
+				setTempsMaxBorne(TEMPS_MAX_BORNE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -319,6 +371,8 @@ public class TransitionImpl extends NetElementImpl implements Transition {
 				return tempsMin != TEMPS_MIN_EDEFAULT;
 			case PetriNetPackage.TRANSITION__TEMPS_MAX:
 				return tempsMax != TEMPS_MAX_EDEFAULT;
+			case PetriNetPackage.TRANSITION__TEMPS_MAX_BORNE:
+				return tempsMaxBorne != TEMPS_MAX_BORNE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -339,6 +393,8 @@ public class TransitionImpl extends NetElementImpl implements Transition {
 		result.append(tempsMin);
 		result.append(", tempsMax: ");
 		result.append(tempsMax);
+		result.append(", tempsMaxBorne: ");
+		result.append(tempsMaxBorne);
 		result.append(')');
 		return result.toString();
 	}

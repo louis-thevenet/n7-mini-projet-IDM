@@ -16,6 +16,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link petriNet.Transition#getName <em>Name</em>}</li>
  *   <li>{@link petriNet.Transition#getTempsMin <em>Temps Min</em>}</li>
  *   <li>{@link petriNet.Transition#getTempsMax <em>Temps Max</em>}</li>
+ *   <li>{@link petriNet.Transition#isTempsMaxBorne <em>Temps Max Borne</em>}</li>
  * </ul>
  *
  * @see petriNet.PetriNetPackage#getTransition()
@@ -102,4 +103,26 @@ public interface Transition extends NetElement {
 	 * @generated
 	 */
 	void setTempsMax(int value);
+
+		/**
+	 * Returns the value of the '<em><b>Temps Max Borne</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Temps Max Borne</em>' attribute.
+	 * @see #setTempsMaxBorne(boolean)
+	 * @see petriNet.PetriNetPackage#getTransition_TempsMaxBorne()
+	 * @model
+	 * @generated
+	 */
+	boolean isTempsMaxBorne();
+
+		/**
+	 * Sets the value of the '{@link petriNet.Transition#isTempsMaxBorne <em>Temps Max Borne</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Temps Max Borne</em>' attribute.
+	 * @see #isTempsMaxBorne()
+	 * @generated
+	 */
+	void setTempsMaxBorne(boolean value);
 } // Transition
