@@ -1,6 +1,5 @@
-- [X] Implémenter resources dans Process to Petri
-- [ ] Fix les nomsd'attributs pas bon (et noms de package java)
-- [X] Guidance peut être reliées à plusieurs éléments
-- [X] Resource dans ProcessToPetri
-- [X] PetriNet to tina
-
+- [ ] Transfo ATL PetriNet -> DOT
+- [ ] PetriNet.Place.Name enlever la majuscule
+- [ ] Regénérer les diagrammes pour le rapport
+- [ ] Dessiner graphique de la transformation de Resource en PetriNet
+- [ ] 

@@ -22,22 +22,24 @@ import org.eclipse.emf.ecore.EObject;
 public interface ProcessElement extends EObject {
 
   /**
-	 * Returns the value of the '<em><b>Process</b></em>' reference.
+	 * Returns the value of the '<em><b>Process</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link simplepdl.Process#getProcessElements <em>Process Elements</em>}'.
 	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @return the value of the '<em>Process</em>' reference.
+	 * @return the value of the '<em>Process</em>' container reference.
 	 * @see #setProcess(simplepdl.Process)
 	 * @see simplepdl.SimplepdlPackage#getProcessElement_Process()
-	 * @model
+	 * @see simplepdl.Process#getProcessElements
+	 * @model opposite="processElements" transient="false"
 	 * @generated
 	 */
   simplepdl.Process getProcess();
 
   /**
-	 * Sets the value of the '{@link simplepdl.ProcessElement#getProcess <em>Process</em>}' reference.
+	 * Sets the value of the '{@link simplepdl.ProcessElement#getProcess <em>Process</em>}' container reference.
 	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Process</em>' reference.
+	 * @param value the new value of the '<em>Process</em>' container reference.
 	 * @see #getProcess()
 	 * @generated
 	 */

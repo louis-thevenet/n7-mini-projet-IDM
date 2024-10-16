@@ -2,10 +2,12 @@
 package simplepdl.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import simplepdl.ProcessElement;
 import simplepdl.SimplepdlPackage;
 
@@ -24,16 +26,6 @@ import simplepdl.SimplepdlPackage;
  */
 public abstract class ProcessElementImpl extends MinimalEObjectImpl.Container
     implements ProcessElement {
-  /**
-	 * The cached value of the '{@link #getProcess() <em>Process</em>}' reference.
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @see #getProcess()
-	 * @generated
-	 * @ordered
-	 */
-  protected simplepdl.Process process;
-
   /**
 	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -60,40 +52,87 @@ public abstract class ProcessElementImpl extends MinimalEObjectImpl.Container
 	 */
   @Override
   public simplepdl.Process getProcess() {
-		if (process != null && process.eIsProxy()) {
-			InternalEObject oldProcess = (InternalEObject)process;
-			process = (simplepdl.Process)eResolveProxy(oldProcess);
-			if (process != oldProcess) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SimplepdlPackage.PROCESS_ELEMENT__PROCESS, oldProcess, process));
-			}
-		}
-		return process;
+		if (eContainerFeatureID() != SimplepdlPackage.PROCESS_ELEMENT__PROCESS) return null;
+		return (simplepdl.Process)eInternalContainer();
 	}
 
   /**
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public simplepdl.Process basicGetProcess() {
-		return process;
+	public NotificationChain basicSetProcess(simplepdl.Process newProcess, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newProcess, SimplepdlPackage.PROCESS_ELEMENT__PROCESS, msgs);
+		return msgs;
 	}
 
-  /**
+		/**
 	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
 	 * @generated
 	 */
   @Override
   public void setProcess(simplepdl.Process newProcess) {
-		simplepdl.Process oldProcess = process;
-		process = newProcess;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SimplepdlPackage.PROCESS_ELEMENT__PROCESS, oldProcess, process));
+		if (newProcess != eInternalContainer() || (eContainerFeatureID() != SimplepdlPackage.PROCESS_ELEMENT__PROCESS && newProcess != null)) {
+			if (EcoreUtil.isAncestor(this, newProcess))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newProcess != null)
+				msgs = ((InternalEObject)newProcess).eInverseAdd(this, SimplepdlPackage.PROCESS__PROCESS_ELEMENTS, simplepdl.Process.class, msgs);
+			msgs = basicSetProcess(newProcess, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SimplepdlPackage.PROCESS_ELEMENT__PROCESS, newProcess, newProcess));
 	}
 
   /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case SimplepdlPackage.PROCESS_ELEMENT__PROCESS:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetProcess((simplepdl.Process)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+		/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case SimplepdlPackage.PROCESS_ELEMENT__PROCESS:
+				return basicSetProcess(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+		/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case SimplepdlPackage.PROCESS_ELEMENT__PROCESS:
+				return eInternalContainer().eInverseRemove(this, SimplepdlPackage.PROCESS__PROCESS_ELEMENTS, simplepdl.Process.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
+	}
+
+		/**
 	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
 	 * @generated
@@ -102,8 +141,7 @@ public abstract class ProcessElementImpl extends MinimalEObjectImpl.Container
   public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case SimplepdlPackage.PROCESS_ELEMENT__PROCESS:
-				if (resolve) return getProcess();
-				return basicGetProcess();
+				return getProcess();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -147,7 +185,7 @@ public abstract class ProcessElementImpl extends MinimalEObjectImpl.Container
   public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case SimplepdlPackage.PROCESS_ELEMENT__PROCESS:
-				return process != null;
+				return getProcess() != null;
 		}
 		return super.eIsSet(featureID);
 	}

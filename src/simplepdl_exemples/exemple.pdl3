@@ -1,0 +1,6 @@
+process : ex1
+resources: Humains:5; Ordis:5;
+
+workdefinitions : a; b; c;
+resourceusages: a:Humains=5; b:Humains=5; b:Ordis=2;
+worksequences : a s2s b; b f2f c; c s2s a;

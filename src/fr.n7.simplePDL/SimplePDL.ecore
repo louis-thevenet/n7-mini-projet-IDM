@@ -10,7 +10,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Process">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="processElements" upperBound="-1"
-        eType="#//ProcessElement" containment="true"/>
+        eType="#//ProcessElement" containment="true" eOpposite="#//ProcessElement/process"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="WorkDefinition" eSuperTypes="#//ProcessElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="linksToPredecessors" upperBound="-1"
@@ -30,7 +30,8 @@
         eType="#//WorkDefinition" eOpposite="#//WorkDefinition/linksToPredecessors"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ProcessElement" abstract="true">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="process" eType="#//Process"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="process" eType="#//Process"
+        eOpposite="#//Process/processElements"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Guidance" eSuperTypes="#//ProcessElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

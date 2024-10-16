@@ -114,7 +114,7 @@ public interface SimplepdlPackage extends EPackage {
   int PROCESS_ELEMENT = 3;
 
   /**
-	 * The feature id for the '<em><b>Process</b></em>' reference.
+	 * The feature id for the '<em><b>Process</b></em>' container reference.
 	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
 	 * @generated
@@ -151,7 +151,7 @@ public interface SimplepdlPackage extends EPackage {
   int WORK_DEFINITION = 1;
 
   /**
-	 * The feature id for the '<em><b>Process</b></em>' reference.
+	 * The feature id for the '<em><b>Process</b></em>' container reference.
 	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
 	 * @generated
@@ -224,7 +224,7 @@ public interface SimplepdlPackage extends EPackage {
   int WORK_SEQUENCE = 2;
 
   /**
-	 * The feature id for the '<em><b>Process</b></em>' reference.
+	 * The feature id for the '<em><b>Process</b></em>' container reference.
 	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
 	 * @generated
@@ -288,7 +288,7 @@ public interface SimplepdlPackage extends EPackage {
   int GUIDANCE = 4;
 
   /**
-	 * The feature id for the '<em><b>Process</b></em>' reference.
+	 * The feature id for the '<em><b>Process</b></em>' container reference.
 	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
 	 * @generated
@@ -343,7 +343,7 @@ public interface SimplepdlPackage extends EPackage {
   int RESOURCE = 5;
 
   /**
-	 * The feature id for the '<em><b>Process</b></em>' reference.
+	 * The feature id for the '<em><b>Process</b></em>' container reference.
 	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
 	 * @generated
@@ -398,7 +398,7 @@ public interface SimplepdlPackage extends EPackage {
   int RESOURCE_USAGE = 6;
 
   /**
-	 * The feature id for the '<em><b>Process</b></em>' reference.
+	 * The feature id for the '<em><b>Process</b></em>' container reference.
 	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
 	 * @generated
@@ -610,10 +610,10 @@ public interface SimplepdlPackage extends EPackage {
   EClass getProcessElement();
 
   /**
-	 * Returns the meta object for the reference '{@link simplepdl.ProcessElement#getProcess <em>Process</em>}'.
+	 * Returns the meta object for the container reference '{@link simplepdl.ProcessElement#getProcess <em>Process</em>}'.
 	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Process</em>'.
+	 * @return the meta object for the container reference '<em>Process</em>'.
 	 * @see simplepdl.ProcessElement#getProcess()
 	 * @see #getProcessElement()
 	 * @generated
@@ -888,7 +888,7 @@ public interface SimplepdlPackage extends EPackage {
     EClass PROCESS_ELEMENT = eINSTANCE.getProcessElement();
 
     /**
-		 * The meta object literal for the '<em><b>Process</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Process</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
 		 * @generated

@@ -9,7 +9,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import simplepdl.ProcessElement;
 import simplepdl.SimplepdlPackage;
@@ -109,12 +109,27 @@ public class ProcessImpl extends MinimalEObjectImpl.Container implements simplep
   @Override
   public EList<ProcessElement> getProcessElements() {
 		if (processElements == null) {
-			processElements = new EObjectContainmentEList<ProcessElement>(ProcessElement.class, this, SimplepdlPackage.PROCESS__PROCESS_ELEMENTS);
+			processElements = new EObjectContainmentWithInverseEList<ProcessElement>(ProcessElement.class, this, SimplepdlPackage.PROCESS__PROCESS_ELEMENTS, SimplepdlPackage.PROCESS_ELEMENT__PROCESS);
 		}
 		return processElements;
 	}
 
   /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case SimplepdlPackage.PROCESS__PROCESS_ELEMENTS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getProcessElements()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+		/**
 	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
 	 * @generated

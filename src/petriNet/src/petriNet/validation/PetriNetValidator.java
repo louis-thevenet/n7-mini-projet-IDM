@@ -56,7 +56,7 @@ public class PetriNetValidator extends PetriNetSwitch<Boolean> {
   }
 
   /**
-   * MÃ©thode appelÃ©e lorsque l'objet visitÃ© est une Place.
+   * MÃ©thode appelÃ©e lorsque l'objet visitÃ© est un PetriNet. Elle permet d'appliquer les règles à tous les enfants du réseau.
    *
    * @param object Ã©lÃ©ment visitÃ©
    * @return rÃ©sultat de validation (null ici, ce qui permet de poursuivre la visite vers les

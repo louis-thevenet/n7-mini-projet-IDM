@@ -47,11 +47,13 @@ public interface Process extends EObject {
   /**
 	 * Returns the value of the '<em><b>Process Elements</b></em>' containment reference list.
 	 * The list contents are of type {@link simplepdl.ProcessElement}.
+	 * It is bidirectional and its opposite is '{@link simplepdl.ProcessElement#getProcess <em>Process</em>}'.
 	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
 	 * @return the value of the '<em>Process Elements</em>' containment reference list.
 	 * @see simplepdl.SimplepdlPackage#getProcess_ProcessElements()
-	 * @model containment="true"
+	 * @see simplepdl.ProcessElement#getProcess
+	 * @model opposite="process" containment="true"
 	 * @generated
 	 */
   EList<ProcessElement> getProcessElements();
