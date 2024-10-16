@@ -51,7 +51,7 @@ Pour réaliser notre transformation SimplePDL vers PetriNet nous nous sommes bas
     - Une `WorkSequence` devient un `ReadArc` entre les places $arrow.r$ transition `Started $arrow.r$ Start` et `Finished $arrow.r$ Finish` 
 pour pouvoir déterminer comment implémenter la transformation d'une `Resource` en `PetriNet`.
 
-
+D'abord une `Resource` possède un certains nombre d'éléments (que les `WorkDefinition` utilisent pour fonctionner) donc nous avons eu l'idée de transformer `Resource` en une `Place(name: Resource.name, tokens: Resource.toal)` ie une place avec le nombre de jetons égal au nombre de ressources disponibles.
 
 === ATL
 
