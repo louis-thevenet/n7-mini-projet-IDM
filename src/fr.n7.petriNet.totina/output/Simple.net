@@ -1,0 +1,10 @@
+
+net Simple
+pl P1 (1)
+pl P2 (0)
+pl P3 (2)
+pl P4 (1)
+tr T1[20,2]P1*1 -> P2*1 P3*1 
+tr T2P2*1 P3*1 -> P4*1 P1*1 
+
+

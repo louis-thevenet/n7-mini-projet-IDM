@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<petriNet:PetriNet
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:petriNet="http://petrinet"
+    Name="Simple">
+  <netElements
+      xsi:type="petriNet:Place"
+      tokens="1"
+      arcs="//@netElements.6 //@netElements.12"
+      Name="P1"/>
+  <netElements
+      xsi:type="petriNet:Place"
+      arcs="//@netElements.7 //@netElements.9"
+      Name="P2"/>
+  <netElements
+      xsi:type="petriNet:Place"
+      tokens="2"
+      arcs="//@netElements.8 //@netElements.10"
+      Name="P3"/>
+  <netElements
+      xsi:type="petriNet:Place"
+      tokens="1"
+      arcs="//@netElements.11"
+      Name="P4"/>
+  <netElements
+      xsi:type="petriNet:Transition"
+      arcs="//@netElements.6 //@netElements.7 //@netElements.8"
+      Name="T1"/>
+  <netElements
+      xsi:type="petriNet:Transition"
+      arcs="//@netElements.9 //@netElements.10 //@netElements.11 //@netElements.12"
+      Name="T2"/>
+  <netElements
+      xsi:type="petriNet:Arc"
+      linkToPlace="//@netElements.0"
+      linkToTransition="//@netElements.4"
+      Name="A1"/>
+  <netElements
+      xsi:type="petriNet:Arc"
+      linkDirection="transitionToPlace"
+      linkToPlace="//@netElements.1"
+      linkToTransition="//@netElements.4"
+      Name="A2"/>
+  <netElements
+      xsi:type="petriNet:Arc"
+      linkDirection="transitionToPlace"
+      linkToPlace="//@netElements.2"
+      linkToTransition="//@netElements.4"
+      Name="A3"/>
+  <netElements
+      xsi:type="petriNet:Arc"
+      linkToPlace="//@netElements.1"
+      linkToTransition="//@netElements.5"
+      Name="A4"/>
+  <netElements
+      xsi:type="petriNet:Arc"
+      linkToPlace="//@netElements.2"
+      linkToTransition="//@netElements.5"
+      Name="A5"/>
+  <netElements
+      xsi:type="petriNet:Arc"
+      linkDirection="transitionToPlace"
+      linkToPlace="//@netElements.3"
+      linkToTransition="//@netElements.5"
+      Name="A6"/>
+  <netElements
+      xsi:type="petriNet:Arc"
+      linkDirection="transitionToPlace"
+      linkToPlace="//@netElements.0"
+      linkToTransition="//@netElements.5"
+      Name="A7"/>
+</petriNet:PetriNet>
