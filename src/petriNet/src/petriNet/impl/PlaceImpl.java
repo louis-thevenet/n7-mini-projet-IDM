@@ -281,7 +281,7 @@ public class PlaceImpl extends NetElementImpl implements Place {
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (tokens: ");
 		result.append(tokens);
-		result.append(", Name: ");
+		result.append(", name: ");
 		result.append(name);
 		result.append(')');
 		return result.toString();

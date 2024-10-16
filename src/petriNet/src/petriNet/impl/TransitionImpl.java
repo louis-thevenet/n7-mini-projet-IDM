@@ -387,7 +387,7 @@ public class TransitionImpl extends NetElementImpl implements Transition {
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (Name: ");
+		result.append(" (name: ");
 		result.append(name);
 		result.append(", tempsMin: ");
 		result.append(tempsMin);

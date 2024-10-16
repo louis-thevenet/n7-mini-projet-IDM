@@ -82,8 +82,8 @@ public class TransitionItemProvider extends NetElementItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Transition_Name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Transition_Name_feature", "_UI_Transition_type"),
+				 getString("_UI_Transition_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Transition_name_feature", "_UI_Transition_type"),
 				 PetriNetPackage.Literals.TRANSITION__NAME,
 				 true,
 				 false,

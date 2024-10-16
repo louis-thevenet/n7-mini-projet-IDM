@@ -70,8 +70,8 @@ public class PetriNetItemProvider extends ItemProviderAdapter
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_PetriNet_Name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_PetriNet_Name_feature", "_UI_PetriNet_type"),
+				 getString("_UI_PetriNet_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_PetriNet_name_feature", "_UI_PetriNet_type"),
 				 PetriNetPackage.Literals.PETRI_NET__NAME,
 				 true,
 				 false,

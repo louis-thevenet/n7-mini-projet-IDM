@@ -16,17 +16,17 @@
     </genEnums>
     <genClasses ecoreClass="PetriNet.ecore#//PetriNet">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PetriNet.ecore#//PetriNet/netElements"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PetriNet.ecore#//PetriNet/Name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PetriNet.ecore#//PetriNet/name"/>
     </genClasses>
     <genClasses ecoreClass="PetriNet.ecore#//Place">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PetriNet.ecore#//Place/tokens"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference PetriNet.ecore#//Place/arcs"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PetriNet.ecore#//Place/Name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PetriNet.ecore#//Place/name"/>
     </genClasses>
     <genClasses image="false" ecoreClass="PetriNet.ecore#//NetElement"/>
     <genClasses ecoreClass="PetriNet.ecore#//Transition">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference PetriNet.ecore#//Transition/arcs"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PetriNet.ecore#//Transition/Name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PetriNet.ecore#//Transition/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PetriNet.ecore#//Transition/tempsMin"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PetriNet.ecore#//Transition/tempsMax"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PetriNet.ecore#//Transition/tempsMaxBorne"/>

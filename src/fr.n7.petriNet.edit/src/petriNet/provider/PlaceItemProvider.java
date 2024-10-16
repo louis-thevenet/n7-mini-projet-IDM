@@ -102,8 +102,8 @@ public class PlaceItemProvider extends NetElementItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Place_Name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Place_Name_feature", "_UI_Place_type"),
+				 getString("_UI_Place_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Place_name_feature", "_UI_Place_type"),
 				 PetriNetPackage.Literals.PLACE__NAME,
 				 true,
 				 false,

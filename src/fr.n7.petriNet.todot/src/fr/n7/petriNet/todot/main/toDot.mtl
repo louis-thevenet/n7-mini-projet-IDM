@@ -1,0 +1,21 @@
+[comment encoding = UTF-8 /]
+[module toDot('http://petrinet')]
+
+
+[template public ToDot(aPetriNet : PetriNet)]
+[comment @main/]
+[file (aPetriNet.name+'.dot', false, 'UTF-8')]
+digraph [aPetriNet.name/] {
+label=[aPetriNet.name/]
+[for (elt : NetElement | aPetriNet.netElements)]
+	[if (elt.oclIsKindOf(Arc))]
+		[let arc:Arc = elt.oclAsType(Arc)]
+			[if (arc.linkDirection = LinkDirection::placeToTransition)]
+[arc.linkToPlace.name/] -> [arc.linkToTransition.name/][else][arc.linkToTransition.name/] -> [arc.linkToPlace.name/][/if] [' ['/]arrowhead=[if (arc.arcType = ArcType::arc)]vee[else]dot[/if] label=[arc.weight/]]
+		[/let]
+	[/if]
+[/for]
+
+}
+[/file]
+[/template]
