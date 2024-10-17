@@ -21,6 +21,12 @@ digraph [aProcess.name/] {
 			[/let]
 
 		[/if]
+		[if (pe.oclIsKindOf(ResourceUsage))]
+			[let ru: ResourceUsage = pe.oclAsType(ResourceUsage)]
+				[ru.resource.name/] -> [ru.linkToWorkDefinition.name/] ['['/]arrowhead=diamond label=[ru.need/][']'/]
+			[/let]
+
+		[/if]
 	[/for]
 	  
 

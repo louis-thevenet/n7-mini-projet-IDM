@@ -4,22 +4,22 @@
 
 [template public PetriNetToTina(aPetriNet : PetriNet)]
 [comment @main/]
-[file (aPetriNet.Name+'.net', false, 'UTF-8')]
+[file (aPetriNet.name+'.net', false, 'UTF-8')]
 
-net [aPetriNet.Name/]
+net [aPetriNet.name/]
 [let nes : OrderedSet(NetElement) = aPetriNet.netElements ] 
 	[if (nes->size() > 0)]
 	[for (ne : NetElement | nes)]
 		[if (ne.oclIsKindOf(Place))]
 			[let pl: Place = ne.oclAsType(Place)]
-pl [pl.Name/] ([pl.tokens/])
+pl [pl.name/] ([pl.tokens/])
 			[/let]
 		[/if]
 	[/for]
 	[for (ne : NetElement | nes)]
 		[if (ne.oclIsKindOf(Transition))]
 			[let tr: Transition = ne.oclAsType(Transition)]
-tr [tr.Name/] [if (tr.tempsMax>0)]['['/][tr.tempsMin/],[tr.tempsMax/]['] '/][/if] [for (arc : Arc | tr.arcs)][if ((arc.linkDirection=(LinkDirection::placeToTransition)) or (arc.arcType=(ArcType::readArc)))][arc.linkToPlace.Name/]*[arc.weight/] [/if][/for]-> [for (arc : Arc | tr.arcs)][if (arc.linkDirection=(LinkDirection::transitionToPlace) or (arc.arcType=(ArcType::readArc)))][arc.linkToPlace.Name/]*[arc.weight/] [/if][/for]
+tr [tr.name/] [if (tr.tempsMax>0)]['['/][tr.tempsMin/],[tr.tempsMax/]['] '/][/if] [for (arc : Arc | tr.arcs)][if ((arc.linkDirection=(LinkDirection::placeToTransition)) or (arc.arcType=(ArcType::readArc)))][arc.linkToPlace.name/]*[arc.weight/] [/if][/for]-> [for (arc : Arc | tr.arcs)][if (arc.linkDirection=(LinkDirection::transitionToPlace) or (arc.arcType=(ArcType::readArc)))][arc.linkToPlace.name/]*[arc.weight/] [/if][/for]
 			[/let]
 		[/if]
 	[/for]

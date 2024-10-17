@@ -1,0 +1,5 @@
+process : exemplePlaceRessource
+resources: Ordinateurs:5;
+workdefinitions : Programmer; Concevoir;
+resourceusages: Programmer:Ordinateurs=2;
+worksequences: Concevoir s2s Programmer;

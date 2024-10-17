@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<simplepdl:Process xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:simplepdl="http://simplepdl" name="exemplePlaceRessource">
+  <processElements xsi:type="simplepdl:Resource" name="Ordinateurs" total="5"/>
+  <processElements xsi:type="simplepdl:WorkDefinition" linksToPredecessors="//@processElements.4" name="Programmer" resourceUsed="//@processElements.3"/>
+  <processElements xsi:type="simplepdl:WorkDefinition" linksToSuccessors="//@processElements.4" name="Concevoir"/>
+  <processElements xsi:type="simplepdl:ResourceUsage" need="2" resource="//@processElements.0" linkToWorkDefinition="//@processElements.1"/>
+  <processElements xsi:type="simplepdl:WorkSequence" linkType="finishToFinish" predecessor="//@processElements.2" successor="//@processElements.1"/>
+</simplepdl:Process>
