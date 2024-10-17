@@ -1,5 +1,9 @@
 # Projet IDM
 #n7
+## A faire
+- [ ] Dans PetriNet2Dot:
+  ajouter le nombre de jetons d'une place dans le node
+  regénérer l'exemple simple dans le rapport
 
 ## Livrables
 
