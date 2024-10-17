@@ -7,9 +7,7 @@
 [file (aProcess.name+'.dot', false, 'UTF-8')]
 
 digraph [aProcess.name/] {
-
-
-
+label=[aProcess.name/]
 
 [let pes : OrderedSet(WorkSequence) = aProcess.processElements ] 
 	[if (pes->size() > 0)]
@@ -23,7 +21,7 @@ digraph [aProcess.name/] {
 		[/if]
 		[if (pe.oclIsKindOf(ResourceUsage))]
 			[let ru: ResourceUsage = pe.oclAsType(ResourceUsage)]
-				[ru.resource.name/] -> [ru.linkToWorkDefinition.name/] ['['/]arrowhead=diamond label=[ru.need/][']'/]
+				[ru.resource.name +ru.resource.total/] -> [ru.linkToWorkDefinition.name/] ['['/]arrowhead=diamond label=[ru.need/][']'/]
 			[/let]
 
 		[/if]
