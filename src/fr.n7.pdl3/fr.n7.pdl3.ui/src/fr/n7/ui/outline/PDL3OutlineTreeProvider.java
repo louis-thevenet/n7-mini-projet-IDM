@@ -8,8 +8,6 @@ import org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider;
 /**
  * Customization of the default outline structure.
  *
- * See https://www.eclipse.org/Xtext/documentation/310_eclipse_support.html#outline
+ * <p>See https://www.eclipse.org/Xtext/documentation/310_eclipse_support.html#outline
  */
-public class PDL3OutlineTreeProvider extends DefaultOutlineTreeProvider {
-
-}
+public class PDL3OutlineTreeProvider extends DefaultOutlineTreeProvider {}

@@ -3,9 +3,5 @@
  */
 package fr.n7.ide;
 
-
-/**
- * Use this class to register ide components.
- */
-public class PDL3IdeModule extends AbstractPDL3IdeModule {
-}
+/** Use this class to register ide components. */
+public class PDL3IdeModule extends AbstractPDL3IdeModule {}

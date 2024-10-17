@@ -1,9 +1,7 @@
 package petriNet.validation;
 
-
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
-
 import petriNet.Arc;
 import petriNet.ArcType;
 import petriNet.LinkDirection;
@@ -13,15 +11,14 @@ import petriNet.Place;
 import petriNet.Transition;
 import petriNet.util.PetriNetSwitch;
 
-
 /**
  * RÃ©alise la validation d'un EObject issu de SimplePDL (en thÃ©orie, d'un process). Cet classe
  * visite le modÃ¨le et utilise les caseXXX pour rediriger l'algo vers la bonne mÃ©thode. Attention,
  * lorsqu'une classe est un parent il faut aller faire la visite des enfants manuellement (cf.
  * caseProcess typiquement).
  *
- * <p>La classe Switch exige un paramÃ¨tre de gÃ©nÃ©ricitÃ© (et gÃ¨re une partie de la visite Ã
- * base de comparaison Ã  null). Ici le paramÃ¨tre est un boolÃ©en mais en rÃ©alitÃ© on ne s'en sert
+ * <p>La classe Switch exige un paramÃ¨tre de gÃ©nÃ©ricitÃ© (et gÃ¨re une partie de la visite Ã base
+ * de comparaison Ã  null). Ici le paramÃ¨tre est un boolÃ©en mais en rÃ©alitÃ© on ne s'en sert
  * pas...
  *
  * @author Guillaume Dupont
@@ -56,7 +53,8 @@ public class PetriNetValidator extends PetriNetSwitch<Boolean> {
   }
 
   /**
-   * MÃ©thode appelÃ©e lorsque l'objet visitÃ© est un PetriNet. Elle permet d'appliquer les règles à tous les enfants du réseau.
+   * MÃ©thode appelÃ©e lorsque l'objet visitÃ© est un PetriNet. Elle permet d'appliquer les règles à
+   * tous les enfants du réseau.
    *
    * @param object Ã©lÃ©ment visitÃ©
    * @return rÃ©sultat de validation (null ici, ce qui permet de poursuivre la visite vers les
@@ -64,14 +62,13 @@ public class PetriNetValidator extends PetriNetSwitch<Boolean> {
    */
   @Override
   public Boolean casePetriNet(PetriNet object) {
-	  for (NetElement elt : object.getNetElements()) {
-		  doSwitch(elt);
-	  }
-   
+    for (NetElement elt : object.getNetElements()) {
+      doSwitch(elt);
+    }
 
     return null;
   }
-  
+
   /**
    * MÃ©thode appelÃ©e lorsque l'objet visitÃ© est une Place.
    *
@@ -81,16 +78,15 @@ public class PetriNetValidator extends PetriNetSwitch<Boolean> {
    */
   @Override
   public Boolean casePlace(Place object) {
-  
-    this.result.recordIfFailed(
-    		(object.getTokens()>=0),
-            object,
-            "La place possède un nombre de jetons strictement négatif");
 
+    this.result.recordIfFailed(
+        (object.getTokens() >= 0),
+        object,
+        "La place possède un nombre de jetons strictement négatif");
 
     return null;
   }
-  
+
   /**
    * MÃ©thode appelÃ©e lorsque l'objet visitÃ© est un Arc.
    *
@@ -101,16 +97,13 @@ public class PetriNetValidator extends PetriNetSwitch<Boolean> {
   @Override
   public Boolean caseArc(Arc object) {
     this.result.recordIfFailed(
-    		(object.getWeight()>=0),
-            object,
-            "L'arc possède un poids strictement négatif");
+        (object.getWeight() >= 0), object, "L'arc possède un poids strictement négatif");
 
-    
-    if (object.getArcType() == ArcType.READ_ARC) {   
-	    this.result.recordIfFailed(
-	    		 (object.getLinkDirection() == LinkDirection.PLACE_TO_TRANSITION),
-	            object,
-	            "L'arc est un read-arc mais relie une transition à une place");
+    if (object.getArcType() == ArcType.READ_ARC) {
+      this.result.recordIfFailed(
+          (object.getLinkDirection() == LinkDirection.PLACE_TO_TRANSITION),
+          object,
+          "L'arc est un read-arc mais relie une transition à une place");
     }
 
     return null;
@@ -125,17 +118,15 @@ public class PetriNetValidator extends PetriNetSwitch<Boolean> {
    */
   @Override
   public Boolean caseTransition(Transition object) {
-  
-    this.result.recordIfFailed(
-    		(object.isTempsMaxBorne() || object.getTempsMin() <= object.getTempsMax()),
-    		object,
-            "Contrainte temporelle invalide, tempsMin > TempsMax");
 
+    this.result.recordIfFailed(
+        (object.isTempsMaxBorne() || object.getTempsMin() <= object.getTempsMax()),
+        object,
+        "Contrainte temporelle invalide, tempsMin > TempsMax");
 
     return null;
   }
 
-  
   /**
    * Cas par dÃ©faut, lorsque l'objet visitÃ© ne correspond pas Ã  un des autres cas. Cette mÃ©thode
    * est aussi appelÃ©e lorsqu'une mÃ©thode renvoie null (comme une sorte de fallback). On pourrait

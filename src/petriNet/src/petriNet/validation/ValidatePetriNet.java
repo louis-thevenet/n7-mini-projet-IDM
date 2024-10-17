@@ -7,7 +7,6 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
-
 import petriNet.PetriNetPackage;
 
 /**
@@ -49,10 +48,10 @@ public class ValidatePetriNet {
    * @param resultat rÃ©sultat de la validation calculÃ© auparavant
    */
   private static void afficherResultat(ValidationResult resultat) {
-	    afficherErreurs("- PetriNet", resultat.getRecordedErrorsFor(PetriNetPackage.PETRI_NET));
-	    afficherErreurs("- Arc", resultat.getRecordedErrorsFor(PetriNetPackage.ARC));
-	    afficherErreurs("- Place", resultat.getRecordedErrorsFor(PetriNetPackage.PLACE));
-	    afficherErreurs("- Transition", resultat.getRecordedErrorsFor(PetriNetPackage.TRANSITION));
+    afficherErreurs("- PetriNet", resultat.getRecordedErrorsFor(PetriNetPackage.PETRI_NET));
+    afficherErreurs("- Arc", resultat.getRecordedErrorsFor(PetriNetPackage.ARC));
+    afficherErreurs("- Place", resultat.getRecordedErrorsFor(PetriNetPackage.PLACE));
+    afficherErreurs("- Transition", resultat.getRecordedErrorsFor(PetriNetPackage.TRANSITION));
   }
 
   /**

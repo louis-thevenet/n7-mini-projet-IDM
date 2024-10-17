@@ -3,9 +3,8 @@
  */
 package fr.n7;
 
-
 /**
- * Use this class to register components to be used at runtime / without the Equinox extension registry.
+ * Use this class to register components to be used at runtime / without the Equinox extension
+ * registry.
  */
-public class PDL3RuntimeModule extends AbstractPDL3RuntimeModule {
-}
+public class PDL3RuntimeModule extends AbstractPDL3RuntimeModule {}

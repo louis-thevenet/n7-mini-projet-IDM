@@ -12,15 +12,7 @@
 }
 
 #let project(
-  subject: none,
-  title: "",
-  authors: (),
-  teachers: (),
-  date: none,
-  subtitle: none,
-  body,
-  toc: true,
-  subimage: "",
+  subject: none, title: "", authors: (), teachers: (), date: none, subtitle: none, body, toc: true, subimage: "",
 ) = {
   set document(author: authors, title: title)
   set page(numbering: "1", number-align: center)

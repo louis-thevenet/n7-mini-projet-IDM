@@ -3,13 +3,10 @@
  */
 package fr.n7.scoping;
 
-
 /**
  * This class contains custom scoping description.
- * 
- * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#scoping
- * on how and when to use it.
+ *
+ * <p>See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#scoping on how and
+ * when to use it.
  */
-public class PDL2ScopeProvider extends AbstractPDL2ScopeProvider {
-
-}
+public class PDL2ScopeProvider extends AbstractPDL2ScopeProvider {}

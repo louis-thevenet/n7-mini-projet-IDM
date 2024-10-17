@@ -17,195 +17,240 @@ import simplepdl.WorkSequence;
 import simplepdl.WorkSequenceType;
 
 /**
+ *
  * <!-- begin-user-doc -->
  * An implementation of the model <b>Factory</b>.
  * <!-- end-user-doc -->
+ *
  * @generated
  */
 public class SimplepdlFactoryImpl extends EFactoryImpl implements SimplepdlFactory {
   /**
-	 * Creates the default factory implementation.
-	 * <!-- begin-user-doc -->
+   * Creates the default factory implementation.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   *
+   * @generated
+   */
   public static SimplepdlFactory init() {
-		try {
-			SimplepdlFactory theSimplepdlFactory = (SimplepdlFactory)EPackage.Registry.INSTANCE.getEFactory(SimplepdlPackage.eNS_URI);
-			if (theSimplepdlFactory != null) {
-				return theSimplepdlFactory;
-			}
-		}
-		catch (Exception exception) {
-			EcorePlugin.INSTANCE.log(exception);
-		}
-		return new SimplepdlFactoryImpl();
-	}
+    try {
+      SimplepdlFactory theSimplepdlFactory =
+          (SimplepdlFactory) EPackage.Registry.INSTANCE.getEFactory(SimplepdlPackage.eNS_URI);
+      if (theSimplepdlFactory != null) {
+        return theSimplepdlFactory;
+      }
+    } catch (Exception exception) {
+      EcorePlugin.INSTANCE.log(exception);
+    }
+    return new SimplepdlFactoryImpl();
+  }
 
   /**
-	 * Creates an instance of the factory.
-	 * <!-- begin-user-doc -->
+   * Creates an instance of the factory.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   *
+   * @generated
+   */
   public SimplepdlFactoryImpl() {
-		super();
-	}
+    super();
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   *
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   *
+   * @generated
+   */
   @Override
   public EObject create(EClass eClass) {
-		switch (eClass.getClassifierID()) {
-			case SimplepdlPackage.PROCESS: return createProcess();
-			case SimplepdlPackage.WORK_DEFINITION: return createWorkDefinition();
-			case SimplepdlPackage.WORK_SEQUENCE: return createWorkSequence();
-			case SimplepdlPackage.GUIDANCE: return createGuidance();
-			case SimplepdlPackage.RESOURCE: return createResource();
-			case SimplepdlPackage.RESOURCE_USAGE: return createResourceUsage();
-			default:
-				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
-		}
-	}
+    switch (eClass.getClassifierID()) {
+      case SimplepdlPackage.PROCESS:
+        return createProcess();
+      case SimplepdlPackage.WORK_DEFINITION:
+        return createWorkDefinition();
+      case SimplepdlPackage.WORK_SEQUENCE:
+        return createWorkSequence();
+      case SimplepdlPackage.GUIDANCE:
+        return createGuidance();
+      case SimplepdlPackage.RESOURCE:
+        return createResource();
+      case SimplepdlPackage.RESOURCE_USAGE:
+        return createResourceUsage();
+      default:
+        throw new IllegalArgumentException(
+            "The class '" + eClass.getName() + "' is not a valid classifier");
+    }
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   *
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   *
+   * @generated
+   */
   @Override
   public Object createFromString(EDataType eDataType, String initialValue) {
-		switch (eDataType.getClassifierID()) {
-			case SimplepdlPackage.WORK_SEQUENCE_TYPE:
-				return createWorkSequenceTypeFromString(eDataType, initialValue);
-			default:
-				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
-		}
-	}
+    switch (eDataType.getClassifierID()) {
+      case SimplepdlPackage.WORK_SEQUENCE_TYPE:
+        return createWorkSequenceTypeFromString(eDataType, initialValue);
+      default:
+        throw new IllegalArgumentException(
+            "The datatype '" + eDataType.getName() + "' is not a valid classifier");
+    }
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   *
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   *
+   * @generated
+   */
   @Override
   public String convertToString(EDataType eDataType, Object instanceValue) {
-		switch (eDataType.getClassifierID()) {
-			case SimplepdlPackage.WORK_SEQUENCE_TYPE:
-				return convertWorkSequenceTypeToString(eDataType, instanceValue);
-			default:
-				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
-		}
-	}
+    switch (eDataType.getClassifierID()) {
+      case SimplepdlPackage.WORK_SEQUENCE_TYPE:
+        return convertWorkSequenceTypeToString(eDataType, instanceValue);
+      default:
+        throw new IllegalArgumentException(
+            "The datatype '" + eDataType.getName() + "' is not a valid classifier");
+    }
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   *
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   *
+   * @generated
+   */
   @Override
   public simplepdl.Process createProcess() {
-		ProcessImpl process = new ProcessImpl();
-		return process;
-	}
+    ProcessImpl process = new ProcessImpl();
+    return process;
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   *
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   *
+   * @generated
+   */
   @Override
   public WorkDefinition createWorkDefinition() {
-		WorkDefinitionImpl workDefinition = new WorkDefinitionImpl();
-		return workDefinition;
-	}
+    WorkDefinitionImpl workDefinition = new WorkDefinitionImpl();
+    return workDefinition;
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   *
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   *
+   * @generated
+   */
   @Override
   public WorkSequence createWorkSequence() {
-		WorkSequenceImpl workSequence = new WorkSequenceImpl();
-		return workSequence;
-	}
+    WorkSequenceImpl workSequence = new WorkSequenceImpl();
+    return workSequence;
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   *
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   *
+   * @generated
+   */
   @Override
   public Guidance createGuidance() {
-		GuidanceImpl guidance = new GuidanceImpl();
-		return guidance;
-	}
+    GuidanceImpl guidance = new GuidanceImpl();
+    return guidance;
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   *
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   *
+   * @generated
+   */
   @Override
   public Resource createResource() {
-		ResourceImpl resource = new ResourceImpl();
-		return resource;
-	}
+    ResourceImpl resource = new ResourceImpl();
+    return resource;
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   *
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   *
+   * @generated
+   */
   @Override
   public ResourceUsage createResourceUsage() {
-		ResourceUsageImpl resourceUsage = new ResourceUsageImpl();
-		return resourceUsage;
-	}
+    ResourceUsageImpl resourceUsage = new ResourceUsageImpl();
+    return resourceUsage;
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   *
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   *
+   * @generated
+   */
   public WorkSequenceType createWorkSequenceTypeFromString(
       EDataType eDataType, String initialValue) {
-		WorkSequenceType result = WorkSequenceType.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
+    WorkSequenceType result = WorkSequenceType.get(initialValue);
+    if (result == null)
+      throw new IllegalArgumentException(
+          "The value '"
+              + initialValue
+              + "' is not a valid enumerator of '"
+              + eDataType.getName()
+              + "'");
+    return result;
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   *
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   *
+   * @generated
+   */
   public String convertWorkSequenceTypeToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
+    return instanceValue == null ? null : instanceValue.toString();
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   *
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   *
+   * @generated
+   */
   @Override
   public SimplepdlPackage getSimplepdlPackage() {
-		return (SimplepdlPackage)getEPackage();
-	}
+    return (SimplepdlPackage) getEPackage();
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   *
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @deprecated
-	 * @generated
-	 */
+   *
+   * @deprecated
+   * @generated
+   */
   @Deprecated
   public static SimplepdlPackage getPackage() {
-		return SimplepdlPackage.eINSTANCE;
-	}
+    return SimplepdlPackage.eINSTANCE;
+  }
 } // SimplepdlFactoryImpl

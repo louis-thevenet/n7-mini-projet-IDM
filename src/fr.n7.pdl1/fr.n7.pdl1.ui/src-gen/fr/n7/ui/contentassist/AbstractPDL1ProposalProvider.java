@@ -13,49 +13,112 @@ import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor;
 
 /**
  * Represents a generated, default implementation of superclass {@link TerminalsProposalProvider}.
- * Methods are dynamically dispatched on the first parameter, i.e., you can override them 
- * with a more concrete subtype. 
+ * Methods are dynamically dispatched on the first parameter, i.e., you can override them with a
+ * more concrete subtype.
  */
 public abstract class AbstractPDL1ProposalProvider extends TerminalsProposalProvider {
 
-	public void completeProcess_Name(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
-		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
-	}
-	public void completeProcess_ProcessElements(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
-		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
-	}
-	public void completeWorkDefinition_Name(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
-		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
-	}
-	public void completeWorkSequence_LinkType(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
-		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
-	}
-	public void completeWorkSequence_Predecessor(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
-		lookupCrossReference(((CrossReference)assignment.getTerminal()), context, acceptor);
-	}
-	public void completeWorkSequence_Successor(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
-		lookupCrossReference(((CrossReference)assignment.getTerminal()), context, acceptor);
-	}
-	public void completeGuidance_Texte(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
-		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
-	}
+  public void completeProcess_Name(
+      EObject model,
+      Assignment assignment,
+      ContentAssistContext context,
+      ICompletionProposalAcceptor acceptor) {
+    completeRuleCall(((RuleCall) assignment.getTerminal()), context, acceptor);
+  }
 
-	public void complete_Process(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
-		// subclasses may override
-	}
-	public void complete_ProcessElement(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
-		// subclasses may override
-	}
-	public void complete_WorkDefinition(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
-		// subclasses may override
-	}
-	public void complete_WorkSequence(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
-		// subclasses may override
-	}
-	public void complete_Guidance(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
-		// subclasses may override
-	}
-	public void complete_WorkSequenceType(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
-		// subclasses may override
-	}
+  public void completeProcess_ProcessElements(
+      EObject model,
+      Assignment assignment,
+      ContentAssistContext context,
+      ICompletionProposalAcceptor acceptor) {
+    completeRuleCall(((RuleCall) assignment.getTerminal()), context, acceptor);
+  }
+
+  public void completeWorkDefinition_Name(
+      EObject model,
+      Assignment assignment,
+      ContentAssistContext context,
+      ICompletionProposalAcceptor acceptor) {
+    completeRuleCall(((RuleCall) assignment.getTerminal()), context, acceptor);
+  }
+
+  public void completeWorkSequence_LinkType(
+      EObject model,
+      Assignment assignment,
+      ContentAssistContext context,
+      ICompletionProposalAcceptor acceptor) {
+    completeRuleCall(((RuleCall) assignment.getTerminal()), context, acceptor);
+  }
+
+  public void completeWorkSequence_Predecessor(
+      EObject model,
+      Assignment assignment,
+      ContentAssistContext context,
+      ICompletionProposalAcceptor acceptor) {
+    lookupCrossReference(((CrossReference) assignment.getTerminal()), context, acceptor);
+  }
+
+  public void completeWorkSequence_Successor(
+      EObject model,
+      Assignment assignment,
+      ContentAssistContext context,
+      ICompletionProposalAcceptor acceptor) {
+    lookupCrossReference(((CrossReference) assignment.getTerminal()), context, acceptor);
+  }
+
+  public void completeGuidance_Texte(
+      EObject model,
+      Assignment assignment,
+      ContentAssistContext context,
+      ICompletionProposalAcceptor acceptor) {
+    completeRuleCall(((RuleCall) assignment.getTerminal()), context, acceptor);
+  }
+
+  public void complete_Process(
+      EObject model,
+      RuleCall ruleCall,
+      ContentAssistContext context,
+      ICompletionProposalAcceptor acceptor) {
+    // subclasses may override
+  }
+
+  public void complete_ProcessElement(
+      EObject model,
+      RuleCall ruleCall,
+      ContentAssistContext context,
+      ICompletionProposalAcceptor acceptor) {
+    // subclasses may override
+  }
+
+  public void complete_WorkDefinition(
+      EObject model,
+      RuleCall ruleCall,
+      ContentAssistContext context,
+      ICompletionProposalAcceptor acceptor) {
+    // subclasses may override
+  }
+
+  public void complete_WorkSequence(
+      EObject model,
+      RuleCall ruleCall,
+      ContentAssistContext context,
+      ICompletionProposalAcceptor acceptor) {
+    // subclasses may override
+  }
+
+  public void complete_Guidance(
+      EObject model,
+      RuleCall ruleCall,
+      ContentAssistContext context,
+      ICompletionProposalAcceptor acceptor) {
+    // subclasses may override
+  }
+
+  public void complete_WorkSequenceType(
+      EObject model,
+      RuleCall ruleCall,
+      ContentAssistContext context,
+      ICompletionProposalAcceptor acceptor) {
+    // subclasses may override
+  }
 }

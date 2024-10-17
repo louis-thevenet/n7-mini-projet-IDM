@@ -5,12 +5,10 @@ package fr.n7.ui;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 
-/**
- * Use this class to register components to be used within the Eclipse IDE.
- */
+/** Use this class to register components to be used within the Eclipse IDE. */
 public class PDL2UiModule extends AbstractPDL2UiModule {
 
-	public PDL2UiModule(AbstractUIPlugin plugin) {
-		super(plugin);
-	}
+  public PDL2UiModule(AbstractUIPlugin plugin) {
+    super(plugin);
+  }
 }

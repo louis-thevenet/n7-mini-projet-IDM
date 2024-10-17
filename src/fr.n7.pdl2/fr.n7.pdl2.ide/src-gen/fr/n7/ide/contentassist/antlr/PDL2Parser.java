@@ -14,86 +14,124 @@ import org.eclipse.xtext.ide.editor.contentassist.antlr.AbstractContentAssistPar
 
 public class PDL2Parser extends AbstractContentAssistParser {
 
-	@Singleton
-	public static final class NameMappings {
-		
-		private final Map<AbstractElement, String> mappings;
-		
-		@Inject
-		public NameMappings(PDL2GrammarAccess grammarAccess) {
-			ImmutableMap.Builder<AbstractElement, String> builder = ImmutableMap.builder();
-			init(builder, grammarAccess);
-			this.mappings = builder.build();
-		}
-		
-		public String getRuleName(AbstractElement element) {
-			return mappings.get(element);
-		}
-		
-		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, PDL2GrammarAccess grammarAccess) {
-			builder.put(grammarAccess.getProcessElementAccess().getAlternatives(), "rule__ProcessElement__Alternatives");
-			builder.put(grammarAccess.getWorkSequenceKindStartAccess().getAlternatives(), "rule__WorkSequenceKindStart__Alternatives");
-			builder.put(grammarAccess.getWorkSequenceKindFinishAccess().getAlternatives(), "rule__WorkSequenceKindFinish__Alternatives");
-			builder.put(grammarAccess.getProcessAccess().getGroup(), "rule__Process__Group__0");
-			builder.put(grammarAccess.getWorkDefinitionAccess().getGroup(), "rule__WorkDefinition__Group__0");
-			builder.put(grammarAccess.getWorkDefinitionAccess().getGroup_3(), "rule__WorkDefinition__Group_3__0");
-			builder.put(grammarAccess.getWorkDefinitionAccess().getGroup_4(), "rule__WorkDefinition__Group_4__0");
-			builder.put(grammarAccess.getDependanceStartAccess().getGroup(), "rule__DependanceStart__Group__0");
-			builder.put(grammarAccess.getDependanceFinishAccess().getGroup(), "rule__DependanceFinish__Group__0");
-			builder.put(grammarAccess.getGuidanceAccess().getGroup(), "rule__Guidance__Group__0");
-			builder.put(grammarAccess.getProcessAccess().getNameAssignment_1(), "rule__Process__NameAssignment_1");
-			builder.put(grammarAccess.getProcessAccess().getProcessElementsAssignment_3(), "rule__Process__ProcessElementsAssignment_3");
-			builder.put(grammarAccess.getWorkDefinitionAccess().getNameAssignment_1(), "rule__WorkDefinition__NameAssignment_1");
-			builder.put(grammarAccess.getWorkDefinitionAccess().getLinksToPredecessorsAssignment_3_2(), "rule__WorkDefinition__LinksToPredecessorsAssignment_3_2");
-			builder.put(grammarAccess.getWorkDefinitionAccess().getLinksToPredecessorsAssignment_4_2(), "rule__WorkDefinition__LinksToPredecessorsAssignment_4_2");
-			builder.put(grammarAccess.getDependanceStartAccess().getPredecessorAssignment_0(), "rule__DependanceStart__PredecessorAssignment_0");
-			builder.put(grammarAccess.getDependanceStartAccess().getLinkAssignment_1(), "rule__DependanceStart__LinkAssignment_1");
-			builder.put(grammarAccess.getWorkSequenceKindStartAccess().getStarted2StartAssignment_0(), "rule__WorkSequenceKindStart__Started2StartAssignment_0");
-			builder.put(grammarAccess.getWorkSequenceKindStartAccess().getStarted2FinishAssignment_1(), "rule__WorkSequenceKindStart__Started2FinishAssignment_1");
-			builder.put(grammarAccess.getDependanceFinishAccess().getPredecessorAssignment_0(), "rule__DependanceFinish__PredecessorAssignment_0");
-			builder.put(grammarAccess.getDependanceFinishAccess().getLinkAssignment_1(), "rule__DependanceFinish__LinkAssignment_1");
-			builder.put(grammarAccess.getWorkSequenceKindFinishAccess().getFinished2StartAssignment_0(), "rule__WorkSequenceKindFinish__Finished2StartAssignment_0");
-			builder.put(grammarAccess.getWorkSequenceKindFinishAccess().getFinished2FinishAssignment_1(), "rule__WorkSequenceKindFinish__Finished2FinishAssignment_1");
-			builder.put(grammarAccess.getGuidanceAccess().getTexteAssignment_1(), "rule__Guidance__TexteAssignment_1");
-		}
-	}
-	
-	@Inject
-	private NameMappings nameMappings;
+  @Singleton
+  public static final class NameMappings {
 
-	@Inject
-	private PDL2GrammarAccess grammarAccess;
+    private final Map<AbstractElement, String> mappings;
 
-	@Override
-	protected InternalPDL2Parser createParser() {
-		InternalPDL2Parser result = new InternalPDL2Parser(null);
-		result.setGrammarAccess(grammarAccess);
-		return result;
-	}
+    @Inject
+    public NameMappings(PDL2GrammarAccess grammarAccess) {
+      ImmutableMap.Builder<AbstractElement, String> builder = ImmutableMap.builder();
+      init(builder, grammarAccess);
+      this.mappings = builder.build();
+    }
 
-	@Override
-	protected String getRuleName(AbstractElement element) {
-		return nameMappings.getRuleName(element);
-	}
+    public String getRuleName(AbstractElement element) {
+      return mappings.get(element);
+    }
 
-	@Override
-	protected String[] getInitialHiddenTokens() {
-		return new String[] { "RULE_WS", "RULE_ML_COMMENT", "RULE_SL_COMMENT" };
-	}
+    private static void init(
+        ImmutableMap.Builder<AbstractElement, String> builder, PDL2GrammarAccess grammarAccess) {
+      builder.put(
+          grammarAccess.getProcessElementAccess().getAlternatives(),
+          "rule__ProcessElement__Alternatives");
+      builder.put(
+          grammarAccess.getWorkSequenceKindStartAccess().getAlternatives(),
+          "rule__WorkSequenceKindStart__Alternatives");
+      builder.put(
+          grammarAccess.getWorkSequenceKindFinishAccess().getAlternatives(),
+          "rule__WorkSequenceKindFinish__Alternatives");
+      builder.put(grammarAccess.getProcessAccess().getGroup(), "rule__Process__Group__0");
+      builder.put(
+          grammarAccess.getWorkDefinitionAccess().getGroup(), "rule__WorkDefinition__Group__0");
+      builder.put(
+          grammarAccess.getWorkDefinitionAccess().getGroup_3(), "rule__WorkDefinition__Group_3__0");
+      builder.put(
+          grammarAccess.getWorkDefinitionAccess().getGroup_4(), "rule__WorkDefinition__Group_4__0");
+      builder.put(
+          grammarAccess.getDependanceStartAccess().getGroup(), "rule__DependanceStart__Group__0");
+      builder.put(
+          grammarAccess.getDependanceFinishAccess().getGroup(), "rule__DependanceFinish__Group__0");
+      builder.put(grammarAccess.getGuidanceAccess().getGroup(), "rule__Guidance__Group__0");
+      builder.put(
+          grammarAccess.getProcessAccess().getNameAssignment_1(),
+          "rule__Process__NameAssignment_1");
+      builder.put(
+          grammarAccess.getProcessAccess().getProcessElementsAssignment_3(),
+          "rule__Process__ProcessElementsAssignment_3");
+      builder.put(
+          grammarAccess.getWorkDefinitionAccess().getNameAssignment_1(),
+          "rule__WorkDefinition__NameAssignment_1");
+      builder.put(
+          grammarAccess.getWorkDefinitionAccess().getLinksToPredecessorsAssignment_3_2(),
+          "rule__WorkDefinition__LinksToPredecessorsAssignment_3_2");
+      builder.put(
+          grammarAccess.getWorkDefinitionAccess().getLinksToPredecessorsAssignment_4_2(),
+          "rule__WorkDefinition__LinksToPredecessorsAssignment_4_2");
+      builder.put(
+          grammarAccess.getDependanceStartAccess().getPredecessorAssignment_0(),
+          "rule__DependanceStart__PredecessorAssignment_0");
+      builder.put(
+          grammarAccess.getDependanceStartAccess().getLinkAssignment_1(),
+          "rule__DependanceStart__LinkAssignment_1");
+      builder.put(
+          grammarAccess.getWorkSequenceKindStartAccess().getStarted2StartAssignment_0(),
+          "rule__WorkSequenceKindStart__Started2StartAssignment_0");
+      builder.put(
+          grammarAccess.getWorkSequenceKindStartAccess().getStarted2FinishAssignment_1(),
+          "rule__WorkSequenceKindStart__Started2FinishAssignment_1");
+      builder.put(
+          grammarAccess.getDependanceFinishAccess().getPredecessorAssignment_0(),
+          "rule__DependanceFinish__PredecessorAssignment_0");
+      builder.put(
+          grammarAccess.getDependanceFinishAccess().getLinkAssignment_1(),
+          "rule__DependanceFinish__LinkAssignment_1");
+      builder.put(
+          grammarAccess.getWorkSequenceKindFinishAccess().getFinished2StartAssignment_0(),
+          "rule__WorkSequenceKindFinish__Finished2StartAssignment_0");
+      builder.put(
+          grammarAccess.getWorkSequenceKindFinishAccess().getFinished2FinishAssignment_1(),
+          "rule__WorkSequenceKindFinish__Finished2FinishAssignment_1");
+      builder.put(
+          grammarAccess.getGuidanceAccess().getTexteAssignment_1(),
+          "rule__Guidance__TexteAssignment_1");
+    }
+  }
 
-	public PDL2GrammarAccess getGrammarAccess() {
-		return this.grammarAccess;
-	}
+  @Inject private NameMappings nameMappings;
 
-	public void setGrammarAccess(PDL2GrammarAccess grammarAccess) {
-		this.grammarAccess = grammarAccess;
-	}
-	
-	public NameMappings getNameMappings() {
-		return nameMappings;
-	}
-	
-	public void setNameMappings(NameMappings nameMappings) {
-		this.nameMappings = nameMappings;
-	}
+  @Inject private PDL2GrammarAccess grammarAccess;
+
+  @Override
+  protected InternalPDL2Parser createParser() {
+    InternalPDL2Parser result = new InternalPDL2Parser(null);
+    result.setGrammarAccess(grammarAccess);
+    return result;
+  }
+
+  @Override
+  protected String getRuleName(AbstractElement element) {
+    return nameMappings.getRuleName(element);
+  }
+
+  @Override
+  protected String[] getInitialHiddenTokens() {
+    return new String[] {"RULE_WS", "RULE_ML_COMMENT", "RULE_SL_COMMENT"};
+  }
+
+  public PDL2GrammarAccess getGrammarAccess() {
+    return this.grammarAccess;
+  }
+
+  public void setGrammarAccess(PDL2GrammarAccess grammarAccess) {
+    this.grammarAccess = grammarAccess;
+  }
+
+  public NameMappings getNameMappings() {
+    return nameMappings;
+  }
+
+  public void setNameMappings(NameMappings nameMappings) {
+    this.nameMappings = nameMappings;
+  }
 }

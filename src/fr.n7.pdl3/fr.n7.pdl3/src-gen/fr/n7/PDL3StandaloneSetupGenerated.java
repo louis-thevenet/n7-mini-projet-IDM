@@ -16,27 +16,29 @@ import org.eclipse.xtext.resource.IResourceServiceProvider;
 @SuppressWarnings("all")
 public class PDL3StandaloneSetupGenerated implements ISetup {
 
-	@Override
-	public Injector createInjectorAndDoEMFRegistration() {
-		TerminalsStandaloneSetup.doSetup();
+  @Override
+  public Injector createInjectorAndDoEMFRegistration() {
+    TerminalsStandaloneSetup.doSetup();
 
-		Injector injector = createInjector();
-		register(injector);
-		return injector;
-	}
-	
-	public Injector createInjector() {
-		return Guice.createInjector(new PDL3RuntimeModule());
-	}
-	
-	public void register(Injector injector) {
-		if (!EPackage.Registry.INSTANCE.containsKey("http://www.n7.fr/PDL3")) {
-			EPackage.Registry.INSTANCE.put("http://www.n7.fr/PDL3", PDL3Package.eINSTANCE);
-		}
-		IResourceFactory resourceFactory = injector.getInstance(IResourceFactory.class);
-		IResourceServiceProvider serviceProvider = injector.getInstance(IResourceServiceProvider.class);
-		
-		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("pdl3", resourceFactory);
-		IResourceServiceProvider.Registry.INSTANCE.getExtensionToFactoryMap().put("pdl3", serviceProvider);
-	}
+    Injector injector = createInjector();
+    register(injector);
+    return injector;
+  }
+
+  public Injector createInjector() {
+    return Guice.createInjector(new PDL3RuntimeModule());
+  }
+
+  public void register(Injector injector) {
+    if (!EPackage.Registry.INSTANCE.containsKey("http://www.n7.fr/PDL3")) {
+      EPackage.Registry.INSTANCE.put("http://www.n7.fr/PDL3", PDL3Package.eINSTANCE);
+    }
+    IResourceFactory resourceFactory = injector.getInstance(IResourceFactory.class);
+    IResourceServiceProvider serviceProvider = injector.getInstance(IResourceServiceProvider.class);
+
+    Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("pdl3", resourceFactory);
+    IResourceServiceProvider.Registry.INSTANCE
+        .getExtensionToFactoryMap()
+        .put("pdl3", serviceProvider);
+  }
 }

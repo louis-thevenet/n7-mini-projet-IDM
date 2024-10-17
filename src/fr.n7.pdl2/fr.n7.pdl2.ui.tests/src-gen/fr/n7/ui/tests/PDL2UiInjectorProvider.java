@@ -9,9 +9,8 @@ import org.eclipse.xtext.testing.IInjectorProvider;
 
 public class PDL2UiInjectorProvider implements IInjectorProvider {
 
-	@Override
-	public Injector getInjector() {
-		return Pdl2Activator.getInstance().getInjector("fr.n7.PDL2");
-	}
-
+  @Override
+  public Injector getInjector() {
+    return Pdl2Activator.getInstance().getInjector("fr.n7.PDL2");
+  }
 }

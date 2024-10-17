@@ -11,30 +11,28 @@ import org.eclipse.xtext.parser.antlr.XtextTokenStream;
 
 public class PDL2Parser extends AbstractAntlrParser {
 
-	@Inject
-	private PDL2GrammarAccess grammarAccess;
+  @Inject private PDL2GrammarAccess grammarAccess;
 
-	@Override
-	protected void setInitialHiddenTokens(XtextTokenStream tokenStream) {
-		tokenStream.setInitialHiddenTokens("RULE_WS", "RULE_ML_COMMENT", "RULE_SL_COMMENT");
-	}
-	
+  @Override
+  protected void setInitialHiddenTokens(XtextTokenStream tokenStream) {
+    tokenStream.setInitialHiddenTokens("RULE_WS", "RULE_ML_COMMENT", "RULE_SL_COMMENT");
+  }
 
-	@Override
-	protected InternalPDL2Parser createParser(XtextTokenStream stream) {
-		return new InternalPDL2Parser(stream, getGrammarAccess());
-	}
+  @Override
+  protected InternalPDL2Parser createParser(XtextTokenStream stream) {
+    return new InternalPDL2Parser(stream, getGrammarAccess());
+  }
 
-	@Override 
-	protected String getDefaultRuleName() {
-		return "Process";
-	}
+  @Override
+  protected String getDefaultRuleName() {
+    return "Process";
+  }
 
-	public PDL2GrammarAccess getGrammarAccess() {
-		return this.grammarAccess;
-	}
+  public PDL2GrammarAccess getGrammarAccess() {
+    return this.grammarAccess;
+  }
 
-	public void setGrammarAccess(PDL2GrammarAccess grammarAccess) {
-		this.grammarAccess = grammarAccess;
-	}
+  public void setGrammarAccess(PDL2GrammarAccess grammarAccess) {
+    this.grammarAccess = grammarAccess;
+  }
 }

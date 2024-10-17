@@ -6,62 +6,72 @@ import simplepdl.Guidance;
 import simplepdl.SimplepdlFactory;
 
 /**
+ *
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Guidance</b></em>'.
  * <!-- end-user-doc -->
+ *
  * @generated
  */
 public class GuidanceTest extends ProcessElementTest {
 
   /**
-	 * <!-- begin-user-doc -->
+   *
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   *
+   * @generated
+   */
   public static void main(String[] args) {
-		TestRunner.run(GuidanceTest.class);
-	}
+    TestRunner.run(GuidanceTest.class);
+  }
 
   /**
-	 * Constructs a new Guidance test case with the given name.
-	 * <!-- begin-user-doc -->
+   * Constructs a new Guidance test case with the given name.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   *
+   * @generated
+   */
   public GuidanceTest(String name) {
-		super(name);
-	}
+    super(name);
+  }
 
   /**
-	 * Returns the fixture for this Guidance test case.
-	 * <!-- begin-user-doc -->
+   * Returns the fixture for this Guidance test case.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   *
+   * @generated
+   */
   @Override
   protected Guidance getFixture() {
-		return (Guidance)fixture;
-	}
+    return (Guidance) fixture;
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   *
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @see junit.framework.TestCase#setUp()
-	 * @generated
-	 */
+   *
+   * @see junit.framework.TestCase#setUp()
+   * @generated
+   */
   @Override
   protected void setUp() throws Exception {
-		setFixture(SimplepdlFactory.eINSTANCE.createGuidance());
-	}
+    setFixture(SimplepdlFactory.eINSTANCE.createGuidance());
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   *
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @see junit.framework.TestCase#tearDown()
-	 * @generated
-	 */
+   *
+   * @see junit.framework.TestCase#tearDown()
+   * @generated
+   */
   @Override
   protected void tearDown() throws Exception {
-		setFixture(null);
-	}
+    setFixture(null);
+  }
 } // GuidanceTest

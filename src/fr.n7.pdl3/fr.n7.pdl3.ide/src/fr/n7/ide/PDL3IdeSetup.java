@@ -9,14 +9,11 @@ import fr.n7.PDL3RuntimeModule;
 import fr.n7.PDL3StandaloneSetup;
 import org.eclipse.xtext.util.Modules2;
 
-/**
- * Initialization support for running Xtext languages as language servers.
- */
+/** Initialization support for running Xtext languages as language servers. */
 public class PDL3IdeSetup extends PDL3StandaloneSetup {
 
-	@Override
-	public Injector createInjector() {
-		return Guice.createInjector(Modules2.mixin(new PDL3RuntimeModule(), new PDL3IdeModule()));
-	}
-	
+  @Override
+  public Injector createInjector() {
+    return Guice.createInjector(Modules2.mixin(new PDL3RuntimeModule(), new PDL3IdeModule()));
+  }
 }

@@ -30,7 +30,7 @@
               config.treefmt.build.devShell
             ];
 
-            packages =with pkgs;[typst];
+            packages = with pkgs; [ typst ];
           };
 
           # Add your auto-formatters here.

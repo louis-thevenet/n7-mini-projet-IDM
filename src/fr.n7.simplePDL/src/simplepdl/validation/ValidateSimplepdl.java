@@ -56,7 +56,8 @@ public class ValidateSimplepdl {
         "- WorkSequence", resultat.getRecordedErrorsFor(SimplepdlPackage.WORK_SEQUENCE));
     afficherErreurs("- Guidance", resultat.getRecordedErrorsFor(SimplepdlPackage.GUIDANCE));
     afficherErreurs("- Resource", resultat.getRecordedErrorsFor(SimplepdlPackage.RESOURCE));
-    afficherErreurs("- ResourceUsage", resultat.getRecordedErrorsFor(SimplepdlPackage.RESOURCE_USAGE));
+    afficherErreurs(
+        "- ResourceUsage", resultat.getRecordedErrorsFor(SimplepdlPackage.RESOURCE_USAGE));
   }
 
   /**

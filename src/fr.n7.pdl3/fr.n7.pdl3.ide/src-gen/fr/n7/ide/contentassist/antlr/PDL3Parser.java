@@ -14,85 +14,118 @@ import org.eclipse.xtext.ide.editor.contentassist.antlr.AbstractContentAssistPar
 
 public class PDL3Parser extends AbstractContentAssistParser {
 
-	@Singleton
-	public static final class NameMappings {
-		
-		private final Map<AbstractElement, String> mappings;
-		
-		@Inject
-		public NameMappings(PDL3GrammarAccess grammarAccess) {
-			ImmutableMap.Builder<AbstractElement, String> builder = ImmutableMap.builder();
-			init(builder, grammarAccess);
-			this.mappings = builder.build();
-		}
-		
-		public String getRuleName(AbstractElement element) {
-			return mappings.get(element);
-		}
-		
-		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, PDL3GrammarAccess grammarAccess) {
-			builder.put(grammarAccess.getWorkSequenceKindAccess().getAlternatives(), "rule__WorkSequenceKind__Alternatives");
-			builder.put(grammarAccess.getProcessAccess().getGroup(), "rule__Process__Group__0");
-			builder.put(grammarAccess.getResourceUsagesAccess().getGroup(), "rule__ResourceUsages__Group__0");
-			builder.put(grammarAccess.getResourceUsageAccess().getGroup(), "rule__ResourceUsage__Group__0");
-			builder.put(grammarAccess.getResourcesAccess().getGroup(), "rule__Resources__Group__0");
-			builder.put(grammarAccess.getResourceAccess().getGroup(), "rule__Resource__Group__0");
-			builder.put(grammarAccess.getWorkDefinitionsAccess().getGroup(), "rule__WorkDefinitions__Group__0");
-			builder.put(grammarAccess.getWorkSequencesAccess().getGroup(), "rule__WorkSequences__Group__0");
-			builder.put(grammarAccess.getWorkSequenceAccess().getGroup(), "rule__WorkSequence__Group__0");
-			builder.put(grammarAccess.getProcessAccess().getNameAssignment_2(), "rule__Process__NameAssignment_2");
-			builder.put(grammarAccess.getProcessAccess().getProcessElementsAssignment_5(), "rule__Process__ProcessElementsAssignment_5");
-			builder.put(grammarAccess.getProcessAccess().getProcessElementsAssignment_8(), "rule__Process__ProcessElementsAssignment_8");
-			builder.put(grammarAccess.getProcessAccess().getProcessElementsAssignment_11(), "rule__Process__ProcessElementsAssignment_11");
-			builder.put(grammarAccess.getProcessAccess().getProcessElementsAssignment_14(), "rule__Process__ProcessElementsAssignment_14");
-			builder.put(grammarAccess.getResourceUsageAccess().getWorkDefinitionAssignment_0(), "rule__ResourceUsage__WorkDefinitionAssignment_0");
-			builder.put(grammarAccess.getResourceUsageAccess().getResourceAssignment_2(), "rule__ResourceUsage__ResourceAssignment_2");
-			builder.put(grammarAccess.getResourceUsageAccess().getNeededAssignment_4(), "rule__ResourceUsage__NeededAssignment_4");
-			builder.put(grammarAccess.getResourceAccess().getNameAssignment_0(), "rule__Resource__NameAssignment_0");
-			builder.put(grammarAccess.getResourceAccess().getTotalAssignment_2(), "rule__Resource__TotalAssignment_2");
-			builder.put(grammarAccess.getWorkDefinitionAccess().getNameAssignment(), "rule__WorkDefinition__NameAssignment");
-			builder.put(grammarAccess.getWorkSequenceAccess().getLinkToPredecessorAssignment_0(), "rule__WorkSequence__LinkToPredecessorAssignment_0");
-			builder.put(grammarAccess.getWorkSequenceAccess().getLinkTypeAssignment_1(), "rule__WorkSequence__LinkTypeAssignment_1");
-			builder.put(grammarAccess.getWorkSequenceAccess().getLinkToSucessorAssignment_2(), "rule__WorkSequence__LinkToSucessorAssignment_2");
-		}
-	}
-	
-	@Inject
-	private NameMappings nameMappings;
+  @Singleton
+  public static final class NameMappings {
 
-	@Inject
-	private PDL3GrammarAccess grammarAccess;
+    private final Map<AbstractElement, String> mappings;
 
-	@Override
-	protected InternalPDL3Parser createParser() {
-		InternalPDL3Parser result = new InternalPDL3Parser(null);
-		result.setGrammarAccess(grammarAccess);
-		return result;
-	}
+    @Inject
+    public NameMappings(PDL3GrammarAccess grammarAccess) {
+      ImmutableMap.Builder<AbstractElement, String> builder = ImmutableMap.builder();
+      init(builder, grammarAccess);
+      this.mappings = builder.build();
+    }
 
-	@Override
-	protected String getRuleName(AbstractElement element) {
-		return nameMappings.getRuleName(element);
-	}
+    public String getRuleName(AbstractElement element) {
+      return mappings.get(element);
+    }
 
-	@Override
-	protected String[] getInitialHiddenTokens() {
-		return new String[] { "RULE_WS", "RULE_ML_COMMENT", "RULE_SL_COMMENT" };
-	}
+    private static void init(
+        ImmutableMap.Builder<AbstractElement, String> builder, PDL3GrammarAccess grammarAccess) {
+      builder.put(
+          grammarAccess.getWorkSequenceKindAccess().getAlternatives(),
+          "rule__WorkSequenceKind__Alternatives");
+      builder.put(grammarAccess.getProcessAccess().getGroup(), "rule__Process__Group__0");
+      builder.put(
+          grammarAccess.getResourceUsagesAccess().getGroup(), "rule__ResourceUsages__Group__0");
+      builder.put(
+          grammarAccess.getResourceUsageAccess().getGroup(), "rule__ResourceUsage__Group__0");
+      builder.put(grammarAccess.getResourcesAccess().getGroup(), "rule__Resources__Group__0");
+      builder.put(grammarAccess.getResourceAccess().getGroup(), "rule__Resource__Group__0");
+      builder.put(
+          grammarAccess.getWorkDefinitionsAccess().getGroup(), "rule__WorkDefinitions__Group__0");
+      builder.put(
+          grammarAccess.getWorkSequencesAccess().getGroup(), "rule__WorkSequences__Group__0");
+      builder.put(grammarAccess.getWorkSequenceAccess().getGroup(), "rule__WorkSequence__Group__0");
+      builder.put(
+          grammarAccess.getProcessAccess().getNameAssignment_2(),
+          "rule__Process__NameAssignment_2");
+      builder.put(
+          grammarAccess.getProcessAccess().getProcessElementsAssignment_5(),
+          "rule__Process__ProcessElementsAssignment_5");
+      builder.put(
+          grammarAccess.getProcessAccess().getProcessElementsAssignment_8(),
+          "rule__Process__ProcessElementsAssignment_8");
+      builder.put(
+          grammarAccess.getProcessAccess().getProcessElementsAssignment_11(),
+          "rule__Process__ProcessElementsAssignment_11");
+      builder.put(
+          grammarAccess.getProcessAccess().getProcessElementsAssignment_14(),
+          "rule__Process__ProcessElementsAssignment_14");
+      builder.put(
+          grammarAccess.getResourceUsageAccess().getWorkDefinitionAssignment_0(),
+          "rule__ResourceUsage__WorkDefinitionAssignment_0");
+      builder.put(
+          grammarAccess.getResourceUsageAccess().getResourceAssignment_2(),
+          "rule__ResourceUsage__ResourceAssignment_2");
+      builder.put(
+          grammarAccess.getResourceUsageAccess().getNeededAssignment_4(),
+          "rule__ResourceUsage__NeededAssignment_4");
+      builder.put(
+          grammarAccess.getResourceAccess().getNameAssignment_0(),
+          "rule__Resource__NameAssignment_0");
+      builder.put(
+          grammarAccess.getResourceAccess().getTotalAssignment_2(),
+          "rule__Resource__TotalAssignment_2");
+      builder.put(
+          grammarAccess.getWorkDefinitionAccess().getNameAssignment(),
+          "rule__WorkDefinition__NameAssignment");
+      builder.put(
+          grammarAccess.getWorkSequenceAccess().getLinkToPredecessorAssignment_0(),
+          "rule__WorkSequence__LinkToPredecessorAssignment_0");
+      builder.put(
+          grammarAccess.getWorkSequenceAccess().getLinkTypeAssignment_1(),
+          "rule__WorkSequence__LinkTypeAssignment_1");
+      builder.put(
+          grammarAccess.getWorkSequenceAccess().getLinkToSucessorAssignment_2(),
+          "rule__WorkSequence__LinkToSucessorAssignment_2");
+    }
+  }
 
-	public PDL3GrammarAccess getGrammarAccess() {
-		return this.grammarAccess;
-	}
+  @Inject private NameMappings nameMappings;
 
-	public void setGrammarAccess(PDL3GrammarAccess grammarAccess) {
-		this.grammarAccess = grammarAccess;
-	}
-	
-	public NameMappings getNameMappings() {
-		return nameMappings;
-	}
-	
-	public void setNameMappings(NameMappings nameMappings) {
-		this.nameMappings = nameMappings;
-	}
+  @Inject private PDL3GrammarAccess grammarAccess;
+
+  @Override
+  protected InternalPDL3Parser createParser() {
+    InternalPDL3Parser result = new InternalPDL3Parser(null);
+    result.setGrammarAccess(grammarAccess);
+    return result;
+  }
+
+  @Override
+  protected String getRuleName(AbstractElement element) {
+    return nameMappings.getRuleName(element);
+  }
+
+  @Override
+  protected String[] getInitialHiddenTokens() {
+    return new String[] {"RULE_WS", "RULE_ML_COMMENT", "RULE_SL_COMMENT"};
+  }
+
+  public PDL3GrammarAccess getGrammarAccess() {
+    return this.grammarAccess;
+  }
+
+  public void setGrammarAccess(PDL3GrammarAccess grammarAccess) {
+    this.grammarAccess = grammarAccess;
+  }
+
+  public NameMappings getNameMappings() {
+    return nameMappings;
+  }
+
+  public void setNameMappings(NameMappings nameMappings) {
+    this.nameMappings = nameMappings;
+  }
 }

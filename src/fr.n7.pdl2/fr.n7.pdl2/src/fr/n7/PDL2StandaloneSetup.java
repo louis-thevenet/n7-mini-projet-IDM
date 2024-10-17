@@ -3,13 +3,10 @@
  */
 package fr.n7;
 
-
-/**
- * Initialization support for running Xtext languages without Equinox extension registry.
- */
+/** Initialization support for running Xtext languages without Equinox extension registry. */
 public class PDL2StandaloneSetup extends PDL2StandaloneSetupGenerated {
 
-	public static void doSetup() {
-		new PDL2StandaloneSetup().createInjectorAndDoEMFRegistration();
-	}
+  public static void doSetup() {
+    new PDL2StandaloneSetup().createInjectorAndDoEMFRegistration();
+  }
 }

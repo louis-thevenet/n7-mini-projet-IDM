@@ -5,5 +5,4 @@ package fr.n7.scoping;
 
 import org.eclipse.xtext.scoping.impl.DelegatingScopeProvider;
 
-public abstract class AbstractPDL3ScopeProvider extends DelegatingScopeProvider {
-}
+public abstract class AbstractPDL3ScopeProvider extends DelegatingScopeProvider {}

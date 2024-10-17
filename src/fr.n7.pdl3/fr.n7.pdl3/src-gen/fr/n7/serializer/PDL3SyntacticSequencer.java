@@ -17,27 +17,27 @@ import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 @SuppressWarnings("all")
 public class PDL3SyntacticSequencer extends AbstractSyntacticSequencer {
 
-	protected PDL3GrammarAccess grammarAccess;
-	
-	@Inject
-	protected void init(IGrammarAccess access) {
-		grammarAccess = (PDL3GrammarAccess) access;
-	}
-	
-	@Override
-	protected String getUnassignedRuleCallToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		return "";
-	}
-	
-	
-	@Override
-	protected void emitUnassignedTokens(EObject semanticObject, ISynTransition transition, INode fromNode, INode toNode) {
-		if (transition.getAmbiguousSyntaxes().isEmpty()) return;
-		List<INode> transitionNodes = collectNodes(fromNode, toNode);
-		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
-			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			acceptNodes(getLastNavigableState(), syntaxNodes);
-		}
-	}
+  protected PDL3GrammarAccess grammarAccess;
 
+  @Inject
+  protected void init(IGrammarAccess access) {
+    grammarAccess = (PDL3GrammarAccess) access;
+  }
+
+  @Override
+  protected String getUnassignedRuleCallToken(
+      EObject semanticObject, RuleCall ruleCall, INode node) {
+    return "";
+  }
+
+  @Override
+  protected void emitUnassignedTokens(
+      EObject semanticObject, ISynTransition transition, INode fromNode, INode toNode) {
+    if (transition.getAmbiguousSyntaxes().isEmpty()) return;
+    List<INode> transitionNodes = collectNodes(fromNode, toNode);
+    for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
+      List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
+      acceptNodes(getLastNavigableState(), syntaxNodes);
+    }
+  }
 }

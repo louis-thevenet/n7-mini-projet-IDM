@@ -16,205 +16,233 @@ import petriNet.Transition;
  * This is the item provider adapter for a {@link petriNet.Transition} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
+ *
  * @generated
  */
 public class TransitionItemProvider extends NetElementItemProvider {
   /**
-	 * This constructs an instance from a factory and a notifier.
-	 * <!-- begin-user-doc -->
+   * This constructs an instance from a factory and a notifier.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   *
+   * @generated
+   */
   public TransitionItemProvider(AdapterFactory adapterFactory) {
-		super(adapterFactory);
-	}
+    super(adapterFactory);
+  }
 
   /**
-	 * This returns the property descriptors for the adapted class.
-	 * <!-- begin-user-doc -->
+   * This returns the property descriptors for the adapted class.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   *
+   * @generated
+   */
   @Override
   public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if (itemPropertyDescriptors == null) {
-			super.getPropertyDescriptors(object);
+    if (itemPropertyDescriptors == null) {
+      super.getPropertyDescriptors(object);
 
-			addArcsPropertyDescriptor(object);
-			addNamePropertyDescriptor(object);
-			addTempsMinPropertyDescriptor(object);
-			addTempsMaxPropertyDescriptor(object);
-			addTempsMaxBornePropertyDescriptor(object);
-		}
-		return itemPropertyDescriptors;
-	}
+      addArcsPropertyDescriptor(object);
+      addNamePropertyDescriptor(object);
+      addTempsMinPropertyDescriptor(object);
+      addTempsMaxPropertyDescriptor(object);
+      addTempsMaxBornePropertyDescriptor(object);
+    }
+    return itemPropertyDescriptors;
+  }
 
   /**
-	 * This adds a property descriptor for the Arcs feature.
-	 * <!-- begin-user-doc -->
+   * This adds a property descriptor for the Arcs feature.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   *
+   * @generated
+   */
   protected void addArcsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Transition_arcs_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Transition_arcs_feature", "_UI_Transition_type"),
-				 PetriNetPackage.Literals.TRANSITION__ARCS,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
+    itemPropertyDescriptors.add(
+        createItemPropertyDescriptor(
+            ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+            getResourceLocator(),
+            getString("_UI_Transition_arcs_feature"),
+            getString(
+                "_UI_PropertyDescriptor_description",
+                "_UI_Transition_arcs_feature",
+                "_UI_Transition_type"),
+            PetriNetPackage.Literals.TRANSITION__ARCS,
+            true,
+            false,
+            true,
+            null,
+            null,
+            null));
+  }
 
   /**
-	 * This adds a property descriptor for the Name feature.
-	 * <!-- begin-user-doc -->
+   * This adds a property descriptor for the Name feature.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   *
+   * @generated
+   */
   protected void addNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Transition_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Transition_name_feature", "_UI_Transition_type"),
-				 PetriNetPackage.Literals.TRANSITION__NAME,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
+    itemPropertyDescriptors.add(
+        createItemPropertyDescriptor(
+            ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+            getResourceLocator(),
+            getString("_UI_Transition_name_feature"),
+            getString(
+                "_UI_PropertyDescriptor_description",
+                "_UI_Transition_name_feature",
+                "_UI_Transition_type"),
+            PetriNetPackage.Literals.TRANSITION__NAME,
+            true,
+            false,
+            false,
+            ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+            null,
+            null));
+  }
 
   /**
-	 * This adds a property descriptor for the Temps Min feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addTempsMinPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Transition_tempsMin_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Transition_tempsMin_feature", "_UI_Transition_type"),
-				 PetriNetPackage.Literals.TRANSITION__TEMPS_MIN,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-		/**
-	 * This adds a property descriptor for the Temps Max feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addTempsMaxPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Transition_tempsMax_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Transition_tempsMax_feature", "_UI_Transition_type"),
-				 PetriNetPackage.Literals.TRANSITION__TEMPS_MAX,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-		/**
-	 * This adds a property descriptor for the Temps Max Borne feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addTempsMaxBornePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Transition_tempsMaxBorne_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Transition_tempsMaxBorne_feature", "_UI_Transition_type"),
-				 PetriNetPackage.Literals.TRANSITION__TEMPS_MAX_BORNE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-		/**
-	 * This returns Transition.gif.
-	 * <!-- begin-user-doc -->
+   * This adds a property descriptor for the Temps Min feature.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   *
+   * @generated
+   */
+  protected void addTempsMinPropertyDescriptor(Object object) {
+    itemPropertyDescriptors.add(
+        createItemPropertyDescriptor(
+            ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+            getResourceLocator(),
+            getString("_UI_Transition_tempsMin_feature"),
+            getString(
+                "_UI_PropertyDescriptor_description",
+                "_UI_Transition_tempsMin_feature",
+                "_UI_Transition_type"),
+            PetriNetPackage.Literals.TRANSITION__TEMPS_MIN,
+            true,
+            false,
+            false,
+            ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+            null,
+            null));
+  }
+
+  /**
+   * This adds a property descriptor for the Temps Max feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   *
+   * @generated
+   */
+  protected void addTempsMaxPropertyDescriptor(Object object) {
+    itemPropertyDescriptors.add(
+        createItemPropertyDescriptor(
+            ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+            getResourceLocator(),
+            getString("_UI_Transition_tempsMax_feature"),
+            getString(
+                "_UI_PropertyDescriptor_description",
+                "_UI_Transition_tempsMax_feature",
+                "_UI_Transition_type"),
+            PetriNetPackage.Literals.TRANSITION__TEMPS_MAX,
+            true,
+            false,
+            false,
+            ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+            null,
+            null));
+  }
+
+  /**
+   * This adds a property descriptor for the Temps Max Borne feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   *
+   * @generated
+   */
+  protected void addTempsMaxBornePropertyDescriptor(Object object) {
+    itemPropertyDescriptors.add(
+        createItemPropertyDescriptor(
+            ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+            getResourceLocator(),
+            getString("_UI_Transition_tempsMaxBorne_feature"),
+            getString(
+                "_UI_PropertyDescriptor_description",
+                "_UI_Transition_tempsMaxBorne_feature",
+                "_UI_Transition_type"),
+            PetriNetPackage.Literals.TRANSITION__TEMPS_MAX_BORNE,
+            true,
+            false,
+            false,
+            ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+            null,
+            null));
+  }
+
+  /**
+   * This returns Transition.gif.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   *
+   * @generated
+   */
   @Override
   public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Transition"));
-	}
+    return overlayImage(object, getResourceLocator().getImage("full/obj16/Transition"));
+  }
 
   /**
-	 * This returns the label text for the adapted class.
-	 * <!-- begin-user-doc -->
+   * This returns the label text for the adapted class.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   *
+   * @generated
+   */
   @Override
   public String getText(Object object) {
-		String label = ((Transition)object).getName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_Transition_type") :
-			getString("_UI_Transition_type") + " " + label;
-	}
+    String label = ((Transition) object).getName();
+    return label == null || label.length() == 0
+        ? getString("_UI_Transition_type")
+        : getString("_UI_Transition_type") + " " + label;
+  }
 
   /**
-	 * This handles model notifications by calling {@link #updateChildren} to update any cached
-	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
-	 * <!-- begin-user-doc -->
+   * This handles model notifications by calling {@link #updateChildren} to update any cached
+   * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   *
+   * @generated
+   */
   @Override
   public void notifyChanged(Notification notification) {
-		updateChildren(notification);
+    updateChildren(notification);
 
-		switch (notification.getFeatureID(Transition.class)) {
-			case PetriNetPackage.TRANSITION__NAME:
-			case PetriNetPackage.TRANSITION__TEMPS_MIN:
-			case PetriNetPackage.TRANSITION__TEMPS_MAX:
-			case PetriNetPackage.TRANSITION__TEMPS_MAX_BORNE:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-		}
-		super.notifyChanged(notification);
-	}
+    switch (notification.getFeatureID(Transition.class)) {
+      case PetriNetPackage.TRANSITION__NAME:
+      case PetriNetPackage.TRANSITION__TEMPS_MIN:
+      case PetriNetPackage.TRANSITION__TEMPS_MAX:
+      case PetriNetPackage.TRANSITION__TEMPS_MAX_BORNE:
+        fireNotifyChanged(
+            new ViewerNotification(notification, notification.getNotifier(), false, true));
+        return;
+    }
+    super.notifyChanged(notification);
+  }
 
   /**
-	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-	 * that can be created under this object.
-	 * <!-- begin-user-doc -->
+   * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
+   * can be created under this object.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   *
+   * @generated
+   */
   @Override
   protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
-		super.collectNewChildDescriptors(newChildDescriptors, object);
-	}
+    super.collectNewChildDescriptors(newChildDescriptors, object);
+  }
 }
