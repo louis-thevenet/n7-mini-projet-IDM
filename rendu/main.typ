@@ -15,7 +15,8 @@ Une ressource est défini comme une EClass `Resource` ayant :
 - un nom
 - et un nombre total d'éléments disponible (`total`)
 
-Une `WorkDefinition` utilise une `Resource` en ajoutant une référence à une `ResourceUsage` qui contient :
+Une `WorkDefinition` utilise une `Resource` en ajoutant une référence à une `ResourceUsage` qui
+contient :
 - référence à la `Resource` en question
 - la quantité demandée (`need`)
 
@@ -37,14 +38,16 @@ Une `Transition` est définie par un nom.
 Un `Arc` contient :
 - un nom
 - un poids
-- une référence vers une `Place` 
+- une référence vers une `Place`
 - une référence vers une `Transition`
 - Une `LinkDirection` (soit `placeToTransition`, soit `transitionToPlace`)
 - Un `arcType` (soit `arc`, soit `readArc`).
 
-Nous avons également ajouté des attributs `tempsMin`, `tempsMax` et `tempsMaxBorne` pour ajouter la notion de temps aux `Transition`.
+Nous avons également ajouté des attributs `tempsMin`, `tempsMax` et `tempsMaxBorne` pour
+ajouter la notion de temps aux `Transition`.
 
-Ce méta-modèle permet de s'assurer que les `Arc` ne relient jamais deux `Transition` ou deux `Place`.
+Ce méta-modèle permet de s'assurer que les `Arc` ne relient jamais deux `Transition` ou
+deux `Place`.
 
 = Transformation Modèle à Modèle
 == SimplePDL vers PetriNet
@@ -54,20 +57,22 @@ Principe de la transformation d'un modèle de processus en réseau de Petri:
 
 - Un élément `Process` devient un élément `PetriNet`
 
-- Une `WorkDefinition` devient 4 places `ready` (avec 1 jeton), `started`, `running` et `finished` et deux transitions `start` et `finish`
+- Une `WorkDefinition` devient 4 places `ready` (avec 1 jeton), `started`, `running` et `finished` et
+  deux transitions `start` et `finish`
 
-- Une `WorkSequence` devient un read-arc entre une place de l’activité précédente (`started` ou `finished`) et une transition de l’activité cible (`start` ou `finish`)
+- Une `WorkSequence` devient un read-arc entre une place de l’activité précédente
+  (`started` ou `finished`) et une transition de l’activité cible (`start` ou `finish`)
 
 Transformation des ressources :
 
-- Une `Resource` devient une place dont le nombre de jetons est égal au nombre de ressources initialement disponibles
+- Une `Resource` devient une place dont le nombre de jetons est égal au nombre de
+  ressources initialement disponibles
 
-- Une `ResourceUsage` devient deux arcs avec pour poids le nombre de ressources demandé :
+- Une `ResourceUsage` devient deux arcs avec pour poids le nombre de ressources
+  demandé :
   - De la place représentant la `Resource` utilisée à la transition `start` de la `WorkDefinition`
   - De la transition `finish` de la `WorkDefinition` à la place représentant la `Resource` utilisée
-  
 
-  
 Lors de la transformations, on traite les `ProcessElement` dans cet ordre :
 + `Process`
 + `Resource`
@@ -76,19 +81,14 @@ Lors de la transformations, on traite les `ProcessElement` dans cet ordre :
 + `WorkSequence`
 
 #figure(
-  image("assets/pdl-exemple-place-ressource.svg"),
-  caption: [Entrée : modèle de processus simple avec une ressource]
-  
-  
+  image("assets/pdl-exemple-place-ressource.svg"), caption: [Entrée : modèle de processus simple avec une ressource],
 )
 #figure(
-    image("assets/petrinet-exemple-place-ressource.svg"),
-  caption: [Sortie : réseau de Petri résultant (les read-arc sont affichés à l'envers)]
-    
+  image("assets/petrinet-exemple-place-ressource.svg"), caption: [Sortie : réseau de Petri résultant (les read-arc sont affichés à l'envers)],
 )
 
-
-On distingue aisément les différents sous-réseaux de Petri associés aux `WorkDefinition` ainsi que la `Ressource` et les arcs qui la relient au sous-réseau associé à _Programmer_
+On distingue aisément les différents sous-réseaux de Petri associés aux `WorkDefinition` ainsi
+que la `Ressource` et les arcs qui la relient au sous-réseau associé à _Programmer_
 
 // Java et EMF nous permettent d'obtenir des structures arborescentes de nos
 // modèles.

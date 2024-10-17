@@ -6,38 +6,46 @@ import junit.framework.TestSuite;
 import junit.textui.TestRunner;
 
 /**
+ *
  * <!-- begin-user-doc -->
  * A test suite for the '<em><b>SimplePDL</b></em>' model.
  * <!-- end-user-doc -->
+ *
  * @generated
  */
 public class SimplePDLAllTests extends TestSuite {
 
   /**
-	 * <!-- begin-user-doc -->
+   *
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   *
+   * @generated
+   */
   public static void main(String[] args) {
-		TestRunner.run(suite());
-	}
+    TestRunner.run(suite());
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   *
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   *
+   * @generated
+   */
   public static Test suite() {
-		TestSuite suite = new SimplePDLAllTests("SimplePDL Tests");
-		return suite;
-	}
+    TestSuite suite = new SimplePDLAllTests("SimplePDL Tests");
+    return suite;
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   *
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   *
+   * @generated
+   */
   public SimplePDLAllTests(String name) {
-		super(name);
-	}
+    super(name);
+  }
 } // SimplePDLAllTests
