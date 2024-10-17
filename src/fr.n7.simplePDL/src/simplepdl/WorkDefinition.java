@@ -4,18 +4,18 @@ package simplepdl;
 import org.eclipse.emf.common.util.EList;
 
 /**
- *
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Work Definition</b></em>'.
  * <!-- end-user-doc -->
  *
- * <p>The following features are supported:
- *
+ * <p>
+ * The following features are supported:
+ * </p>
  * <ul>
- *   <li>{@link simplepdl.WorkDefinition#getLinksToPredecessors <em>Links To Predecessors</em>}
- *   <li>{@link simplepdl.WorkDefinition#getLinksToSuccessors <em>Links To Successors</em>}
- *   <li>{@link simplepdl.WorkDefinition#getName <em>Name</em>}
- *   <li>{@link simplepdl.WorkDefinition#getResourceUsed <em>Resource Used</em>}
+ *   <li>{@link simplepdl.WorkDefinition#getLinksToPredecessors <em>Links To Predecessors</em>}</li>
+ *   <li>{@link simplepdl.WorkDefinition#getLinksToSuccessors <em>Links To Successors</em>}</li>
+ *   <li>{@link simplepdl.WorkDefinition#getName <em>Name</em>}</li>
+ *   <li>{@link simplepdl.WorkDefinition#getResourceUsed <em>Resource Used</em>}</li>
  * </ul>
  *
  * @see simplepdl.SimplepdlPackage#getWorkDefinition()
@@ -24,71 +24,66 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface WorkDefinition extends ProcessElement {
   /**
-   * Returns the value of the '<em><b>Links To Predecessors</b></em>' reference list. The list
-   * contents are of type {@link simplepdl.WorkSequence}. It is bidirectional and its opposite is
-   * '{@link simplepdl.WorkSequence#getSuccessor <em>Successor</em>}'.
-   * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Links To Predecessors</b></em>' reference list.
+	 * The list contents are of type {@link simplepdl.WorkSequence}.
+	 * It is bidirectional and its opposite is '{@link simplepdl.WorkSequence#getSuccessor <em>Successor</em>}'.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   *
-   * @return the value of the '<em>Links To Predecessors</em>' reference list.
-   * @see simplepdl.SimplepdlPackage#getWorkDefinition_LinksToPredecessors()
-   * @see simplepdl.WorkSequence#getSuccessor
-   * @model opposite="successor"
-   * @generated
-   */
+	 * @return the value of the '<em>Links To Predecessors</em>' reference list.
+	 * @see simplepdl.SimplepdlPackage#getWorkDefinition_LinksToPredecessors()
+	 * @see simplepdl.WorkSequence#getSuccessor
+	 * @model opposite="successor"
+	 * @generated
+	 */
   EList<WorkSequence> getLinksToPredecessors();
 
   /**
-   * Returns the value of the '<em><b>Links To Successors</b></em>' reference list. The list
-   * contents are of type {@link simplepdl.WorkSequence}. It is bidirectional and its opposite is
-   * '{@link simplepdl.WorkSequence#getPredecessor <em>Predecessor</em>}'.
-   * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Links To Successors</b></em>' reference list.
+	 * The list contents are of type {@link simplepdl.WorkSequence}.
+	 * It is bidirectional and its opposite is '{@link simplepdl.WorkSequence#getPredecessor <em>Predecessor</em>}'.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   *
-   * @return the value of the '<em>Links To Successors</em>' reference list.
-   * @see simplepdl.SimplepdlPackage#getWorkDefinition_LinksToSuccessors()
-   * @see simplepdl.WorkSequence#getPredecessor
-   * @model opposite="predecessor"
-   * @generated
-   */
+	 * @return the value of the '<em>Links To Successors</em>' reference list.
+	 * @see simplepdl.SimplepdlPackage#getWorkDefinition_LinksToSuccessors()
+	 * @see simplepdl.WorkSequence#getPredecessor
+	 * @model opposite="predecessor"
+	 * @generated
+	 */
   EList<WorkSequence> getLinksToSuccessors();
 
   /**
-   * Returns the value of the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   *
-   * @return the value of the '<em>Name</em>' attribute.
-   * @see #setName(String)
-   * @see simplepdl.SimplepdlPackage#getWorkDefinition_Name()
-   * @model required="true"
-   * @generated
-   */
+	 * @return the value of the '<em>Name</em>' attribute.
+	 * @see #setName(String)
+	 * @see simplepdl.SimplepdlPackage#getWorkDefinition_Name()
+	 * @model required="true"
+	 * @generated
+	 */
   String getName();
 
   /**
-   * Sets the value of the '{@link simplepdl.WorkDefinition#getName <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link simplepdl.WorkDefinition#getName <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   *
-   * @param value the new value of the '<em>Name</em>' attribute.
-   * @see #getName()
-   * @generated
-   */
+	 * @param value the new value of the '<em>Name</em>' attribute.
+	 * @see #getName()
+	 * @generated
+	 */
   void setName(String value);
 
   /**
-   * Returns the value of the '<em><b>Resource Used</b></em>' reference list. The list contents are
-   * of type {@link simplepdl.ResourceUsage}. It is bidirectional and its opposite is '{@link
-   * simplepdl.ResourceUsage#getLinkToWorkDefinition <em>Link To Work Definition</em>}'.
-   * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Resource Used</b></em>' reference list.
+	 * The list contents are of type {@link simplepdl.ResourceUsage}.
+	 * It is bidirectional and its opposite is '{@link simplepdl.ResourceUsage#getLinkToWorkDefinition <em>Link To Work Definition</em>}'.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   *
-   * @return the value of the '<em>Resource Used</em>' reference list.
-   * @see simplepdl.SimplepdlPackage#getWorkDefinition_ResourceUsed()
-   * @see simplepdl.ResourceUsage#getLinkToWorkDefinition
-   * @model opposite="linkToWorkDefinition"
-   * @generated
-   */
+	 * @return the value of the '<em>Resource Used</em>' reference list.
+	 * @see simplepdl.SimplepdlPackage#getWorkDefinition_ResourceUsed()
+	 * @see simplepdl.ResourceUsage#getLinkToWorkDefinition
+	 * @model opposite="linkToWorkDefinition"
+	 * @generated
+	 */
   EList<ResourceUsage> getResourceUsed();
 } // WorkDefinition

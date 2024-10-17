@@ -41,7 +41,6 @@
     <genClasses ecoreClass="SimplePDL.ecore#//ResourceUsage">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimplePDL.ecore#//ResourceUsage/need"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SimplePDL.ecore#//ResourceUsage/resource"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimplePDL.ecore#//ResourceUsage/name"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SimplePDL.ecore#//ResourceUsage/linkToWorkDefinition"/>
     </genClasses>
   </genPackages>
