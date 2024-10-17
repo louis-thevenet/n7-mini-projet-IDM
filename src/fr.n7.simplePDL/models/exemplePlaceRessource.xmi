@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ASCII"?>
+<petriNet:PetriNet xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:petriNet="http://petrinet" name="exemplePlaceRessource">
+  <netElements xsi:type="petriNet:Place" tokens="5" arcs="//@netElements.1 //@netElements.2" name="Ordinateurs"/>
+  <netElements xsi:type="petriNet:Arc" weight="2" linkToPlace="//@netElements.0" linkToTransition="//@netElements.10" Name="Programmer_start_to_Ordinateurs"/>
+  <netElements xsi:type="petriNet:Arc" weight="2" linkDirection="transitionToPlace" linkToPlace="//@netElements.0" linkToTransition="//@netElements.11" Name="Programmer_finish_to_Ordinateurs"/>
+  <netElements xsi:type="petriNet:Place" tokens="1" arcs="//@netElements.7" name="Programmer_ready"/>
+  <netElements xsi:type="petriNet:Place" arcs="//@netElements.9" name="Programmer_started"/>
+  <netElements xsi:type="petriNet:Place" arcs="//@netElements.8 //@netElements.12" name="Programmer_running"/>
+  <netElements xsi:type="petriNet:Place" arcs="//@netElements.13" name="Programmer_finished"/>
+  <netElements xsi:type="petriNet:Arc" linkToPlace="//@netElements.3" linkToTransition="//@netElements.10" Name="Programmer_ready_to_start"/>
+  <netElements xsi:type="petriNet:Arc" linkDirection="transitionToPlace" linkToPlace="//@netElements.5" linkToTransition="//@netElements.10" Name="Programmer_start_to_running"/>
+  <netElements xsi:type="petriNet:Arc" linkDirection="transitionToPlace" linkToPlace="//@netElements.4" linkToTransition="//@netElements.10" Name="Programmer_start_to_started"/>
+  <netElements xsi:type="petriNet:Transition" arcs="//@netElements.7 //@netElements.8 //@netElements.9 //@netElements.1" name="Programmer_start"/>
+  <netElements xsi:type="petriNet:Transition" arcs="//@netElements.12 //@netElements.13 //@netElements.2 //@netElements.25" name="Programmer_finish"/>
+  <netElements xsi:type="petriNet:Arc" linkToPlace="//@netElements.5" linkToTransition="//@netElements.11" Name="Programmer_running_to_finish"/>
+  <netElements xsi:type="petriNet:Arc" linkDirection="transitionToPlace" linkToPlace="//@netElements.6" linkToTransition="//@netElements.11" Name="Programmer_finish_to_finished"/>
+  <netElements xsi:type="petriNet:Place" tokens="1" arcs="//@netElements.18" name="Concevoir_ready"/>
+  <netElements xsi:type="petriNet:Place" arcs="//@netElements.20" name="Concevoir_started"/>
+  <netElements xsi:type="petriNet:Place" arcs="//@netElements.19 //@netElements.23" name="Concevoir_running"/>
+  <netElements xsi:type="petriNet:Place" arcs="//@netElements.24 //@netElements.25" name="Concevoir_finished"/>
+  <netElements xsi:type="petriNet:Arc" linkToPlace="//@netElements.14" linkToTransition="//@netElements.21" Name="Concevoir_ready_to_start"/>
+  <netElements xsi:type="petriNet:Arc" linkDirection="transitionToPlace" linkToPlace="//@netElements.16" linkToTransition="//@netElements.21" Name="Concevoir_start_to_running"/>
+  <netElements xsi:type="petriNet:Arc" linkDirection="transitionToPlace" linkToPlace="//@netElements.15" linkToTransition="//@netElements.21" Name="Concevoir_start_to_started"/>
+  <netElements xsi:type="petriNet:Transition" arcs="//@netElements.18 //@netElements.19 //@netElements.20" name="Concevoir_start"/>
+  <netElements xsi:type="petriNet:Transition" arcs="//@netElements.23 //@netElements.24" name="Concevoir_finish"/>
+  <netElements xsi:type="petriNet:Arc" linkToPlace="//@netElements.16" linkToTransition="//@netElements.22" Name="Concevoir_running_to_finish"/>
+  <netElements xsi:type="petriNet:Arc" linkDirection="transitionToPlace" linkToPlace="//@netElements.17" linkToTransition="//@netElements.22" Name="Concevoir_finish_to_finished"/>
+  <netElements xsi:type="petriNet:Arc" arcType="readArc" linkToPlace="//@netElements.17" linkToTransition="//@netElements.11" Name="ConcevoirToProgrammer"/>
+</petriNet:PetriNet>
