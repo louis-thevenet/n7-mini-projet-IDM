@@ -2,10 +2,12 @@
 digraph exemplePlaceRessource {
 label=exemplePlaceRessource
 
-  
-				Ordinateurs5 -> Programmer [arrowhead=diamond label=2]
 
-				Concevoir -> Programmer [arrowhead=vee label=finishToFinish]
+Ordinateurs [shape=diamond] [xlabel=5];
+
+				Ordinateurs -> Programmer [arrowhead=diamond label=2];
+
+				Concevoir -> Programmer [arrowhead=vee label=finishToFinish];
 
 	  
 
