@@ -122,6 +122,7 @@
       name="Programmation_started"/>
   <netElements
       xsi:type="petriNet:Place"
+      tokens="-5"
       arcs="//@netElements.27 //@netElements.31"
       name="Programmation_running"/>
   <netElements
@@ -219,6 +220,7 @@
       name="RedactionDoc_finish_to_finished"/>
   <netElements
       xsi:type="petriNet:Arc"
+      weight="-5"
       arcType="readArc"
       linkToPlace="//@netElements.14"
       linkToTransition="//@netElements.41"
@@ -232,6 +234,7 @@
   <netElements
       xsi:type="petriNet:Arc"
       arcType="readArc"
+      linkDirection="transitionToPlace"
       linkToPlace="//@netElements.14"
       linkToTransition="//@netElements.29"
       name="ConceptionToProgrammation"/>
@@ -244,6 +247,7 @@
   <netElements
       xsi:type="petriNet:Arc"
       arcType="readArc"
+      linkDirection="transitionToPlace"
       linkToPlace="//@netElements.25"
       linkToTransition="//@netElements.8"
       name="ProgrammationToRedactiontests"/>
