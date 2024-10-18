@@ -3,6 +3,7 @@
 	<name>fr.n7.simplepdl.samples</name>
 	<comment></comment>
 	<projects>
+		<project>fr.n7.simplePDL</project>
 	</projects>
 	<buildSpec>
 	</buildSpec>
