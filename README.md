@@ -1,17 +1,13 @@
 # Projet IDM
 #n7
 ## A faire
-- [X] Dans PetriNet2Dot:
-  ajouter le nombre de jetons d'une place dans le node
-  regénérer l'exemple simple dans le rapport
 - [ ] Renommer les projets qui ont pas la convention `fr.n7.___` 
   Vérifier ce que les TPs  disaient
 ## Vendredi 18
 - [ ] Générer les livrables
-  - [ ] Tout vérifier avant mais j'ai déjà fait pas mal de corrections sur les ECORE
-- [ ] Continuer le rapport (le finir même)
-- [ ] Faire la transfo `PetriNet` -> `LTL`
-
+  - [ ] Faire la transfo simplePDLToPetri avec ATL
+  - [ ] Faire l'éditeur graphique simplePDL
+  - [ ] Faire la transfo `PetriNet` -> `LTL`
 
 ## Livrables
 
@@ -25,12 +21,12 @@
   Il est bien sûr conseillé de le rédiger au fur et à mesure de vos avancées. N’attendez pas la fin.
 
   - [ ] Métamodèles 16/10/2024 #n7
-    - [ ] `SimplePDL.ecore`, `SimplePDL.aird` et `SimplePDL.png`
-    - [ ] `PetriNet.ecore`, `PetriNet.aird` et `PetriNet.png`
+    - [X] `SimplePDL.ecore`, `SimplePDL.aird` et `SimplePDL.png`
+    - [X] `PetriNet.ecore`, `PetriNet.aird` et `PetriNet.png`
 
     - [ ] `SimplePDL`
       - [ ] Le code Java qui implante la sémantique statique de `SimplePDL`
-        - [ ] Peut-être trouver de nouvelles contraintes sur les ressources avant de faire le rendu
+        - [X] Peut-être trouver de nouvelles contraintes sur les ressources avant de faire le rendu
       - [ ] des exemples de modèles `SimplePDL` sans erreur (pdl*) ou avec (ko-pdl*).
         Il doit y avoir en particulier `pdl-sujet.xmi` ou `pdl-sujet.simplepdl` qui correspond à l’exemple du sujet du projet
 
