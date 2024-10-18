@@ -4,6 +4,14 @@
 - [ ] Dans PetriNet2Dot:
   ajouter le nombre de jetons d'une place dans le node
   regénérer l'exemple simple dans le rapport
+- [ ] Renommer les projets qui ont pas la convention `fr.n7.___` 
+  Vérifier ce que les TPs  disaient
+## Vendredi 18
+- [ ] Générer les livrables
+  - [ ] Tout vérifier avant mais j'ai déjà fait pas mal de corrections sur les ECORE
+- [ ] Continuer le rapport (le finir même)
+- [ ] Faire la transfo `PetriNet` -> `LTL`
+
 
 ## Livrables
 
