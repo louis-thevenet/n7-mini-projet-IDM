@@ -1,0 +1,14 @@
+[comment encoding = UTF-8 /]
+[module ToLTL('http://simplepdl')]
+
+
+[template public toLTL(aProcess : Process)]
+[comment @main/]
+[file (aProcess.name+'.ltl', false, 'UTF-8')]
+[let pes : OrderedSet(WorkSequence) = aProcess.processElements ] 
+	[if (pes->size() > 0)]
+<> ['[]'/] ([for (pe : ProcessElement | pes)][if (pe.oclIsKindOf(WorkDefinition))][let wd: WorkDefinition = pe.oclAsType(WorkDefinition)][wd.name + '_finished '/][/let] /\ [/if][/for] T);
+[/if]
+[/let]
+[/file]
+[/template]
