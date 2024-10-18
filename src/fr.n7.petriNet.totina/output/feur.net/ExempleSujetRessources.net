@@ -1,0 +1,33 @@
+
+net ExempleSujetRessources
+pl concepteur (3)
+pl developpeur (2)
+pl machine (4)
+pl redacteur (1)
+pl testeur (2)
+pl Redactiontests_ready (1)
+pl Redactiontests_started (0)
+pl Redactiontests_running (0)
+pl Redactiontests_finished (0)
+pl Conception_ready (1)
+pl Conception_started (0)
+pl Conception_running (0)
+pl Conception_finished (0)
+pl Programmation_ready (1)
+pl Programmation_started (0)
+pl Programmation_running (0)
+pl Programmation_finished (0)
+pl RedactionDoc_ready (1)
+pl RedactionDoc_started (0)
+pl RedactionDoc_running (0)
+pl RedactionDoc_finished (0)
+tr Redactiontests_start  Redactiontests_ready*1 machine*2 testeur*1 Conception_started*1 -> Redactiontests_running*1 Redactiontests_started*1 Conception_started*1 
+tr Redactiontests_finish  Redactiontests_running*1 Programmation_finished*1 -> Redactiontests_finished*1 machine*2 testeur*1 Programmation_finished*1 
+tr Conception_start  Conception_ready*1 concepteur*2 machine*2 -> Conception_running*1 Conception_started*1 
+tr Conception_finish  Conception_running*1 -> Conception_finished*1 concepteur*2 machine*2 
+tr Programmation_start  Programmation_ready*1 developpeur*2 machine*3 Conception_finished*1 -> Programmation_running*1 Programmation_started*1 Conception_finished*1 
+tr Programmation_finish  Programmation_running*1 -> Programmation_finished*1 developpeur*2 machine*3 
+tr RedactionDoc_start  RedactionDoc_ready*1 machine*1 redacteur*1 Conception_started*1 -> RedactionDoc_running*1 RedactionDoc_started*1 Conception_started*1 
+tr RedactionDoc_finish  RedactionDoc_running*1 Conception_finished*1 -> RedactionDoc_finished*1 machine*1 redacteur*1 Conception_finished*1 
+
+

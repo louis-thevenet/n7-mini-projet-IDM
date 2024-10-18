@@ -25,15 +25,15 @@ public class SimplePDL2PetriNet {
     m.put("xmi", new XMIResourceFactoryImpl());
 
     // CrÃ©er un objet resourceSetImpl qui contiendra une ressource EMF (notre
-    // modÃ¨le)
+    // modèle)
     ResourceSet resSet = new ResourceSetImpl();
 
-    // Charger la ressource (notre modÃ¨le)
+    // Charger la ressource (notre modèle)
     URI modelURI = URI.createURI(modelPath);
     System.out.println(modelPath);
     org.eclipse.emf.ecore.resource.Resource resource = resSet.getResource(modelURI, true);
 
-    // RÃ©cupÃ©rer le premier Ã©lÃ©ment du modÃ¨le (Ã©lÃ©ment racine)
+    // Récupérer le premier élément du modèle (élément racine)
     return (Process) resource.getContents().get(0);
   }
 
@@ -65,7 +65,7 @@ public class SimplePDL2PetriNet {
     return create_arc(name, place, transition, arcType, linkDirection, 1);
   }
 
-  // La fabrique pour fabriquer les Ã©lÃ©ments de PetriNet
+  // La fabrique pour fabriquer les éléments de PetriNet
   static PetriNetFactory petriNetFactory = PetriNetFactory.eINSTANCE;
 
   public static void main(String... args) {
@@ -74,31 +74,35 @@ public class SimplePDL2PetriNet {
     SimplepdlPackage simplePDLPackageInstance = SimplepdlPackage.eINSTANCE;
 
     // ******************
-    // Load Process from args
+    // Load Process model from args
     // ******************
     Process process = load_process_model(args[0]);
 
-    // ******************
-    // Create new PetriNet
-    // ******************
-
+    
+    // ************************
+    // Create new EMF Resource
+    // ************************
     org.eclipse.emf.ecore.resource.Resource.Factory.Registry reg =
         org.eclipse.emf.ecore.resource.Resource.Factory.Registry.INSTANCE;
     Map<String, Object> m = reg.getExtensionToFactoryMap();
     m.put("xmi", new XMIResourceFactoryImpl());
 
-    // CrÃ©er un objet resourceSetImpl qui contiendra une ressource EMF (notre
-    // modÃ¨le)
     ResourceSet resSet = new ResourceSetImpl();
-    // DÃ©finir la ressource (le modÃ¨le)
+    // Définir la ressource (le modèle)
     URI modelURI = URI.createURI("models/" + process.getName() + ".xmi");
     org.eclipse.emf.ecore.resource.Resource resource = resSet.createResource(modelURI);
 
+    // ******************
+    // Create new PetriNet
+    // ******************
     PetriNet net = petriNetFactory.createPetriNet();
     resource.getContents().add(net);
 
     net.setName(process.getName());
 
+    // ******************
+    // Transform Resource
+    // ******************
     for (Object o : process.getProcessElements()) {
       if (o instanceof Resource) {
         Resource rs = (Resource) o;
@@ -111,6 +115,9 @@ public class SimplePDL2PetriNet {
       }
     }
 
+    // ************************
+    // Transform WorkDefinition
+    // ************************
     for (Object o : process.getProcessElements()) {
       if (o instanceof WorkDefinition) {
         WorkDefinition wd = (WorkDefinition) o;
@@ -173,7 +180,12 @@ public class SimplePDL2PetriNet {
                 ArcType.ARC,
                 LinkDirection.TRANSITION_TO_PLACE);
 
+
+        // ************************************************
+        // Transform ResourceUsage of this WorkDefinition
+        // ************************************************
         for (ResourceUsage rs_usage : wd.getResourceUsed()) {
+        	// Look for the actual Resource 
           for (Object netObject : net.getNetElements()) {
 
             if (netObject instanceof Place
@@ -181,6 +193,7 @@ public class SimplePDL2PetriNet {
 
               Place rs_pl = (Place) netObject;
 
+              // Link needed Resource to WorkDefinition
               Arc rsToStartArc =
                   create_arc(
                       wd.getName() + "_start_to_" + rs_usage.getResource().getName(),
@@ -224,10 +237,15 @@ public class SimplePDL2PetriNet {
       }
     }
 
+
+    // ***************************
+    // Transform WorkWorkSequence
+    // ***************************
     for (Object processObject : process.getProcessElements()) {
       if (processObject instanceof WorkSequence) {
         WorkSequence ws = (WorkSequence) processObject;
 
+        // Compute predecessor's name to link it
         String pred = ws.getPredecessor().getName();
         String predNameMatch = "";
         if (ws.getLinkType().getValue() == WorkSequenceType.START_TO_FINISH_VALUE
@@ -238,6 +256,7 @@ public class SimplePDL2PetriNet {
         }
         ;
 
+        // Compute successor's name to link it
         String next = ws.getSuccessor().getName();
         String nextNameMatch = "";
         if (ws.getLinkType().getValue() == WorkSequenceType.START_TO_FINISH_VALUE
@@ -246,30 +265,26 @@ public class SimplePDL2PetriNet {
         } else {
           nextNameMatch = next + "_start";
         }
-
-        // System.out.println("Searching for (pl, tr): (" + predNameMatch + ", " + nextNameMatch
-        // +")");
-
+        
+        // Create the read-arc
         Arc arc = petriNetFactory.createArc();
         arc.setArcType(ArcType.READ_ARC);
         arc.setLinkDirection(LinkDirection.PLACE_TO_TRANSITION);
         arc.setName(pred + "To" + next);
+        
+        // Look for predecessor and successor
         for (Object netObject : net.getNetElements()) {
           if (netObject instanceof Place) {
             Place place = (Place) netObject;
-            // System.out.println("Looking at pl : " + place.getName());
 
             if (place.getName().contentEquals(predNameMatch)) {
-              // System.out.println("Found it");
               arc.setLinkToPlace(place);
             }
           }
           if (netObject instanceof Transition) {
             Transition transition = (Transition) netObject;
-            // System.out.println("Looking at tr : " + transition.getName());
 
             if (transition.getName().contentEquals(nextNameMatch)) {
-              // System.out.println("Found it");
               arc.setLinkToTransition(transition);
             }
           }
