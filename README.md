@@ -6,8 +6,10 @@
 ## Vendredi 18
 - [ ] Générer les livrables
   - [X] Faire la transfo simplePDLToPetri avec ATL
-  - [ ] Faire l'éditeur graphique simplePDL
+  - [X] Faire l'éditeur graphique simplePDL
   - [ ] Faire la transfo `PetriNet` -> `LTL`
+    - [X] Terminaison
+    - [ ] Invariant
 
 ## Livrables
 
@@ -20,7 +22,7 @@
   Il est le point d’entrée sur le travail fait. Ne pas le négliger !
   Il est bien sûr conseillé de le rédiger au fur et à mesure de vos avancées. N’attendez pas la fin.
 
-  - [ ] Métamodèles 16/10/2024 #n7
+  - [X] Métamodèles 16/10/2024 #n7
     - [X] `SimplePDL.ecore`, `SimplePDL.aird` et `SimplePDL.png`
     - [X] `PetriNet.ecore`, `PetriNet.aird` et `PetriNet.png`
 
@@ -34,17 +36,17 @@
     - [X] Code Java de la sémantique statique de `PetriNet`, exemples de modèles avec et sans erreur (même nommage que `SimplePDL`)
     - [X] `SimplePDL2PetriNet.java`
 
-  - [ ] 04/10/2024 #n7
-    - [ ] `PetriNet2Tina.mtl` : la transformation de modèles `PetriNet` dans la syntaxe concrète de Tina (.net),
-    - [ ] `pdl-sujet.net` : le résultat de la transformation appliquée sur l’exemple du sujet,
-    - [ ] `simplePDL.odesign` : le fichier de définition de l’éditeur graphique pour `SimplePDL`,
-    - [ ] `simplePDL-editor.png` : l’exportation d’un modèle de processus saisi avec l’éditeur graphique (il doit démontrer les possibilités de l’éditeur proposé en terme de visualisation d’un modèle de processus).
-  - [ ] `Xtext` 15/10/2024 #n7
-    - `SimplePDL.xtext` qui définit la syntaxe textuelle pour `SimplePDL`. Attention, ce doit être une syntaxe facile à utiliser pour une personne devant définir un processus. Le principe est de compléter l’une des syntaxes concrètes fournies. En aucun cas il faut se contenter de faire engendrer une syntaxe à `Xtext`!
-    - `SimplePDL2PetriNet.atl` : transformation de `SimplePDL` en `PetriNet`,
-  - [ ]  18/10/2024 #n7
-    - `SimplePDL-finish.mtl` : transformation M2T qui engendre les propriétés LTL qui vérifient la terminaison d’un processus. Voir le transparent 117 et suivants du cours IDM (voir Ressources ci-dessous).
-    - `SimplePDL-invariants.mtl` : transformation M2T qui engendre les propriétés LTL pour valider la correction de la transformation (T11) des modèles de processus vers les réseaux de Petri.
+  - [X] 04/10/2024 #n7
+    - [X] `PetriNet2Tina.mtl` : la transformation de modèles `PetriNet` dans la syntaxe concrète de Tina (.net),
+    - [X] `pdl-sujet.net` : le résultat de la transformation appliquée sur l’exemple du sujet,
+    - [X] `simplePDL.odesign` : le fichier de définition de l’éditeur graphique pour `SimplePDL`,
+    - [X] `simplePDL-editor.png` : l’exportation d’un modèle de processus saisi avec l’éditeur graphique (il doit démontrer les possibilités de l’éditeur proposé en terme de visualisation d’un modèle de processus).
+  - [X] `Xtext` 15/10/2024 #n7
+    - [X] `SimplePDL.xtext` qui définit la syntaxe textuelle pour `SimplePDL`. Attention, ce doit être une syntaxe facile à utiliser pour une personne devant définir un processus. Le principe est de compléter l’une des syntaxes concrètes fournies. En aucun cas il faut se contenter de faire engendrer une syntaxe à `Xtext`!
+    - [X] `SimplePDL2PetriNet.atl` : transformation de `SimplePDL` en `PetriNet`,
+  - [ ] LTL  18/10/2024 #n7
+    - [X] `SimplePDL-finish.mtl` : transformation M2T qui engendre les propriétés LTL qui vérifient la terminaison d’un processus. Voir le transparent 117 et suivants du cours IDM (voir Ressources ci-dessous).
+    - [ ] `SimplePDL-invariants.mtl` : transformation M2T qui engendre les propriétés LTL pour valider la correction de la transformation (T11) des modèles de processus vers les réseaux de Petri.
 
 
 ## Documents à rendre
