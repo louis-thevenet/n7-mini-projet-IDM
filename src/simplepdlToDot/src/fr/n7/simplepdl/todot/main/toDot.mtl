@@ -11,17 +11,25 @@ label=[aProcess.name/]
 
 [let pes : OrderedSet(WorkSequence) = aProcess.processElements ] 
 	[if (pes->size() > 0)]
-  
+
+[for (pe : ProcessElement | pes)]
+	[if (pe.oclIsKindOf(Resource))]
+		[let rs: Resource = pe.oclAsType(Resource)]
+[rs.name/] ['['/]shape=diamond[']'/] ['['/]xlabel=[rs.total/][']'/];
+		[/let]
+	[/if]
+[/for]  
+
 	[for (pe : ProcessElement | pes)]
 		[if (pe.oclIsKindOf(WorkSequence))]
 			[let ws: WorkSequence = pe.oclAsType(WorkSequence)]
-				[ws.predecessor.name/] -> [ws.successor.name/] ['['/]arrowhead=vee label=[ws.linkType/][']'/]
+				[ws.predecessor.name/] -> [ws.successor.name/] ['['/]arrowhead=vee label=[ws.linkType/][']'/];
 			[/let]
 
 		[/if]
 		[if (pe.oclIsKindOf(ResourceUsage))]
 			[let ru: ResourceUsage = pe.oclAsType(ResourceUsage)]
-				[ru.resource.name +ru.resource.total/] -> [ru.linkToWorkDefinition.name/] ['['/]arrowhead=diamond label=[ru.need/][']'/]
+				[ru.resource.name/] -> [ru.linkToWorkDefinition.name/] ['['/]arrowhead=diamond label=[ru.need/][']'/];
 			[/let]
 
 		[/if]
