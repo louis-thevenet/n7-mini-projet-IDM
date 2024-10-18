@@ -52,6 +52,19 @@
     - `SimplePDL-invariants.mtl` : transformation M2T qui engendre les propriétés LTL pour valider la correction de la transformation (T11) des modèles de processus vers les réseaux de Petri.
 
 
+## Documents à rendre
+- D1 Les métamodèles SimplePDL et PetriNet (ainsi que des images de ces métamodèles).
+- D2 Les fichiers Java des contraintes associées à ces métamodèles, avec des exemples (et contreexemples) qui montrent la pertinence de ces contraintes.
+- D3 Le code Java de la transformation modèle à modèle.
+- D4 Le code ATL de la transformation modèle à modèle.
+- D5 Le code Acceleo des transformations modèle à texte.
+- D6 Les modèles Sirius décrivant l’éditeur graphique pour SimplePDL.
+- D7 Le modèle Xtext décrivant la syntaxe concrète textuelle de SimplePDL.
+- D8 Des exemples de modèles de processus (en expliquant leur intérêt).
+- D9 Un document concis (rapport) qui explique le travail réalisé. Attention, c’est ce document
+qui servira de point d’entrée pour lire les éléments rendus.
+
+
 ## Liens utiles
 - [Sujet du projet](http://xc4ens.free.fr/ens/2024-2sn-gls/CONTENU/IDM/gls-idm-2sn-2024-mp-01-sujet.pdf)
 - [Livrables]([http://xc4ens.free.fr/ens/2024-2sn-gls/gls-2sn-2024-deroulement-corrige017.html)
