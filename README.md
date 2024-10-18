@@ -2,10 +2,10 @@
 #n7
 ## A faire
 - [ ] Renommer les projets qui ont pas la convention `fr.n7.___` 
-  Vérifier ce que les TPs  disaient
+  Vérifier ce que les TPs disaient
 ## Vendredi 18
 - [ ] Générer les livrables
-  - [ ] Faire la transfo simplePDLToPetri avec ATL
+  - [X] Faire la transfo simplePDLToPetri avec ATL
   - [ ] Faire l'éditeur graphique simplePDL
   - [ ] Faire la transfo `PetriNet` -> `LTL`
 
@@ -24,16 +24,15 @@
     - [X] `SimplePDL.ecore`, `SimplePDL.aird` et `SimplePDL.png`
     - [X] `PetriNet.ecore`, `PetriNet.aird` et `PetriNet.png`
 
-    - [ ] `SimplePDL`
-      - [ ] Le code Java qui implante la sémantique statique de `SimplePDL`
+    - [X] `SimplePDL`
+      - [X] Le code Java qui implante la sémantique statique de `SimplePDL`
         - [X] Peut-être trouver de nouvelles contraintes sur les ressources avant de faire le rendu
-      - [ ] des exemples de modèles `SimplePDL` sans erreur (pdl*) ou avec (ko-pdl*).
+      - [X] des exemples de modèles `SimplePDL` sans erreur (pdl*) ou avec (ko-pdl*).
         Il doit y avoir en particulier `pdl-sujet.xmi` ou `pdl-sujet.simplepdl` qui correspond à l’exemple du sujet du projet
 
-  - [ ] `PetriNet` 01/10/2024 #n7
-    - [ ] Code Java de la sémantique statique de `PetriNet`, exemples de modèles avec et sans erreur (même nommage que `SimplePDL`)
-    - [ ] `SimplePDL2PetriNet.java`
-    - [X] Renommer `ProcessToPetri`
+  - [X] `PetriNet` 01/10/2024 #n7
+    - [X] Code Java de la sémantique statique de `PetriNet`, exemples de modèles avec et sans erreur (même nommage que `SimplePDL`)
+    - [X] `SimplePDL2PetriNet.java`
 
   - [ ] 04/10/2024 #n7
     - [ ] `PetriNet2Tina.mtl` : la transformation de modèles `PetriNet` dans la syntaxe concrète de Tina (.net),

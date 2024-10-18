@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<simplepdl:Process
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:simplepdl="http://simplepdl"
+    name="ExempleSujetRessources">
+  <processElements
+      xsi:type="simplepdl:WorkDefinition"
+      linksToPredecessors="//@processElements.7 //@processElements.8"
+      name="Redactiontests"
+      resourceUsed="//@processElements.20 //@processElements.21"/>
+  <processElements
+      xsi:type="simplepdl:WorkDefinition"
+      linksToSuccessors="//@processElements.4 //@processElements.5 //@processElements.6 //@processElements.7"
+      name="Conception"
+      resourceUsed="//@processElements.14 //@processElements.15"/>
+  <processElements
+      xsi:type="simplepdl:WorkDefinition"
+      linksToPredecessors="//@processElements.6 //@processElements.22"
+      linksToSuccessors="//@processElements.8 //@processElements.22"
+      name="Programmation"
+      resourceUsed="//@processElements.18 //@processElements.19"/>
+  <processElements
+      xsi:type="simplepdl:WorkDefinition"
+      linksToPredecessors="//@processElements.4 //@processElements.5"
+      name="RedactionDoc"
+      resourceUsed="//@processElements.16 //@processElements.17"/>
+  <processElements
+      xsi:type="simplepdl:WorkSequence"
+      linkType="finishToFinish"
+      predecessor="//@processElements.1"
+      successor="//@processElements.3"/>
+  <processElements
+      xsi:type="simplepdl:WorkSequence"
+      predecessor="//@processElements.1"
+      successor="//@processElements.3"/>
+  <processElements
+      xsi:type="simplepdl:WorkSequence"
+      linkType="finishToStart"
+      predecessor="//@processElements.1"
+      successor="//@processElements.2"/>
+  <processElements
+      xsi:type="simplepdl:WorkSequence"
+      predecessor="//@processElements.1"
+      successor="//@processElements.0"/>
+  <processElements
+      xsi:type="simplepdl:WorkSequence"
+      linkType="finishToFinish"
+      predecessor="//@processElements.2"
+      successor="//@processElements.0"/>
+  <processElements
+      xsi:type="simplepdl:Resource"
+      name="concepteur"
+      total="3"/>
+  <processElements
+      xsi:type="simplepdl:Resource"
+      name="developpeur"
+      total="2"/>
+  <processElements
+      xsi:type="simplepdl:Resource"
+      name="machine"
+      total="4"/>
+  <processElements
+      xsi:type="simplepdl:Resource"
+      name="redacteur"/>
+  <processElements
+      xsi:type="simplepdl:Resource"
+      name="testeur"
+      total="2"/>
+  <processElements
+      xsi:type="simplepdl:ResourceUsage"
+      resource="//@processElements.9"
+      linkToWorkDefinition="//@processElements.1"/>
+  <processElements
+      xsi:type="simplepdl:ResourceUsage"
+      need="2"
+      resource="//@processElements.11"
+      linkToWorkDefinition="//@processElements.1"/>
+  <processElements
+      xsi:type="simplepdl:ResourceUsage"
+      need="1"
+      resource="//@processElements.11"
+      linkToWorkDefinition="//@processElements.3"/>
+  <processElements
+      xsi:type="simplepdl:ResourceUsage"
+      need="1"
+      resource="//@processElements.12"
+      linkToWorkDefinition="//@processElements.3"/>
+  <processElements
+      xsi:type="simplepdl:ResourceUsage"
+      need="2"
+      resource="//@processElements.10"
+      linkToWorkDefinition="//@processElements.2"/>
+  <processElements
+      xsi:type="simplepdl:ResourceUsage"
+      need="3"
+      resource="//@processElements.11"
+      linkToWorkDefinition="//@processElements.2"/>
+  <processElements
+      xsi:type="simplepdl:ResourceUsage"
+      need="2"
+      resource="//@processElements.11"
+      linkToWorkDefinition="//@processElements.0"/>
+  <processElements
+      xsi:type="simplepdl:ResourceUsage"
+      need="1"
+      resource="//@processElements.13"
+      linkToWorkDefinition="//@processElements.0"/>
+  <processElements
+      xsi:type="simplepdl:WorkSequence"
+      predecessor="//@processElements.2"
+      successor="//@processElements.2"/>
+</simplepdl:Process>
