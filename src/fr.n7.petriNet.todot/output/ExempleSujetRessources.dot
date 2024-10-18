@@ -1,45 +1,76 @@
 digraph ExempleSujetRessources {
+label=ExempleSujetRessources
 
-machine -> Redactiontests_start [arrowhead=vee label=2]
-Redactiontests_finish -> machine [arrowhead=vee label=2]
-testeur -> Redactiontests_start [arrowhead=vee label=1]
-Redactiontests_finish -> testeur [arrowhead=vee label=1]
-Redactiontests_ready -> Redactiontests_start [arrowhead=vee label=1]
-Redactiontests_start -> Redactiontests_running [arrowhead=vee label=1]
-Redactiontests_start -> Redactiontests_started [arrowhead=vee label=1]
-Redactiontests_running -> Redactiontests_finish [arrowhead=vee label=1]
-Redactiontests_finish -> Redactiontests_finished [arrowhead=vee label=1]
-concepteur -> Conception_start [arrowhead=vee label=2]
-Conception_finish -> concepteur [arrowhead=vee label=2]
-machine -> Conception_start [arrowhead=vee label=2]
-Conception_finish -> machine [arrowhead=vee label=2]
-Conception_ready -> Conception_start [arrowhead=vee label=1]
-Conception_start -> Conception_running [arrowhead=vee label=1]
-Conception_start -> Conception_started [arrowhead=vee label=1]
-Conception_running -> Conception_finish [arrowhead=vee label=1]
-Conception_finish -> Conception_finished [arrowhead=vee label=1]
-developpeur -> Programmation_start [arrowhead=vee label=2]
-Programmation_finish -> developpeur [arrowhead=vee label=2]
-machine -> Programmation_start [arrowhead=vee label=3]
-Programmation_finish -> machine [arrowhead=vee label=3]
-Programmation_ready -> Programmation_start [arrowhead=vee label=1]
-Programmation_start -> Programmation_running [arrowhead=vee label=1]
-Programmation_start -> Programmation_started [arrowhead=vee label=1]
-Programmation_running -> Programmation_finish [arrowhead=vee label=1]
-Programmation_finish -> Programmation_finished [arrowhead=vee label=1]
-machine -> RedactionDoc_start [arrowhead=vee label=1]
-RedactionDoc_finish -> machine [arrowhead=vee label=1]
-redacteur -> RedactionDoc_start [arrowhead=vee label=1]
-RedactionDoc_finish -> redacteur [arrowhead=vee label=1]
-RedactionDoc_ready -> RedactionDoc_start [arrowhead=vee label=1]
-RedactionDoc_start -> RedactionDoc_running [arrowhead=vee label=1]
-RedactionDoc_start -> RedactionDoc_started [arrowhead=vee label=1]
-RedactionDoc_running -> RedactionDoc_finish [arrowhead=vee label=1]
-RedactionDoc_finish -> RedactionDoc_finished [arrowhead=vee label=1]
-Conception_finished -> RedactionDoc_finish [arrowhead=dot label=1]
-Conception_started -> RedactionDoc_start [arrowhead=dot label=1]
-Conception_finished -> Programmation_start [arrowhead=dot label=1]
-Conception_started -> Redactiontests_start [arrowhead=dot label=1]
-Programmation_finished -> Redactiontests_finish [arrowhead=dot label=1]
+concepteur [xlabel=3];
+developpeur [xlabel=2];
+machine [xlabel=4];
+redacteur [xlabel=1];
+testeur [xlabel=2];
+Redactiontests_ready [xlabel=1];
+Redactiontests_started ;
+Redactiontests_running ;
+Redactiontests_finished ;
+Redactiontests_start [shape=rectangle];
+Redactiontests_finish [shape=rectangle];
+Conception_ready [xlabel=1];
+Conception_started ;
+Conception_running ;
+Conception_finished ;
+Conception_start [shape=rectangle];
+Conception_finish [shape=rectangle];
+Programmation_ready [xlabel=1];
+Programmation_started ;
+Programmation_running ;
+Programmation_finished ;
+Programmation_start [shape=rectangle];
+Programmation_finish [shape=rectangle];
+RedactionDoc_ready [xlabel=1];
+RedactionDoc_started ;
+RedactionDoc_running ;
+RedactionDoc_finished ;
+RedactionDoc_start [shape=rectangle];
+RedactionDoc_finish [shape=rectangle];
+
+machine -> Redactiontests_start  [arrowhead=vee]  [label=2];
+Redactiontests_finish -> machine  [arrowhead=vee]  [label=2];
+testeur -> Redactiontests_start  [arrowhead=vee]  [label=1];
+Redactiontests_finish -> testeur  [arrowhead=vee]  [label=1];
+Redactiontests_ready -> Redactiontests_start  [arrowhead=vee]  [label=1];
+Redactiontests_start -> Redactiontests_running  [arrowhead=vee]  [label=1];
+Redactiontests_start -> Redactiontests_started  [arrowhead=vee]  [label=1];
+Redactiontests_running -> Redactiontests_finish  [arrowhead=vee]  [label=1];
+Redactiontests_finish -> Redactiontests_finished  [arrowhead=vee]  [label=1];
+concepteur -> Conception_start  [arrowhead=vee]  [label=2];
+Conception_finish -> concepteur  [arrowhead=vee]  [label=2];
+machine -> Conception_start  [arrowhead=vee]  [label=2];
+Conception_finish -> machine  [arrowhead=vee]  [label=2];
+Conception_ready -> Conception_start  [arrowhead=vee]  [label=1];
+Conception_start -> Conception_running  [arrowhead=vee]  [label=1];
+Conception_start -> Conception_started  [arrowhead=vee]  [label=1];
+Conception_running -> Conception_finish  [arrowhead=vee]  [label=1];
+Conception_finish -> Conception_finished  [arrowhead=vee]  [label=1];
+developpeur -> Programmation_start  [arrowhead=vee]  [label=2];
+Programmation_finish -> developpeur  [arrowhead=vee]  [label=2];
+machine -> Programmation_start  [arrowhead=vee]  [label=3];
+Programmation_finish -> machine  [arrowhead=vee]  [label=3];
+Programmation_ready -> Programmation_start  [arrowhead=vee]  [label=1];
+Programmation_start -> Programmation_running  [arrowhead=vee]  [label=1];
+Programmation_start -> Programmation_started  [arrowhead=vee]  [label=1];
+Programmation_running -> Programmation_finish  [arrowhead=vee]  [label=1];
+Programmation_finish -> Programmation_finished  [arrowhead=vee]  [label=1];
+machine -> RedactionDoc_start  [arrowhead=vee]  [label=1];
+RedactionDoc_finish -> machine  [arrowhead=vee]  [label=1];
+redacteur -> RedactionDoc_start  [arrowhead=vee]  [label=1];
+RedactionDoc_finish -> redacteur  [arrowhead=vee]  [label=1];
+RedactionDoc_ready -> RedactionDoc_start  [arrowhead=vee]  [label=1];
+RedactionDoc_start -> RedactionDoc_running  [arrowhead=vee]  [label=1];
+RedactionDoc_start -> RedactionDoc_started  [arrowhead=vee]  [label=1];
+RedactionDoc_running -> RedactionDoc_finish  [arrowhead=vee]  [label=1];
+RedactionDoc_finish -> RedactionDoc_finished  [arrowhead=vee]  [label=1];
+Conception_finished -> RedactionDoc_finish [dir=back] [arrowtail=dot]  [label=1];
+Conception_started -> RedactionDoc_start [dir=back] [arrowtail=dot]  [label=1];
+Conception_finished -> Programmation_start [dir=back] [arrowtail=dot]  [label=1];
+Conception_started -> Redactiontests_start [dir=back] [arrowtail=dot]  [label=1];
+Programmation_finished -> Redactiontests_finish [dir=back] [arrowtail=dot]  [label=1];
 
 }
