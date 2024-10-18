@@ -88,55 +88,47 @@
       process="/"
       need="2"
       resource="//@processElements.9"
-      name="Conception_concepteurs"
       linkToWorkDefinition="//@processElements.1"/>
   <processElements
       xsi:type="simplepdl:ResourceUsage"
       process="/"
       need="2"
       resource="//@processElements.11"
-      name="Conception_machines"
       linkToWorkDefinition="//@processElements.1"/>
   <processElements
       xsi:type="simplepdl:ResourceUsage"
       process="/"
       need="1"
       resource="//@processElements.11"
-      name="RédactionDoc_machine"
       linkToWorkDefinition="//@processElements.3"/>
   <processElements
       xsi:type="simplepdl:ResourceUsage"
       process="/"
       need="1"
       resource="//@processElements.12"
-      name="RedactionDoc_redacteur"
       linkToWorkDefinition="//@processElements.3"/>
   <processElements
       xsi:type="simplepdl:ResourceUsage"
       process="/"
       need="2"
       resource="//@processElements.10"
-      name="Programmation_developpeur"
       linkToWorkDefinition="//@processElements.2"/>
   <processElements
       xsi:type="simplepdl:ResourceUsage"
       process="/"
       need="3"
       resource="//@processElements.11"
-      name="Programmation_machine"
       linkToWorkDefinition="//@processElements.2"/>
   <processElements
       xsi:type="simplepdl:ResourceUsage"
       process="/"
       need="2"
       resource="//@processElements.11"
-      name="RedactionTests_machine"
       linkToWorkDefinition="//@processElements.0"/>
   <processElements
       xsi:type="simplepdl:ResourceUsage"
       process="/"
       need="1"
       resource="//@processElements.13"
-      name="RedactionTests_testeur"
       linkToWorkDefinition="//@processElements.0"/>
 </simplepdl:Process>
