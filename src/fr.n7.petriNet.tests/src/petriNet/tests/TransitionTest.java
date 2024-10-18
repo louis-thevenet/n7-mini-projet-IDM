@@ -6,72 +6,62 @@ import petriNet.PetriNetFactory;
 import petriNet.Transition;
 
 /**
- *
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Transition</b></em>'.
  * <!-- end-user-doc -->
- *
  * @generated
  */
 public class TransitionTest extends NetElementTest {
 
   /**
-   *
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   *
-   * @generated
-   */
+	 * @generated
+	 */
   public static void main(String[] args) {
-    TestRunner.run(TransitionTest.class);
-  }
+		TestRunner.run(TransitionTest.class);
+	}
 
   /**
-   * Constructs a new Transition test case with the given name.
-   * <!-- begin-user-doc -->
+	 * Constructs a new Transition test case with the given name.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   *
-   * @generated
-   */
+	 * @generated
+	 */
   public TransitionTest(String name) {
-    super(name);
-  }
+		super(name);
+	}
 
   /**
-   * Returns the fixture for this Transition test case.
-   * <!-- begin-user-doc -->
+	 * Returns the fixture for this Transition test case.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   *
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   protected Transition getFixture() {
-    return (Transition) fixture;
-  }
+		return (Transition)fixture;
+	}
 
   /**
-   *
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   *
-   * @see junit.framework.TestCase#setUp()
-   * @generated
-   */
+	 * @see junit.framework.TestCase#setUp()
+	 * @generated
+	 */
   @Override
   protected void setUp() throws Exception {
-    setFixture(PetriNetFactory.eINSTANCE.createTransition());
-  }
+		setFixture(PetriNetFactory.eINSTANCE.createTransition());
+	}
 
   /**
-   *
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   *
-   * @see junit.framework.TestCase#tearDown()
-   * @generated
-   */
+	 * @see junit.framework.TestCase#tearDown()
+	 * @generated
+	 */
   @Override
   protected void tearDown() throws Exception {
-    setFixture(null);
-  }
+		setFixture(null);
+	}
 } // TransitionTest

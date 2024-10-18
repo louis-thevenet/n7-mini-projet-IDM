@@ -30,7 +30,7 @@
         eOpposite="#//Place/arcs"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="linkToTransition" eType="#//Transition"
         eOpposite="#//Transition/arcs"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="LinkDirection">
     <eLiterals name="placeToTransition" literal="placeToTransition"/>

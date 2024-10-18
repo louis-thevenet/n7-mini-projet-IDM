@@ -1,0 +1,51 @@
+-- @path SimplePDL=/fr.n7.simplePDL/SimplePDL.ecore
+-- @path PetriNet=/fr.n7.petriNet/PetriNet.ecore
+
+module simplePDLToPetriNet;
+create petriNet : PetriNet from simplePDL : SimplePDL;
+
+rule Process2PetriNet {
+	from process : SimplePDL!Process
+	to bundle : PetriNet!PetriNet(name <- process.name, netElements <-process.processElements)
+}
+
+rule WD2NetElement {
+from wd : SimplePDL!WorkDefinition
+	to 
+	ready : PetriNet!Place(name <- wd.name + '_ready', tokens <- 1),
+	started : PetriNet!Place(name <- wd.name + '_started'),
+	running : PetriNet!Place(name <- wd.name + '_running'),
+	finished : PetriNet!Place(name <- wd.name + '_finished'),
+	
+	start : PetriNet!Transition(name <- wd.name + '_start'),
+	finish : PetriNet!Transition(name <- wd.name + '_finish'),
+	
+	readyToStart : PetriNet!Arc(name <- wd.name + '_ready_to_start',linkToPlace <- ready, linkToTransition <- start, arcType <- #arc, linkDirection <- #placeToTransition),
+	startToRunning : PetriNet!Arc(name <- wd.name + '_start_to_running', linkToPlace <- running, linkToTransition <- start, arcType <- #arc, linkDirection <- #transitionToPlace), 
+	startToStarted : PetriNet!Arc(name <- wd.name + '_start_to_started', linkToPlace <- started, linkToTransition <- start, arcType <- #arc, linkDirection <- #transitionToPlace),
+    runningToFinish : PetriNet!Arc(name <- wd.name + '_running_to_sinish', linkToPlace <- running, linkToTransition <- finish, arcType <- #arc, linkDirection <- #placeToTransition),
+	finishToFinished : PetriNet!Arc(name <- wd.name + '_finish_to_finished', linkToPlace <- finished, linkToTransition <- finish, arcType <- #arc, linkDirection <- #transitionToPlace)
+}
+
+rule WS2Requirement {
+from ws : SimplePDL!WorkSequence
+to req : PetriNet!Arc(
+	name <- ws.predecessor.name+'_to_'+ws.successor.name,
+	arcType <- #readArc,
+	linkDirection <- #placeToTransition,
+	
+	linkToPlace <- thisModule.resolveTemp(ws.predecessor, ws.predecessor.name + (if ws.linkType = #startToStart or ws.linkType = #startToFinish then
+			'_started'
+		else
+			'_finished'
+		endif)
+	),
+	linkToTransition <- thisModule.resolveTemp(ws.successor,ws.successor.name +  (if ws.linkType = #startToStart or ws.linkType = #finishToStart then
+			'_start'
+		else
+			'_finish'
+		endif)
+	)
+)
+
+}

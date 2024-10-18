@@ -6,46 +6,38 @@ import junit.framework.TestSuite;
 import junit.textui.TestRunner;
 
 /**
- *
  * <!-- begin-user-doc -->
  * A test suite for the '<em><b>PetriNet</b></em>' model.
  * <!-- end-user-doc -->
- *
  * @generated
  */
 public class PetriNetAllTests extends TestSuite {
 
   /**
-   *
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   *
-   * @generated
-   */
+	 * @generated
+	 */
   public static void main(String[] args) {
-    TestRunner.run(suite());
-  }
+		TestRunner.run(suite());
+	}
 
   /**
-   *
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   *
-   * @generated
-   */
+	 * @generated
+	 */
   public static Test suite() {
-    TestSuite suite = new PetriNetAllTests("PetriNet Tests");
-    return suite;
-  }
+		TestSuite suite = new PetriNetAllTests("PetriNet Tests");
+		return suite;
+	}
 
   /**
-   *
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   *
-   * @generated
-   */
+	 * @generated
+	 */
   public PetriNetAllTests(String name) {
-    super(name);
-  }
+		super(name);
+	}
 } // PetriNetAllTests

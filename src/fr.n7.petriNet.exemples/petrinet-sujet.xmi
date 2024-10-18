@@ -1,52 +1,52 @@
 <?xml version="1.0" encoding="ASCII"?>
-<petriNet:PetriNet xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:petriNet="http://petrinet" Name="ExempleSujet">
-  <netElements xsi:type="petriNet:Place" tokens="1" arcs="//@netElements.4" Name="Redactiontests_ready"/>
-  <netElements xsi:type="petriNet:Place" arcs="//@netElements.6" Name="Redactiontests_started"/>
-  <netElements xsi:type="petriNet:Place" arcs="//@netElements.5 //@netElements.9" Name="Redactiontests_running"/>
-  <netElements xsi:type="petriNet:Place" arcs="//@netElements.10" Name="Redactiontests_finished"/>
-  <netElements xsi:type="petriNet:Arc" linkToPlace="//@netElements.0" linkToTransition="//@netElements.7" Name="Redactiontests_ready_to_start"/>
-  <netElements xsi:type="petriNet:Arc" linkDirection="transitionToPlace" linkToPlace="//@netElements.2" linkToTransition="//@netElements.7" Name="Redactiontests_start_to_running"/>
-  <netElements xsi:type="petriNet:Arc" linkDirection="transitionToPlace" linkToPlace="//@netElements.1" linkToTransition="//@netElements.7" Name="Redactiontests_start_to_started"/>
-  <netElements xsi:type="petriNet:Transition" arcs="//@netElements.4 //@netElements.5 //@netElements.6 //@netElements.47" Name="Redactiontests_start"/>
-  <netElements xsi:type="petriNet:Transition" arcs="//@netElements.9 //@netElements.10 //@netElements.48" Name="Redactiontests_finish"/>
-  <netElements xsi:type="petriNet:Arc" linkToPlace="//@netElements.2" linkToTransition="//@netElements.8" Name="Redactiontests_running_to_finish"/>
-  <netElements xsi:type="petriNet:Arc" linkDirection="transitionToPlace" linkToPlace="//@netElements.3" linkToTransition="//@netElements.8" Name="Redactiontests_finish_to_finished"/>
-  <netElements xsi:type="petriNet:Place" tokens="1" arcs="//@netElements.15" Name="Conception_ready"/>
-  <netElements xsi:type="petriNet:Place" arcs="//@netElements.17 //@netElements.45 //@netElements.47" Name="Conception_started"/>
-  <netElements xsi:type="petriNet:Place" arcs="//@netElements.16 //@netElements.20" Name="Conception_running"/>
-  <netElements xsi:type="petriNet:Place" arcs="//@netElements.21 //@netElements.44 //@netElements.46" Name="Conception_finished"/>
-  <netElements xsi:type="petriNet:Arc" linkToPlace="//@netElements.11" linkToTransition="//@netElements.18" Name="Conception_ready_to_start"/>
-  <netElements xsi:type="petriNet:Arc" linkDirection="transitionToPlace" linkToPlace="//@netElements.13" linkToTransition="//@netElements.18" Name="Conception_start_to_running"/>
-  <netElements xsi:type="petriNet:Arc" linkDirection="transitionToPlace" linkToPlace="//@netElements.12" linkToTransition="//@netElements.18" Name="Conception_start_to_started"/>
-  <netElements xsi:type="petriNet:Transition" arcs="//@netElements.15 //@netElements.16 //@netElements.17" Name="Conception_start"/>
-  <netElements xsi:type="petriNet:Transition" arcs="//@netElements.20 //@netElements.21" Name="Conception_finish"/>
-  <netElements xsi:type="petriNet:Arc" linkToPlace="//@netElements.13" linkToTransition="//@netElements.19" Name="Conception_running_to_finish"/>
-  <netElements xsi:type="petriNet:Arc" linkDirection="transitionToPlace" linkToPlace="//@netElements.14" linkToTransition="//@netElements.19" Name="Conception_finish_to_finished"/>
-  <netElements xsi:type="petriNet:Place" tokens="1" arcs="//@netElements.26" Name="Programmation_ready"/>
-  <netElements xsi:type="petriNet:Place" arcs="//@netElements.28" Name="Programmation_started"/>
-  <netElements xsi:type="petriNet:Place" arcs="//@netElements.27 //@netElements.31" Name="Programmation_running"/>
-  <netElements xsi:type="petriNet:Place" arcs="//@netElements.32 //@netElements.48" Name="Programmation_finished"/>
-  <netElements xsi:type="petriNet:Arc" linkToPlace="//@netElements.22" linkToTransition="//@netElements.29" Name="Programmation_ready_to_start"/>
-  <netElements xsi:type="petriNet:Arc" linkDirection="transitionToPlace" linkToPlace="//@netElements.24" linkToTransition="//@netElements.29" Name="Programmation_start_to_running"/>
-  <netElements xsi:type="petriNet:Arc" linkDirection="transitionToPlace" linkToPlace="//@netElements.23" linkToTransition="//@netElements.29" Name="Programmation_start_to_started"/>
-  <netElements xsi:type="petriNet:Transition" arcs="//@netElements.26 //@netElements.27 //@netElements.28 //@netElements.46" Name="Programmation_start"/>
-  <netElements xsi:type="petriNet:Transition" arcs="//@netElements.31 //@netElements.32" Name="Programmation_finish"/>
-  <netElements xsi:type="petriNet:Arc" linkToPlace="//@netElements.24" linkToTransition="//@netElements.30" Name="Programmation_running_to_finish"/>
-  <netElements xsi:type="petriNet:Arc" linkDirection="transitionToPlace" linkToPlace="//@netElements.25" linkToTransition="//@netElements.30" Name="Programmation_finish_to_finished"/>
-  <netElements xsi:type="petriNet:Place" tokens="1" arcs="//@netElements.37" Name="RedactionDoc_ready"/>
-  <netElements xsi:type="petriNet:Place" arcs="//@netElements.39" Name="RedactionDoc_started"/>
-  <netElements xsi:type="petriNet:Place" arcs="//@netElements.38 //@netElements.42" Name="RedactionDoc_running"/>
-  <netElements xsi:type="petriNet:Place" arcs="//@netElements.43" Name="RedactionDoc_finished"/>
-  <netElements xsi:type="petriNet:Arc" linkToPlace="//@netElements.33" linkToTransition="//@netElements.40" Name="RedactionDoc_ready_to_start"/>
-  <netElements xsi:type="petriNet:Arc" linkDirection="transitionToPlace" linkToPlace="//@netElements.35" linkToTransition="//@netElements.40" Name="RedactionDoc_start_to_running"/>
-  <netElements xsi:type="petriNet:Arc" linkDirection="transitionToPlace" linkToPlace="//@netElements.34" linkToTransition="//@netElements.40" Name="RedactionDoc_start_to_started"/>
-  <netElements xsi:type="petriNet:Transition" arcs="//@netElements.37 //@netElements.38 //@netElements.39 //@netElements.45" Name="RedactionDoc_start"/>
-  <netElements xsi:type="petriNet:Transition" arcs="//@netElements.42 //@netElements.43 //@netElements.44" Name="RedactionDoc_finish"/>
-  <netElements xsi:type="petriNet:Arc" linkToPlace="//@netElements.35" linkToTransition="//@netElements.41" Name="RedactionDoc_running_to_finish"/>
-  <netElements xsi:type="petriNet:Arc" linkDirection="transitionToPlace" linkToPlace="//@netElements.36" linkToTransition="//@netElements.41" Name="RedactionDoc_finish_to_finished"/>
-  <netElements xsi:type="petriNet:Arc" arcType="readArc" linkToPlace="//@netElements.14" linkToTransition="//@netElements.41" Name="ConceptionToRedactionDoc"/>
-  <netElements xsi:type="petriNet:Arc" arcType="readArc" linkToPlace="//@netElements.12" linkToTransition="//@netElements.40" Name="ConceptionToRedactionDoc"/>
-  <netElements xsi:type="petriNet:Arc" arcType="readArc" linkToPlace="//@netElements.14" linkToTransition="//@netElements.29" Name="ConceptionToProgrammation"/>
-  <netElements xsi:type="petriNet:Arc" arcType="readArc" linkToPlace="//@netElements.12" linkToTransition="//@netElements.7" Name="ConceptionToRedactiontests"/>
-  <netElements xsi:type="petriNet:Arc" arcType="readArc" linkToPlace="//@netElements.25" linkToTransition="//@netElements.8" Name="ProgrammationToRedactiontests"/>
+<petriNet:PetriNet xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:petriNet="http://petrinet" name="ExempleSujet">
+  <netElements xsi:type="petriNet:Place" tokens="1" arcs="//@netElements.4" name="Redactiontests_ready"/>
+  <netElements xsi:type="petriNet:Place" arcs="//@netElements.6" name="Redactiontests_started"/>
+  <netElements xsi:type="petriNet:Place" arcs="//@netElements.5 //@netElements.9" name="Redactiontests_running"/>
+  <netElements xsi:type="petriNet:Place" arcs="//@netElements.10" name="Redactiontests_finished"/>
+  <netElements xsi:type="petriNet:Arc" linkToPlace="//@netElements.0" linkToTransition="//@netElements.7" name="Redactiontests_ready_to_start"/>
+  <netElements xsi:type="petriNet:Arc" linkDirection="transitionToPlace" linkToPlace="//@netElements.2" linkToTransition="//@netElements.7" name="Redactiontests_start_to_running"/>
+  <netElements xsi:type="petriNet:Arc" linkDirection="transitionToPlace" linkToPlace="//@netElements.1" linkToTransition="//@netElements.7" name="Redactiontests_start_to_started"/>
+  <netElements xsi:type="petriNet:Transition" arcs="//@netElements.4 //@netElements.5 //@netElements.6 //@netElements.47" name="Redactiontests_start"/>
+  <netElements xsi:type="petriNet:Transition" arcs="//@netElements.9 //@netElements.10 //@netElements.48" name="Redactiontests_finish"/>
+  <netElements xsi:type="petriNet:Arc" linkToPlace="//@netElements.2" linkToTransition="//@netElements.8" name="Redactiontests_running_to_finish"/>
+  <netElements xsi:type="petriNet:Arc" linkDirection="transitionToPlace" linkToPlace="//@netElements.3" linkToTransition="//@netElements.8" name="Redactiontests_finish_to_finished"/>
+  <netElements xsi:type="petriNet:Place" tokens="1" arcs="//@netElements.15" name="Conception_ready"/>
+  <netElements xsi:type="petriNet:Place" arcs="//@netElements.17 //@netElements.45 //@netElements.47" name="Conception_started"/>
+  <netElements xsi:type="petriNet:Place" arcs="//@netElements.16 //@netElements.20" name="Conception_running"/>
+  <netElements xsi:type="petriNet:Place" arcs="//@netElements.21 //@netElements.44 //@netElements.46" name="Conception_finished"/>
+  <netElements xsi:type="petriNet:Arc" linkToPlace="//@netElements.11" linkToTransition="//@netElements.18" name="Conception_ready_to_start"/>
+  <netElements xsi:type="petriNet:Arc" linkDirection="transitionToPlace" linkToPlace="//@netElements.13" linkToTransition="//@netElements.18" name="Conception_start_to_running"/>
+  <netElements xsi:type="petriNet:Arc" linkDirection="transitionToPlace" linkToPlace="//@netElements.12" linkToTransition="//@netElements.18" name="Conception_start_to_started"/>
+  <netElements xsi:type="petriNet:Transition" arcs="//@netElements.15 //@netElements.16 //@netElements.17" name="Conception_start"/>
+  <netElements xsi:type="petriNet:Transition" arcs="//@netElements.20 //@netElements.21" name="Conception_finish"/>
+  <netElements xsi:type="petriNet:Arc" linkToPlace="//@netElements.13" linkToTransition="//@netElements.19" name="Conception_running_to_finish"/>
+  <netElements xsi:type="petriNet:Arc" linkDirection="transitionToPlace" linkToPlace="//@netElements.14" linkToTransition="//@netElements.19" name="Conception_finish_to_finished"/>
+  <netElements xsi:type="petriNet:Place" tokens="1" arcs="//@netElements.26" name="Programmation_ready"/>
+  <netElements xsi:type="petriNet:Place" arcs="//@netElements.28" name="Programmation_started"/>
+  <netElements xsi:type="petriNet:Place" arcs="//@netElements.27 //@netElements.31" name="Programmation_running"/>
+  <netElements xsi:type="petriNet:Place" arcs="//@netElements.32 //@netElements.48" name="Programmation_finished"/>
+  <netElements xsi:type="petriNet:Arc" linkToPlace="//@netElements.22" linkToTransition="//@netElements.29" name="Programmation_ready_to_start"/>
+  <netElements xsi:type="petriNet:Arc" linkDirection="transitionToPlace" linkToPlace="//@netElements.24" linkToTransition="//@netElements.29" name="Programmation_start_to_running"/>
+  <netElements xsi:type="petriNet:Arc" linkDirection="transitionToPlace" linkToPlace="//@netElements.23" linkToTransition="//@netElements.29" name="Programmation_start_to_started"/>
+  <netElements xsi:type="petriNet:Transition" arcs="//@netElements.26 //@netElements.27 //@netElements.28 //@netElements.46" name="Programmation_start"/>
+  <netElements xsi:type="petriNet:Transition" arcs="//@netElements.31 //@netElements.32" name="Programmation_finish"/>
+  <netElements xsi:type="petriNet:Arc" linkToPlace="//@netElements.24" linkToTransition="//@netElements.30" name="Programmation_running_to_finish"/>
+  <netElements xsi:type="petriNet:Arc" linkDirection="transitionToPlace" linkToPlace="//@netElements.25" linkToTransition="//@netElements.30" name="Programmation_finish_to_finished"/>
+  <netElements xsi:type="petriNet:Place" tokens="1" arcs="//@netElements.37" name="RedactionDoc_ready"/>
+  <netElements xsi:type="petriNet:Place" arcs="//@netElements.39" name="RedactionDoc_started"/>
+  <netElements xsi:type="petriNet:Place" arcs="//@netElements.38 //@netElements.42" name="RedactionDoc_running"/>
+  <netElements xsi:type="petriNet:Place" arcs="//@netElements.43" name="RedactionDoc_finished"/>
+  <netElements xsi:type="petriNet:Arc" linkToPlace="//@netElements.33" linkToTransition="//@netElements.40" name="RedactionDoc_ready_to_start"/>
+  <netElements xsi:type="petriNet:Arc" linkDirection="transitionToPlace" linkToPlace="//@netElements.35" linkToTransition="//@netElements.40" name="RedactionDoc_start_to_running"/>
+  <netElements xsi:type="petriNet:Arc" linkDirection="transitionToPlace" linkToPlace="//@netElements.34" linkToTransition="//@netElements.40" name="RedactionDoc_start_to_started"/>
+  <netElements xsi:type="petriNet:Transition" arcs="//@netElements.37 //@netElements.38 //@netElements.39 //@netElements.45" name="RedactionDoc_start"/>
+  <netElements xsi:type="petriNet:Transition" arcs="//@netElements.42 //@netElements.43 //@netElements.44" name="RedactionDoc_finish"/>
+  <netElements xsi:type="petriNet:Arc" linkToPlace="//@netElements.35" linkToTransition="//@netElements.41" name="RedactionDoc_running_to_finish"/>
+  <netElements xsi:type="petriNet:Arc" linkDirection="transitionToPlace" linkToPlace="//@netElements.36" linkToTransition="//@netElements.41" name="RedactionDoc_finish_to_finished"/>
+  <netElements xsi:type="petriNet:Arc" arcType="readArc" linkToPlace="//@netElements.14" linkToTransition="//@netElements.41" name="ConceptionToRedactionDoc"/>
+  <netElements xsi:type="petriNet:Arc" arcType="readArc" linkToPlace="//@netElements.12" linkToTransition="//@netElements.40" name="ConceptionToRedactionDoc"/>
+  <netElements xsi:type="petriNet:Arc" arcType="readArc" linkToPlace="//@netElements.14" linkToTransition="//@netElements.29" name="ConceptionToProgrammation"/>
+  <netElements xsi:type="petriNet:Arc" arcType="readArc" linkToPlace="//@netElements.12" linkToTransition="//@netElements.7" name="ConceptionToRedactiontests"/>
+  <netElements xsi:type="petriNet:Arc" arcType="readArc" linkToPlace="//@netElements.25" linkToTransition="//@netElements.8" name="ProgrammationToRedactiontests"/>
 </petriNet:PetriNet>
