@@ -24,7 +24,7 @@ label=[aPetriNet.name/]
 	[if (elt.oclIsKindOf(Arc))]
 		[let arc:Arc = elt.oclAsType(Arc)]
 			[if (arc.linkDirection = LinkDirection::placeToTransition)]
-[arc.linkToPlace.name/] -> [arc.linkToTransition.name/][else][arc.linkToTransition.name/] -> [ arc.linkToPlace.name/][/if] [if (arc.arcType = ArcType::readArc)] ['[dir=back]'/] ['['/]arrowtail=dot] [else] [' ['/]arrowhead=vee] [/if] [if (arc.weight>1)]['['/]label=[arc.weight/]][/if];
+[arc.linkToPlace.name/] -> [arc.linkToTransition.name/][else][arc.linkToTransition.name/] -> [ arc.linkToPlace.name/][/if] [if (arc.arcType = ArcType::readArc)] ['[dir=forward]'/] ['['/]arrowhead=dot] [else] [' ['/]arrowhead=vee] [/if] [if (arc.weight>1)]['['/]label=[arc.weight/]][/if];
 		[/let]
 	[/if]
 [/for]
