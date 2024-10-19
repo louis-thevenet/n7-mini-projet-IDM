@@ -1,0 +1,32 @@
+digraph exemplePlaceRessource {
+label=exemplePlaceRessource
+
+Ordinateurs [xlabel=5];
+Programmer_ready [xlabel=1];
+Programmer_started ;
+Programmer_running ;
+Programmer_finished ;
+Programmer_start [shape=rectangle];
+Programmer_finish [shape=rectangle];
+Concevoir_ready [xlabel=1];
+Concevoir_started ;
+Concevoir_running ;
+Concevoir_finished ;
+Concevoir_start [shape=rectangle];
+Concevoir_finish [shape=rectangle];
+
+Ordinateurs -> Programmer_start  [arrowhead=vee]  [label=2];
+Programmer_finish -> Ordinateurs  [arrowhead=vee]  [label=2];
+Programmer_ready -> Programmer_start  [arrowhead=vee]  [label=1];
+Programmer_start -> Programmer_running  [arrowhead=vee]  [label=1];
+Programmer_start -> Programmer_started  [arrowhead=vee]  [label=1];
+Programmer_running -> Programmer_finish  [arrowhead=vee]  [label=1];
+Programmer_finish -> Programmer_finished  [arrowhead=vee]  [label=1];
+Concevoir_ready -> Concevoir_start  [arrowhead=vee]  [label=1];
+Concevoir_start -> Concevoir_running  [arrowhead=vee]  [label=1];
+Concevoir_start -> Concevoir_started  [arrowhead=vee]  [label=1];
+Concevoir_running -> Concevoir_finish  [arrowhead=vee]  [label=1];
+Concevoir_finish -> Concevoir_finished  [arrowhead=vee]  [label=1];
+Concevoir_finished -> Programmer_finish [dir=back] [arrowtail=dot]  [label=1];
+
+}
