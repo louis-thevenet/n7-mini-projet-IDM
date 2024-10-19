@@ -7,7 +7,7 @@
 = Méta-Modèles
 == SimplePDL
 #figure(
-  image("assets/SimplePDL.svg", height: 50%, width: 115%, fit: "stretch"), caption: [Méta-Modèle de SimplePDL],
+  image("../livrables/SimplePDL.svg", height: 50%, width: 115%, fit: "stretch"), caption: [Méta-Modèle de SimplePDL],
 )
 
 A partir du méta-modèle fourni, nous avons rajouté l'utilisation des ressources.
@@ -26,7 +26,7 @@ Ici mettre des exemples
 == PetriNet
 
 #figure(
-  image("assets/PetriNet.svg", height: 50%, width: 115%, fit: "stretch"), caption: [Méta-Modèle de PetriNet],
+  image("../livrables/PetriNet.svg", height: 50%, width: 115%, fit: "stretch"), caption: [Méta-Modèle de PetriNet],
 )
 
 Un `PetriNet` est constitué de `NetElement`. Ces éléments sont les `EClass` `Place`, `Transition` et `Arc`.
@@ -51,14 +51,12 @@ deux `Place`.
 
 = Transformation Modèle à Modèle
 == SimplePDL vers PetriNet
-=== Java/EMF
-
 Principe de la transformation d'un modèle de processus en réseau de Petri:
 
 - Un élément `Process` devient un élément `PetriNet`
 
 - Une `WorkDefinition` devient 4 places `ready` (avec 1 jeton), `started`, `running` et `finished` et
-  deux transitions `start` et `finish`
+  deux transitions `start` et `finish` reliées par des arcs
 
 - Une `WorkSequence` devient un read-arc entre une place de l’activité précédente
   (`started` ou `finished`) et une transition de l’activité cible (`start` ou `finish`)
@@ -73,38 +71,76 @@ Transformation des ressources :
   - De la place représentant la `Resource` utilisée à la transition `start` de la `WorkDefinition`
   - De la transition `finish` de la `WorkDefinition` à la place représentant la `Resource` utilisée
 
-Lors de la transformations, on traite les `ProcessElement` dans cet ordre :
-+ `Process`
+
+=== Fichier d'entrée
+Pour illustrer les transformations, nous utiliserons l'exemple de modèle de processus suivant.
+#figure(
+  image("assets/pdl-exemple-place-ressource.svg"), caption: [Modèle de processus simple avec une ressource]) <pdl-exemple-dot>
+
+=== Java/EMF
+
+On réalise un premier programme de transformation en Java (voir #link("../livrables/SimplePDL2PetriNet.java")[`SimplePDL2PetriNet.java`])
+
+
+Lors de cette transformation, on traite les `ProcessElement` dans cet ordre :
 + `Resource`
 + `WorkDefinition`
-  - `ResourceUsage` (on traite les `ResourceUsage` attachées à la `WorkDefinition` courante)
+  - `ResourceUsage` (on traite les `ResourceUsage` attachés à la `WorkDefinition` courante)
 + `WorkSequence`
 
+La @output_simplePDL2PetriNet-java représente le réseau de Petri en sortie du programme.
+
 #figure(
-  image("assets/pdl-exemple-place-ressource.svg"), caption: [Entrée : modèle de processus simple avec une ressource],
-)
-#figure(
-  image("assets/petrinet-exemple-place-ressource.svg"), caption: [Sortie : réseau de Petri résultant (les read-arc sont affichés à l'envers)],
-)
+  image("assets/petrinet-exemple-place-ressource-java.svg"), caption: [Réseau de Petri résultant de la transformation par Java],
+) <output_simplePDL2PetriNet-java>
 
 On distingue aisément les différents sous-réseaux de Petri associés aux `WorkDefinition` ainsi
 que la `Ressource` et les arcs qui la relient au sous-réseau associé à _Programmer_
 
-// Java et EMF nous permettent d'obtenir des structures arborescentes de nos
-// modèles.
-
-// Pour réaliser notre transformation SimplePDL vers PetriNet nous nous sommes
-// basés sur l'algorithme donné :
-// - Une `WorkDefinition` devient 4 `Places` et 2 `Transitions`
-// - Une `WorkSequence` devient un `ReadArc` entre les places $arrow.r$ transition `Started $arrow.r$ Start` et `Finished $arrow.r$ Finish`
-// pour pouvoir déterminer comment implémenter la transformation d'une `Resource` en `PetriNet`.
-
-// D'abord une `Resource` possède un certains nombre d'éléments (que les `WorkDefinition` utilisent
-// pour fonctionner) donc nous avons eu l'idée de transformer `Resource` en une `Place(name: Resource.name, tokens: Resource.toal)` ie
-// une place avec le nombre de jetons égal au nombre de ressources disponibles.
 
 === ATL
+On réaliste également la même transformation à l'aide d'ATL (voir #link("../livrables/SimplePDL2PetriNet.atl")[`SimplePDL2PetriNet.atl`])
+#figure(
+  image("assets/petrinet-exemple-place-ressource-atl.svg"), caption: [Réseau de Petri résultant de la transformation par ATL],
+)
+
+L'emplacement des noeuds n'est plus exactement le même mais les graphes sont bien identiques.
 
 = Transformation Modèle à Texte
+Nous avons réalisé plusieurs transformations modèle à texte :
+- `SimplePDL2Dot`
+- `PetriNet2Tina`
+- `PetriNet2Dot`
+
+Les images précédentes ont été réalisées à partir des transformation vers le format DOT.
+
+== `SimplePDL` vers Dot
+Pour chaque `Resource`, on déclare un `node` avec la forme `diamond`, le même nom et le nombre total de ressources.
+
+Pour chaque `WorkSequence` on déclare un arc entre le prédecesseur et le successseur (les `node` associés aux `WorkDefinition` seront générés automatiquement)
+
+Pour chaque `ResourceUsage` on déclare un arc entre la ressource et la `WorkDefinition` et une tête avec la forme `diamond`.
+
+Voir @pdl-exemple-dot pour un exemple.
+
+== `PetriNet` vers Tina
+Le format NET est une traduction presque directe du méta-modèle `PetriNet`, ce qui rend la transformation très simple. (voir #link("../livrables/PetriNet2Tina.mtl")[`PetriNet2Tina.mtl`])
+
+On parcourt d'abord les `Place` pour les déclarer, puis on déclare chaque transition en ajoutant si besoin les contraintes temporelles et en traitant le cas des read-arcs.
+
+
+ICI EXEMPLE 
+
+== `PetriNet` vers Dot
+Pour chaque `Place`, on déclare un `node` avec le même nom et le nombre de jetons associés.
+Pour chaque `Transition`, on déclare un `node` avec le même nom et les éventuelles contraintes temporelles.
+On déclare ensuite les arcs en traitant les read-arcs.
+
+#figure(
+ image("assets/petrinet-exemple-temporel-dot.svg"), caption: [Sortie : réseau de Petri résultant de la transformation en DOT],
+)
 
 = Transformation Texte à Modèle
+
+
+= Vérification de terminaison et invariants
