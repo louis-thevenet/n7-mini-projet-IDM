@@ -129,11 +129,14 @@ Le format NET est une traduction presque directe du méta-modèle `PetriNet`, ce
 On parcourt d'abord les `Place` pour les déclarer, puis on déclare chaque transition en ajoutant si besoin les contraintes temporelles et en traitant le cas des read-arcs.
 
 
-ICI EXEMPLE DU RESEAU DANS TINA
-
+#figure(
+ image("assets/petrinet-exemple-place-ressource-tina.png"), caption: [Capture d'écran de Tina affichant le fichier NET résultat],
+)
 == `PetriNet` vers Dot
 Pour chaque `Place`, on déclare un `node` avec le même nom et le nombre de jetons associés.
+
 Pour chaque `Transition`, on déclare un `node` avec le même nom et les éventuelles contraintes temporelles.
+
 On déclare ensuite les arcs en traitant les read-arcs.
 
 #figure(
