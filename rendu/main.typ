@@ -99,7 +99,7 @@ que la `Ressource` et les arcs qui la relient au sous-réseau associé à _Progr
 
 
 === ATL
-On réaliste également la même transformation à l'aide d'ATL (voir #link("../livrables/SimplePDL2PetriNet.atl")[`SimplePDL2PetriNet.atl`])
+On réalise également la même transformation à l'aide d'ATL (voir #link("../livrables/SimplePDL2PetriNet.atl")[`SimplePDL2PetriNet.atl`])
 #figure(
   image("assets/petrinet-exemple-place-ressource-atl.svg"), caption: [Réseau de Petri résultant de la transformation par ATL],
 )
@@ -117,7 +117,7 @@ Les images précédentes ont été réalisées à partir des transformation vers
 == `SimplePDL` vers Dot
 Pour chaque `Resource`, on déclare un `node` avec la forme `diamond`, le même nom et le nombre total de ressources.
 
-Pour chaque `WorkSequence` on déclare un arc entre le prédecesseur et le successseur (les `node` associés aux `WorkDefinition` seront générés automatiquement)
+Pour chaque `WorkSequence` on déclare un arc entre le prédecesseur et le successeur (les `node` associés aux `WorkDefinition` seront générés automatiquement)
 
 Pour chaque `ResourceUsage` on déclare un arc entre la ressource et la `WorkDefinition` et une tête avec la forme `diamond`.
 
