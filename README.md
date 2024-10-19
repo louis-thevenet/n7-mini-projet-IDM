@@ -3,13 +3,14 @@
 ## A faire
 - [ ] Renommer les projets qui ont pas la convention `fr.n7.___` 
   Vérifier ce que les TPs disaient
-## Vendredi 18
 - [ ] Générer les livrables
-  - [X] Faire la transfo simplePDLToPetri avec ATL
-  - [X] Faire l'éditeur graphique simplePDL
-  - [ ] Faire la transfo `PetriNet` -> `LTL`
-    - [X] Terminaison
-    - [ ] Invariant
+- [X] Faire la transfo simplePDLToPetri avec ATL
+- [X] Faire l'éditeur graphique simplePDL
+- [ ] Faire la transfo `PetriNet` -> `LTL`
+  - [X] Terminaison
+  - [ ] Invariant
+- [ ] Finir le rapport
+- [ ] Avoir un scénario de 10min (10 ? je crois)
 
 ## Livrables
 
