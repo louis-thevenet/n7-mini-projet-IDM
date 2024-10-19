@@ -1,0 +1,17 @@
+
+net exemplePlaceRessource
+pl Programmer_ready (1)
+pl Programmer_started (0)
+pl Programmer_running (0)
+pl Programmer_finished (0)
+pl Concevoir_ready (1)
+pl Concevoir_started (0)
+pl Concevoir_running (0)
+pl Concevoir_finished (0)
+pl Ordinateurs (5)
+tr Programmer_start  Programmer_ready*1 Ordinateurs*2 -> Programmer_running*1 Programmer_started*1 
+tr Programmer_finish  Programmer_running*1 Concevoir_finished?1 Concevoir_finished*1 -> Programmer_finished*1 Ordinateurs*2 
+tr Concevoir_start  Concevoir_ready*1 -> Concevoir_running*1 Concevoir_started*1 
+tr Concevoir_finish  Concevoir_running*1 -> Concevoir_finished*1 
+
+
