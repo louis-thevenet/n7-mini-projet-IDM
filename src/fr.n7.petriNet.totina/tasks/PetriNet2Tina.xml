@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project default="PetriNet2Tina" name="fr.n7.petriNet.totina">
-    <property name="ECLIPSE_HOME" value="../../../../../../mnt/n7fs/ens/tp_dupont/modelling-2023-09/eclipse"/>
-    <property name="ECLIPSE_WORKSPACE" value="../../../../runtime-EclipseApplication"/>
+    <property name="ECLIPSE_HOME" value="../../../../../../../../../../mnt/n7fs/ens/tp_dupont/modelling-2023-09/eclipse"/>
+    <property name="ECLIPSE_WORKSPACE" value="../../../../../../../../runtime-EclipseApplication"/>
 
     <!-- The classpath with only the dependencies used by the project -->
     <path id="fr.n7.petriNet.totina.libraryclasspath">

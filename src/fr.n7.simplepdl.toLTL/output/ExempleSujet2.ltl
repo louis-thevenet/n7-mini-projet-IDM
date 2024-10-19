@@ -1,0 +1,5 @@
+<> [] (Redactiontests_finished  /\ Conception_finished  /\ Programmation_finished  /\ RedactionDoc_finished  /\  T);
+[] (Redactiontests_finished + Redactiontests_running + Redactiontests_ready = 1);
+[] (Conception_finished + Conception_running + Conception_ready = 1);
+[] (Programmation_finished + Programmation_running + Programmation_ready = 1);
+[] (RedactionDoc_finished + RedactionDoc_running + RedactionDoc_ready = 1);
