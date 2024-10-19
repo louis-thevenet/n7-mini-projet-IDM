@@ -1,0 +1,61 @@
+digraph ExempleSimpleRessources {
+label=ExempleSimpleRessources
+
+ExempleRessource [xlabel=2];
+A_ready [xlabel=1];
+A_started ;
+A_running ;
+A_finished ;
+A_start [shape=rectangle] ;
+A_finish [shape=rectangle] ;
+B_ready [xlabel=1];
+B_started ;
+B_running ;
+B_finished ;
+B_start [shape=rectangle] ;
+B_finish [shape=rectangle] ;
+C_ready [xlabel=1];
+C_started ;
+C_running ;
+C_finished ;
+C_start [shape=rectangle] ;
+C_finish [shape=rectangle] ;
+D_ready [xlabel=1];
+D_started ;
+D_running ;
+D_finished ;
+D_start [shape=rectangle] ;
+D_finish [shape=rectangle] ;
+
+ExempleRessource -> A_start  [arrowhead=vee]  ;
+A_finish -> ExempleRessource  [arrowhead=vee]  ;
+A_ready -> A_start  [arrowhead=vee]  ;
+A_start -> A_running  [arrowhead=vee]  ;
+A_start -> A_started  [arrowhead=vee]  ;
+A_running -> A_finish  [arrowhead=vee]  ;
+A_finish -> A_finished  [arrowhead=vee]  ;
+ExempleRessource -> B_start  [arrowhead=vee]  ;
+B_finish -> ExempleRessource  [arrowhead=vee]  ;
+B_ready -> B_start  [arrowhead=vee]  ;
+B_start -> B_running  [arrowhead=vee]  ;
+B_start -> B_started  [arrowhead=vee]  ;
+B_running -> B_finish  [arrowhead=vee]  ;
+B_finish -> B_finished  [arrowhead=vee]  ;
+C_ready -> C_start  [arrowhead=vee]  ;
+C_start -> C_running  [arrowhead=vee]  ;
+C_start -> C_started  [arrowhead=vee]  ;
+C_running -> C_finish  [arrowhead=vee]  ;
+C_finish -> C_finished  [arrowhead=vee]  ;
+ExempleRessource -> D_start  [arrowhead=vee]  ;
+D_finish -> ExempleRessource  [arrowhead=vee]  ;
+D_ready -> D_start  [arrowhead=vee]  ;
+D_start -> D_running  [arrowhead=vee]  ;
+D_start -> D_started  [arrowhead=vee]  ;
+D_running -> D_finish  [arrowhead=vee]  ;
+D_finish -> D_finished  [arrowhead=vee]  ;
+A_started -> B_start [dir=back] [arrowtail=dot]  ;
+C_finished -> B_finish [dir=back] [arrowtail=dot]  ;
+A_started -> C_start [dir=back] [arrowtail=dot]  ;
+B_started -> D_start [dir=back] [arrowtail=dot]  ;
+
+}
