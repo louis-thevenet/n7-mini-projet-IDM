@@ -1,6 +1,7 @@
 digraph exemplePlaceRessource {
 label=exemplePlaceRessource
 
+Ordinateurs [xlabel=5];
 Programmer_ready [xlabel=1];
 Programmer_started ;
 Programmer_running ;
@@ -13,8 +14,9 @@ Concevoir_running ;
 Concevoir_finished ;
 Concevoir_start [shape=rectangle] ;
 Concevoir_finish [shape=rectangle] ;
-Ordinateurs [xlabel=5];
 
+Ordinateurs -> Programmer_start  [arrowhead=vee]  [label=2];
+Programmer_finish -> Ordinateurs  [arrowhead=vee]  [label=2];
 Programmer_ready -> Programmer_start  [arrowhead=vee]  ;
 Programmer_start -> Programmer_running  [arrowhead=vee]  ;
 Programmer_start -> Programmer_started  [arrowhead=vee]  ;
@@ -25,8 +27,6 @@ Concevoir_start -> Concevoir_running  [arrowhead=vee]  ;
 Concevoir_start -> Concevoir_started  [arrowhead=vee]  ;
 Concevoir_running -> Concevoir_finish  [arrowhead=vee]  ;
 Concevoir_finish -> Concevoir_finished  [arrowhead=vee]  ;
-Concevoir_finished -> Programmer_finish [dir=forward] [arrowhead=dot]  ;
-Ordinateurs -> Programmer_start  [arrowhead=vee]  [label=2];
-Programmer_finish -> Ordinateurs  [arrowhead=vee]  [label=2];
+Concevoir_finished -> Programmer_finish [dir=both]   [arrowhead=vee] [arrowtail=dot]  ;
 
 }
