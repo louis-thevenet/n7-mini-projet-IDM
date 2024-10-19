@@ -15,7 +15,7 @@ label=[aPetriNet.name/]
 		[/let]
 	[elseif (elt.oclIsKindOf(Transition))]
 		[let transition:Transition = elt.oclAsType(Transition)]
-[transition.name/] ['['/]shape=rectangle];
+[transition.name/] ['['/]shape=rectangle] [if (transition.tempsMax>0)]['['/]xlabel=['"['+ transition.tempsMin+', '+ transition.tempsMax +']"'/]][/if];
 		[/let]
 	[/if]
 [/for]

@@ -1,0 +1,19 @@
+digraph SimpleTemporel {
+label=SimpleTemporel
+
+P1 [xlabel=1];
+P2 ;
+P3 [xlabel=2];
+P4 [xlabel=1];
+T1 [shape=rectangle] [xlabel="[2, 20]"];
+T2 [shape=rectangle] ;
+
+P1 -> T1  [arrowhead=vee]  [label=1];
+T1 -> P2  [arrowhead=vee]  [label=1];
+T1 -> P3  [arrowhead=vee]  [label=1];
+P2 -> T2  [arrowhead=vee]  [label=1];
+P3 -> T2  [arrowhead=vee]  [label=1];
+T2 -> P4  [arrowhead=vee]  [label=1];
+T2 -> P1  [arrowhead=vee]  [label=1];
+
+}
