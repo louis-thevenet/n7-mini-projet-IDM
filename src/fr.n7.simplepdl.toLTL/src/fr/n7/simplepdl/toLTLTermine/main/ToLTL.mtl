@@ -8,9 +8,7 @@
 [let pes : OrderedSet(WorkSequence) = aProcess.processElements ] 
 	[if (pes->size() > 0)]
 <> ['[]'/] ([for (pe : ProcessElement | pes)][if (pe.oclIsKindOf(WorkDefinition))][let wd: WorkDefinition = pe.oclAsType(WorkDefinition)][wd.name + '_finished '/][/let] /\ [/if][/for] T);
-[for (pe : ProcessElement | pes)][if (pe.oclIsKindOf(WorkDefinition))][let wd: WorkDefinition = pe.oclAsType(WorkDefinition)]['[]'/] ([wd.name + '_finished '/]+ [wd.name + '_running '/]+ [wd.name + '_ready '/]= 1);[/let]
 [/if]
-[/for][/if]
 [/let]
 [/file]
 [/template]
