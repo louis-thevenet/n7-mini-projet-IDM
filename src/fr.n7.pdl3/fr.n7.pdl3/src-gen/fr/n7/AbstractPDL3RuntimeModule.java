@@ -52,160 +52,150 @@ import org.eclipse.xtext.service.DefaultRuntimeModule;
 import org.eclipse.xtext.service.SingletonBinding;
 import org.eclipse.xtext.validation.ConfigurableIssueCodesProvider;
 
-/** Manual modifications go to {@link PDL3RuntimeModule}. */
+/**
+ * Manual modifications go to {@link PDL3RuntimeModule}.
+ */
 @SuppressWarnings("all")
 public abstract class AbstractPDL3RuntimeModule extends DefaultRuntimeModule {
 
-  protected Properties properties = null;
+	protected Properties properties = null;
 
-  @Override
-  public void configure(Binder binder) {
-    properties = tryBindProperties(binder, "fr/n7/PDL3.properties");
-    super.configure(binder);
-  }
-
-  public void configureLanguageName(Binder binder) {
-    binder
-        .bind(String.class)
-        .annotatedWith(Names.named(Constants.LANGUAGE_NAME))
-        .toInstance("fr.n7.PDL3");
-  }
-
-  public void configureFileExtensions(Binder binder) {
-    if (properties == null || properties.getProperty(Constants.FILE_EXTENSIONS) == null)
-      binder
-          .bind(String.class)
-          .annotatedWith(Names.named(Constants.FILE_EXTENSIONS))
-          .toInstance("pdl3");
-  }
-
-  // contributed by org.eclipse.xtext.xtext.generator.grammarAccess.GrammarAccessFragment2
-  public ClassLoader bindClassLoaderToInstance() {
-    return getClass().getClassLoader();
-  }
-
-  // contributed by org.eclipse.xtext.xtext.generator.grammarAccess.GrammarAccessFragment2
-  public Class<? extends IGrammarAccess> bindIGrammarAccess() {
-    return PDL3GrammarAccess.class;
-  }
-
-  // contributed by org.eclipse.xtext.xtext.generator.serializer.SerializerFragment2
-  public Class<? extends ISemanticSequencer> bindISemanticSequencer() {
-    return PDL3SemanticSequencer.class;
-  }
-
-  // contributed by org.eclipse.xtext.xtext.generator.serializer.SerializerFragment2
-  public Class<? extends ISyntacticSequencer> bindISyntacticSequencer() {
-    return PDL3SyntacticSequencer.class;
-  }
-
-  // contributed by org.eclipse.xtext.xtext.generator.serializer.SerializerFragment2
-  public Class<? extends ISerializer> bindISerializer() {
-    return Serializer.class;
-  }
-
-  // contributed by org.eclipse.xtext.xtext.generator.parser.antlr.XtextAntlrGeneratorFragment2
-  public Class<? extends IParser> bindIParser() {
-    return PDL3Parser.class;
-  }
-
-  // contributed by org.eclipse.xtext.xtext.generator.parser.antlr.XtextAntlrGeneratorFragment2
-  public Class<? extends ITokenToStringConverter> bindITokenToStringConverter() {
-    return AntlrTokenToStringConverter.class;
-  }
-
-  // contributed by org.eclipse.xtext.xtext.generator.parser.antlr.XtextAntlrGeneratorFragment2
-  public Class<? extends IAntlrTokenFileProvider> bindIAntlrTokenFileProvider() {
-    return PDL3AntlrTokenFileProvider.class;
-  }
-
-  // contributed by org.eclipse.xtext.xtext.generator.parser.antlr.XtextAntlrGeneratorFragment2
-  public Class<? extends Lexer> bindLexer() {
-    return InternalPDL3Lexer.class;
-  }
-
-  // contributed by org.eclipse.xtext.xtext.generator.parser.antlr.XtextAntlrGeneratorFragment2
-  public Class<? extends ITokenDefProvider> bindITokenDefProvider() {
-    return AntlrTokenDefProvider.class;
-  }
-
-  // contributed by org.eclipse.xtext.xtext.generator.parser.antlr.XtextAntlrGeneratorFragment2
-  public Provider<? extends InternalPDL3Lexer> provideInternalPDL3Lexer() {
-    return LexerProvider.create(InternalPDL3Lexer.class);
-  }
-
-  // contributed by org.eclipse.xtext.xtext.generator.parser.antlr.XtextAntlrGeneratorFragment2
-  public void configureRuntimeLexer(Binder binder) {
-    binder
-        .bind(Lexer.class)
-        .annotatedWith(Names.named(LexerBindings.RUNTIME))
-        .to(InternalPDL3Lexer.class);
-  }
-
-  // contributed by org.eclipse.xtext.xtext.generator.validation.ValidatorFragment2
-  @SingletonBinding(eager = true)
-  public Class<? extends PDL3Validator> bindPDL3Validator() {
-    return PDL3Validator.class;
-  }
-
-  // contributed by org.eclipse.xtext.xtext.generator.validation.ValidatorFragment2
-  public Class<? extends ConfigurableIssueCodesProvider> bindConfigurableIssueCodesProvider() {
-    return PDL3ConfigurableIssueCodesProvider.class;
-  }
-
-  // contributed by org.eclipse.xtext.xtext.generator.scoping.ImportNamespacesScopingFragment2
-  public Class<? extends IScopeProvider> bindIScopeProvider() {
-    return PDL3ScopeProvider.class;
-  }
-
-  // contributed by org.eclipse.xtext.xtext.generator.scoping.ImportNamespacesScopingFragment2
-  public void configureIScopeProviderDelegate(Binder binder) {
-    binder
-        .bind(IScopeProvider.class)
-        .annotatedWith(Names.named(AbstractDeclarativeScopeProvider.NAMED_DELEGATE))
-        .to(ImportedNamespaceAwareLocalScopeProvider.class);
-  }
-
-  // contributed by org.eclipse.xtext.xtext.generator.scoping.ImportNamespacesScopingFragment2
-  public Class<? extends IGlobalScopeProvider> bindIGlobalScopeProvider() {
-    return DefaultGlobalScopeProvider.class;
-  }
-
-  // contributed by org.eclipse.xtext.xtext.generator.scoping.ImportNamespacesScopingFragment2
-  public void configureIgnoreCaseLinking(Binder binder) {
-    binder.bindConstant().annotatedWith(IgnoreCaseLinking.class).to(false);
-  }
-
-  // contributed by org.eclipse.xtext.xtext.generator.exporting.QualifiedNamesFragment2
-  public Class<? extends IQualifiedNameProvider> bindIQualifiedNameProvider() {
-    return DefaultDeclarativeQualifiedNameProvider.class;
-  }
-
-  // contributed by org.eclipse.xtext.xtext.generator.builder.BuilderIntegrationFragment2
-  public Class<? extends IContainer.Manager> bindIContainer$Manager() {
-    return StateBasedContainerManager.class;
-  }
-
-  // contributed by org.eclipse.xtext.xtext.generator.builder.BuilderIntegrationFragment2
-  public Class<? extends IAllContainersState.Provider> bindIAllContainersState$Provider() {
-    return ResourceSetBasedAllContainersStateProvider.class;
-  }
-
-  // contributed by org.eclipse.xtext.xtext.generator.builder.BuilderIntegrationFragment2
-  public void configureIResourceDescriptions(Binder binder) {
-    binder.bind(IResourceDescriptions.class).to(ResourceSetBasedResourceDescriptions.class);
-  }
-
-  // contributed by org.eclipse.xtext.xtext.generator.builder.BuilderIntegrationFragment2
-  public void configureIResourceDescriptionsPersisted(Binder binder) {
-    binder
-        .bind(IResourceDescriptions.class)
-        .annotatedWith(Names.named(ResourceDescriptionsProvider.PERSISTED_DESCRIPTIONS))
-        .to(ResourceSetBasedResourceDescriptions.class);
-  }
-
-  // contributed by org.eclipse.xtext.xtext.generator.generator.GeneratorFragment2
-  public Class<? extends IGenerator2> bindIGenerator2() {
-    return PDL3Generator.class;
-  }
+	@Override
+	public void configure(Binder binder) {
+		properties = tryBindProperties(binder, "fr/n7/PDL3.properties");
+		super.configure(binder);
+	}
+	
+	public void configureLanguageName(Binder binder) {
+		binder.bind(String.class).annotatedWith(Names.named(Constants.LANGUAGE_NAME)).toInstance("fr.n7.PDL3");
+	}
+	
+	public void configureFileExtensions(Binder binder) {
+		if (properties == null || properties.getProperty(Constants.FILE_EXTENSIONS) == null)
+			binder.bind(String.class).annotatedWith(Names.named(Constants.FILE_EXTENSIONS)).toInstance("pdl3");
+	}
+	
+	// contributed by org.eclipse.xtext.xtext.generator.grammarAccess.GrammarAccessFragment2
+	public ClassLoader bindClassLoaderToInstance() {
+		return getClass().getClassLoader();
+	}
+	
+	// contributed by org.eclipse.xtext.xtext.generator.grammarAccess.GrammarAccessFragment2
+	public Class<? extends IGrammarAccess> bindIGrammarAccess() {
+		return PDL3GrammarAccess.class;
+	}
+	
+	// contributed by org.eclipse.xtext.xtext.generator.serializer.SerializerFragment2
+	public Class<? extends ISemanticSequencer> bindISemanticSequencer() {
+		return PDL3SemanticSequencer.class;
+	}
+	
+	// contributed by org.eclipse.xtext.xtext.generator.serializer.SerializerFragment2
+	public Class<? extends ISyntacticSequencer> bindISyntacticSequencer() {
+		return PDL3SyntacticSequencer.class;
+	}
+	
+	// contributed by org.eclipse.xtext.xtext.generator.serializer.SerializerFragment2
+	public Class<? extends ISerializer> bindISerializer() {
+		return Serializer.class;
+	}
+	
+	// contributed by org.eclipse.xtext.xtext.generator.parser.antlr.XtextAntlrGeneratorFragment2
+	public Class<? extends IParser> bindIParser() {
+		return PDL3Parser.class;
+	}
+	
+	// contributed by org.eclipse.xtext.xtext.generator.parser.antlr.XtextAntlrGeneratorFragment2
+	public Class<? extends ITokenToStringConverter> bindITokenToStringConverter() {
+		return AntlrTokenToStringConverter.class;
+	}
+	
+	// contributed by org.eclipse.xtext.xtext.generator.parser.antlr.XtextAntlrGeneratorFragment2
+	public Class<? extends IAntlrTokenFileProvider> bindIAntlrTokenFileProvider() {
+		return PDL3AntlrTokenFileProvider.class;
+	}
+	
+	// contributed by org.eclipse.xtext.xtext.generator.parser.antlr.XtextAntlrGeneratorFragment2
+	public Class<? extends Lexer> bindLexer() {
+		return InternalPDL3Lexer.class;
+	}
+	
+	// contributed by org.eclipse.xtext.xtext.generator.parser.antlr.XtextAntlrGeneratorFragment2
+	public Class<? extends ITokenDefProvider> bindITokenDefProvider() {
+		return AntlrTokenDefProvider.class;
+	}
+	
+	// contributed by org.eclipse.xtext.xtext.generator.parser.antlr.XtextAntlrGeneratorFragment2
+	public Provider<? extends InternalPDL3Lexer> provideInternalPDL3Lexer() {
+		return LexerProvider.create(InternalPDL3Lexer.class);
+	}
+	
+	// contributed by org.eclipse.xtext.xtext.generator.parser.antlr.XtextAntlrGeneratorFragment2
+	public void configureRuntimeLexer(Binder binder) {
+		binder.bind(Lexer.class)
+			.annotatedWith(Names.named(LexerBindings.RUNTIME))
+			.to(InternalPDL3Lexer.class);
+	}
+	
+	// contributed by org.eclipse.xtext.xtext.generator.validation.ValidatorFragment2
+	@SingletonBinding(eager=true)
+	public Class<? extends PDL3Validator> bindPDL3Validator() {
+		return PDL3Validator.class;
+	}
+	
+	// contributed by org.eclipse.xtext.xtext.generator.validation.ValidatorFragment2
+	public Class<? extends ConfigurableIssueCodesProvider> bindConfigurableIssueCodesProvider() {
+		return PDL3ConfigurableIssueCodesProvider.class;
+	}
+	
+	// contributed by org.eclipse.xtext.xtext.generator.scoping.ImportNamespacesScopingFragment2
+	public Class<? extends IScopeProvider> bindIScopeProvider() {
+		return PDL3ScopeProvider.class;
+	}
+	
+	// contributed by org.eclipse.xtext.xtext.generator.scoping.ImportNamespacesScopingFragment2
+	public void configureIScopeProviderDelegate(Binder binder) {
+		binder.bind(IScopeProvider.class).annotatedWith(Names.named(AbstractDeclarativeScopeProvider.NAMED_DELEGATE)).to(ImportedNamespaceAwareLocalScopeProvider.class);
+	}
+	
+	// contributed by org.eclipse.xtext.xtext.generator.scoping.ImportNamespacesScopingFragment2
+	public Class<? extends IGlobalScopeProvider> bindIGlobalScopeProvider() {
+		return DefaultGlobalScopeProvider.class;
+	}
+	
+	// contributed by org.eclipse.xtext.xtext.generator.scoping.ImportNamespacesScopingFragment2
+	public void configureIgnoreCaseLinking(Binder binder) {
+		binder.bindConstant().annotatedWith(IgnoreCaseLinking.class).to(false);
+	}
+	
+	// contributed by org.eclipse.xtext.xtext.generator.exporting.QualifiedNamesFragment2
+	public Class<? extends IQualifiedNameProvider> bindIQualifiedNameProvider() {
+		return DefaultDeclarativeQualifiedNameProvider.class;
+	}
+	
+	// contributed by org.eclipse.xtext.xtext.generator.builder.BuilderIntegrationFragment2
+	public Class<? extends IContainer.Manager> bindIContainer$Manager() {
+		return StateBasedContainerManager.class;
+	}
+	
+	// contributed by org.eclipse.xtext.xtext.generator.builder.BuilderIntegrationFragment2
+	public Class<? extends IAllContainersState.Provider> bindIAllContainersState$Provider() {
+		return ResourceSetBasedAllContainersStateProvider.class;
+	}
+	
+	// contributed by org.eclipse.xtext.xtext.generator.builder.BuilderIntegrationFragment2
+	public void configureIResourceDescriptions(Binder binder) {
+		binder.bind(IResourceDescriptions.class).to(ResourceSetBasedResourceDescriptions.class);
+	}
+	
+	// contributed by org.eclipse.xtext.xtext.generator.builder.BuilderIntegrationFragment2
+	public void configureIResourceDescriptionsPersisted(Binder binder) {
+		binder.bind(IResourceDescriptions.class).annotatedWith(Names.named(ResourceDescriptionsProvider.PERSISTED_DESCRIPTIONS)).to(ResourceSetBasedResourceDescriptions.class);
+	}
+	
+	// contributed by org.eclipse.xtext.xtext.generator.generator.GeneratorFragment2
+	public Class<? extends IGenerator2> bindIGenerator2() {
+		return PDL3Generator.class;
+	}
+	
 }

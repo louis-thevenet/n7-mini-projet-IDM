@@ -9,11 +9,11 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.xtext.validation.AbstractDeclarativeValidator;
 
 public abstract class AbstractPDL3Validator extends AbstractDeclarativeValidator {
-
-  @Override
-  protected List<EPackage> getEPackages() {
-    List<EPackage> result = new ArrayList<EPackage>();
-    result.add(fr.n7.pDL3.PDL3Package.eINSTANCE);
-    return result;
-  }
+	
+	@Override
+	protected List<EPackage> getEPackages() {
+		List<EPackage> result = new ArrayList<EPackage>();
+		result.add(fr.n7.pDL3.PDL3Package.eINSTANCE);
+		return result;
+	}
 }

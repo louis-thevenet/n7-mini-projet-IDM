@@ -9,17 +9,21 @@ import org.eclipse.xtext.ui.guice.AbstractGuiceAwareExecutableExtensionFactory;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.FrameworkUtil;
 
-/** This class was generated. Customizations should only happen in a newly introduced subclass. */
+/**
+ * This class was generated. Customizations should only happen in a newly
+ * introduced subclass. 
+ */
 public class PDL3ExecutableExtensionFactory extends AbstractGuiceAwareExecutableExtensionFactory {
 
-  @Override
-  protected Bundle getBundle() {
-    return FrameworkUtil.getBundle(Pdl3Activator.class);
-  }
+	@Override
+	protected Bundle getBundle() {
+		return FrameworkUtil.getBundle(Pdl3Activator.class);
+	}
+	
+	@Override
+	protected Injector getInjector() {
+		Pdl3Activator activator = Pdl3Activator.getInstance();
+		return activator != null ? activator.getInjector(Pdl3Activator.FR_N7_PDL3) : null;
+	}
 
-  @Override
-  protected Injector getInjector() {
-    Pdl3Activator activator = Pdl3Activator.getInstance();
-    return activator != null ? activator.getInjector(Pdl3Activator.FR_N7_PDL3) : null;
-  }
 }

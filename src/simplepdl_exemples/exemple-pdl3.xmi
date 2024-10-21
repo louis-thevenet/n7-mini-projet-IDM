@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<simplepdl:Process xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:simplepdl="http://simplepdl" name="ex1">
+  <processElements xsi:type="simplepdl:Resource" name="Humains" total="5"/>
+  <processElements xsi:type="simplepdl:Resource" name="Ordis" total="5"/>
+  <processElements xsi:type="simplepdl:WorkDefinition" linksToPredecessors="//@processElements.10" linksToSuccessors="//@processElements.8" name="a" resourceUsed="//@processElements.5"/>
+  <processElements xsi:type="simplepdl:WorkDefinition" linksToPredecessors="//@processElements.8" linksToSuccessors="//@processElements.9" name="b" resourceUsed="//@processElements.6 //@processElements.7"/>
+  <processElements xsi:type="simplepdl:WorkDefinition" linksToPredecessors="//@processElements.9" linksToSuccessors="//@processElements.10" name="c"/>
+  <processElements xsi:type="simplepdl:ResourceUsage" need="5" resource="//@processElements.0" linkToWorkDefinition="//@processElements.2"/>
+  <processElements xsi:type="simplepdl:ResourceUsage" need="5" resource="//@processElements.0" linkToWorkDefinition="//@processElements.3"/>
+  <processElements xsi:type="simplepdl:ResourceUsage" need="2" resource="//@processElements.1" linkToWorkDefinition="//@processElements.3"/>
+  <processElements xsi:type="simplepdl:WorkSequence" predecessor="//@processElements.2" successor="//@processElements.3"/>
+  <processElements xsi:type="simplepdl:WorkSequence" linkType="finishToFinish" predecessor="//@processElements.3" successor="//@processElements.4"/>
+  <processElements xsi:type="simplepdl:WorkSequence" predecessor="//@processElements.4" successor="//@processElements.2"/>
+</simplepdl:Process>

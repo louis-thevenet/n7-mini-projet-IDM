@@ -9,10 +9,10 @@ module pdl1ToSimplePDL;
 create OUT : SPDL from IN : XPDL;
 
 -- Ce helper n'a pas de contexte. Il est défini au niveau du module.
-helper def: convertLinkType(x : XPDL!WorkSequenceType) : SPDL!WorkSequenceType =
-    if x = #start2start then #startToStart
-    else if x = #start2finish then #startToFinish
-    else if x = #finish2start then #finishToStart
+helper def: convertLinkType(x : XPDL!WorkSequenceKind) : SPDL!WorkSequenceType =
+    if x = #s2s then #startToStart
+    else if x = #s2f then #startToFinish
+    else if x = #f2s then #finishToStart
     else #finishToFinish
     endif endif endif; -- pas de SinonSi en ATL
 
