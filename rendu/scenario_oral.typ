@@ -6,22 +6,24 @@
 
 - Transformation `SimplePDL3` $arrow$ `SimplePDL`
   + Montrer le Ecore
-  + Ouvrir dans l'éditeur graphique ?
+  // + Ouvrir dans l'éditeur graphique ?
 
 - Transformation `SimplePDL` $arrow$ `DOT`
-  + L'ouvrir dans Firefox
+  + L'ouvrir depuis Eclipse
 
 - Transformation `SimplePDL` $arrow$ `PetriNet` (Utiliser l'exemple `pdl-sujet-ressources` ici)
   - Par Java
     + Montrer le Ecore
     + Transformation `PetriNet` $arrow$ `DOT`
-    + Enregistrer avec un nom clair
+    + L'ouvrir depuis Eclipse
 
   - Par ATL
     + Montrer le Ecore
     + Transformation `PetriNet` $arrow$ `DOT`
     + Comparer avec celui par Java
 
+- Transformation `PetriNet` $arrow$ `TINA`
+  + L'ouvrir
 - Transformation `PetriNet` $arrow$ `LTL`
   + tina fichier.net fichier.ktz
   + selt -p fichier.ktz -prelude fichier.ltl
