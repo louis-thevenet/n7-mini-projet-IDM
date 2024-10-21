@@ -148,7 +148,7 @@ Pour chaque `Transition`, on déclare un `node` avec le même nom et les
 On déclare ensuite les arcs en traitant les read-arcs.
 
 #figure(
-  image("assets/petrinet-exemple-temporel-dot.svg"), caption: [Sortie : réseau de Petri résultant de la transformation en DOT],
+  image("assets/petrinet-exemple-temporel-dot.svg"), caption: [Exemple résultant de la transformation en DOT],
 )
 
 = Transformation Texte à Modèle de `SimplePDL`
@@ -166,7 +166,7 @@ worksequences : a s2s b; b f2f c; c s2s a;
 ```
 ], caption: "Exemple de fichier conforme à la grammaire")
 
-On réalise ensuite la transformation du méta-modèle `SimplePDL3` issu de la
+On réalise ensuite la transformation du méta-modèle `SimplePDL3` issu de cette
 grammaire en `SimplePDL`.
 
 #figure(
