@@ -8,7 +8,7 @@
 - [X] Faire l'éditeur graphique simplePDL
 - [ ] Faire la transfo `PetriNet` -> `LTL`
   - [X] Terminaison
-  - [ ] Invariant
+  - [X] Invariant
 - [ ] Finir le rapport
 - [ ] Avoir un scénario de 10min 
 
