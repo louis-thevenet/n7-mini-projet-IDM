@@ -45,7 +45,7 @@
   - [X] `Xtext` 15/10/2024 #n7
     - [X] `SimplePDL.xtext` qui définit la syntaxe textuelle pour `SimplePDL`. Attention, ce doit être une syntaxe facile à utiliser pour une personne devant définir un processus. Le principe est de compléter l’une des syntaxes concrètes fournies. En aucun cas il faut se contenter de faire engendrer une syntaxe à `Xtext`!
     - [X] `SimplePDL2PetriNet.atl` : transformation de `SimplePDL` en `PetriNet`,
-  - [ ] LTL  18/10/2024 #n7
+  - [X] LTL  18/10/2024 #n7
     - [X] `SimplePDL-finish.mtl` : transformation M2T qui engendre les propriétés LTL qui vérifient la terminaison d’un processus. Voir le transparent 117 et suivants du cours IDM (voir Ressources ci-dessous).
     - [X] `SimplePDL-invariants.mtl` : transformation M2T qui engendre les propriétés LTL pour valider la correction de la transformation (T11) des modèles de processus vers les réseaux de Petri.
 
