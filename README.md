@@ -10,7 +10,7 @@
   - [X] Terminaison
   - [ ] Invariant
 - [ ] Finir le rapport
-- [ ] Avoir un scénario de 10min (10 ? je crois)
+- [ ] Avoir un scénario de 10min 
 
 ## Livrables
 
@@ -47,7 +47,7 @@
     - [X] `SimplePDL2PetriNet.atl` : transformation de `SimplePDL` en `PetriNet`,
   - [ ] LTL  18/10/2024 #n7
     - [X] `SimplePDL-finish.mtl` : transformation M2T qui engendre les propriétés LTL qui vérifient la terminaison d’un processus. Voir le transparent 117 et suivants du cours IDM (voir Ressources ci-dessous).
-    - [ ] `SimplePDL-invariants.mtl` : transformation M2T qui engendre les propriétés LTL pour valider la correction de la transformation (T11) des modèles de processus vers les réseaux de Petri.
+    - [X] `SimplePDL-invariants.mtl` : transformation M2T qui engendre les propriétés LTL pour valider la correction de la transformation (T11) des modèles de processus vers les réseaux de Petri.
 
 
 ## Documents à rendre
