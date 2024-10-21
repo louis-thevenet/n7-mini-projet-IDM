@@ -137,7 +137,7 @@ cas des read-arcs.
 
 #figure(
   image("assets/petrinet-exemple-place-ressource-tina.png"), caption: [Capture d'écran de Tina affichant le fichier NET résultat],
-)
+) <petrinet-exemple-place-ressource-tina>
 == `PetriNet` vers Dot
 Pour chaque `Place`, on déclare un `node` avec le même nom et le nombre de
 jetons associés.
@@ -174,3 +174,11 @@ grammaire en `SimplePDL`.
 )
 
 = Vérification de terminaison et invariants
+Nous nous sommes auppuyés sur le TP et le TP concernant Tina pour pouvoir définir la terminaison et l'invariant des processus :
+- Un processus se termine si toutes ses activités se terminent ie dans le réseau de Pétri il y a un jeton dans chaque place `wd_finished` (wd étant le nom de la `WorkDefinition` correspondante).
+- Les invariants de processus sont les mêmes que ceux de réseaux de Pétri. Un processus ne peut être en cours et en même temps avoir fini, ses états sont donc exclusifs.
+
+Se référer aux fichier `SimplePDL-finish.mtl` et `SimplePDL-invarariant.mtl` pour obtenir la transormation de SimplePDL vers LTL pour la terminaison et invariance.
+
+== Exemple
+En utilisant la @petrinet-exemple-place-ressource-tina
