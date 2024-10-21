@@ -7,8 +7,12 @@
 [file (aProcess.name+'.ltl', false, 'UTF-8')]
 [let pes : OrderedSet(WorkSequence) = aProcess.processElements ] 
 	[if (pes->size() > 0)]
-<> ['[]'/] ([for (pe : ProcessElement | pes)][if (pe.oclIsKindOf(WorkDefinition))][let wd: WorkDefinition = pe.oclAsType(WorkDefinition)][wd.name + '_finished '/][/let] /\ [/if][/for] T);
+['op finished'/] = ([for (pe : ProcessElement | pes)][if (pe.oclIsKindOf(WorkDefinition))][let wd: WorkDefinition = pe.oclAsType(WorkDefinition)][wd.name + '_finished '/][/let] /\ [/if][/for] T);
 [/if]
+['[] (finished => dead)'/];
+['[]'/] <> dead;
+['[]'/] ['dead => finished'/];
+['-'/] <> finished;
 [/let]
 [/file]
 [/template]
