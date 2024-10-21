@@ -1,4 +1,5 @@
 #import "./template.typ": *
+#import "@preview/codelst:2.0.1": sourcecode
 
 #show: project.with(
   subject: "Ingénierie Dirigée par les Modèles", title: "Mini-Projet IDM", authors: ("THEVENET Louis", "SABLAYROLLES Guillaume",), date: "Octobre 2024", subtitle: "Groupe L34-02", toc: true,
@@ -19,9 +20,6 @@ Une `WorkDefinition` utilise une `Resource` en ajoutant une référence à une `
 contient :
 - référence à la `Resource` en question
 - la quantité demandée (`need`)
-
-== Exemples
-Ici mettre des exemples
 
 == PetriNet
 
@@ -143,7 +141,26 @@ On déclare ensuite les arcs en traitant les read-arcs.
  image("assets/petrinet-exemple-temporel-dot.svg"), caption: [Sortie : réseau de Petri résultant de la transformation en DOT],
 )
 
-= Transformation Texte à Modèle
+= Transformation Texte à Modèle de `SimplePDL`
+Nous avons décidé de partir de la troisième grammaire du sujet de TP et d'y ajouter le support pour les ressources.
+
+#figure(
+
+sourcecode()[
+```yaml
+process : ex1
+
+resources: Humains:5; Ordis:5;
+workdefinitions : a; b; c;
+resourceusages: a:Humains=5; b:Humains=5; b:Ordis=2;
+worksequences : a s2s b; b f2f c; c s2s a;
+```],caption: "Exemple de fichier conforme à la grammaire")
+
+On réalise ensuite la transformation du méta-modèle `SimplePDL3` issu de la grammaire en `SimplePDL`. 
+
+#figure(
+ image("assets/pdl-pdl3-ex1.svg"), caption: [Résultat de `SimplePDL3` $arrow$ `SimplePDL` $arrow$ `DOT`],
+)
 
 
 = Vérification de terminaison et invariants
