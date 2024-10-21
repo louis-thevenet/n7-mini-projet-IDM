@@ -78,8 +78,8 @@ public class PetriNetValidator extends PetriNetSwitch<Boolean> {
    */
   @Override
   public Boolean casePlace(Place object) {
-	  this.result.recordIfFailed(
-        (object.getName()!=null && !object.getName().isEmpty()),
+    this.result.recordIfFailed(
+        (object.getName() != null && !object.getName().isEmpty()),
         object,
         "La place n'a pas de nom");
 

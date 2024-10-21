@@ -974,8 +974,8 @@ public class InternalPDL1Lexer extends Lexer {
 
     public String getDescription() {
       return "1:1: Tokens : ( T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19"
-                 + " | T__20 | T__21 | T__22 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT |"
-                 + " RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );";
+          + " | T__20 | T__21 | T__22 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT |"
+          + " RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );";
     }
 
     public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {

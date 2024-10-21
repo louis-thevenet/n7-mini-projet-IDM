@@ -24,148 +24,213 @@ import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransi
 @SuppressWarnings("all")
 public class PDL3SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 
-	@Inject
-	private PDL3GrammarAccess grammarAccess;
-	
-	@Override
-	public void sequence(ISerializationContext context, EObject semanticObject) {
-		EPackage epackage = semanticObject.eClass().getEPackage();
-		ParserRule rule = context.getParserRule();
-		Action action = context.getAssignedAction();
-		Set<Parameter> parameters = context.getEnabledBooleanParameters();
-		if (epackage == PDL3Package.eINSTANCE)
-			switch (semanticObject.eClass().getClassifierID()) {
-			case PDL3Package.PROCESS:
-				sequence_Process(context, (fr.n7.pDL3.Process) semanticObject); 
-				return; 
-			case PDL3Package.RESOURCE:
-				sequence_Resource(context, (Resource) semanticObject); 
-				return; 
-			case PDL3Package.RESOURCE_USAGE:
-				sequence_ResourceUsage(context, (ResourceUsage) semanticObject); 
-				return; 
-			case PDL3Package.WORK_DEFINITION:
-				sequence_WorkDefinition(context, (WorkDefinition) semanticObject); 
-				return; 
-			case PDL3Package.WORK_SEQUENCE:
-				sequence_WorkSequence(context, (WorkSequence) semanticObject); 
-				return; 
-			}
-		if (errorAcceptor != null)
-			errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
-	}
-	
-	/**
-	 * <pre>
-	 * Contexts:
-	 *     Process returns Process
-	 *
-	 * Constraint:
-	 *     (name=ID processElements+=Resources* processElements+=WorkDefinitions* processElements+=ResourceUsages* processElements+=WorkSequences*)
-	 * </pre>
-	 */
-	protected void sequence_Process(ISerializationContext context, fr.n7.pDL3.Process semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * <pre>
-	 * Contexts:
-	 *     ResourceUsages returns ResourceUsage
-	 *     ResourceUsage returns ResourceUsage
-	 *
-	 * Constraint:
-	 *     (workDefinition=[WorkDefinition|ID] resource=[Resource|ID] needed=INT)
-	 * </pre>
-	 */
-	protected void sequence_ResourceUsage(ISerializationContext context, ResourceUsage semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, PDL3Package.Literals.RESOURCE_USAGE__WORK_DEFINITION) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PDL3Package.Literals.RESOURCE_USAGE__WORK_DEFINITION));
-			if (transientValues.isValueTransient(semanticObject, PDL3Package.Literals.RESOURCE_USAGE__RESOURCE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PDL3Package.Literals.RESOURCE_USAGE__RESOURCE));
-			if (transientValues.isValueTransient(semanticObject, PDL3Package.Literals.RESOURCE_USAGE__NEEDED) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PDL3Package.Literals.RESOURCE_USAGE__NEEDED));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getResourceUsageAccess().getWorkDefinitionWorkDefinitionIDTerminalRuleCall_0_0_1(), semanticObject.eGet(PDL3Package.Literals.RESOURCE_USAGE__WORK_DEFINITION, false));
-		feeder.accept(grammarAccess.getResourceUsageAccess().getResourceResourceIDTerminalRuleCall_2_0_1(), semanticObject.eGet(PDL3Package.Literals.RESOURCE_USAGE__RESOURCE, false));
-		feeder.accept(grammarAccess.getResourceUsageAccess().getNeededINTTerminalRuleCall_4_0(), semanticObject.getNeeded());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * <pre>
-	 * Contexts:
-	 *     Resources returns Resource
-	 *     Resource returns Resource
-	 *
-	 * Constraint:
-	 *     (name=ID total=INT)
-	 * </pre>
-	 */
-	protected void sequence_Resource(ISerializationContext context, Resource semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, PDL3Package.Literals.RESOURCE__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PDL3Package.Literals.RESOURCE__NAME));
-			if (transientValues.isValueTransient(semanticObject, PDL3Package.Literals.RESOURCE__TOTAL) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PDL3Package.Literals.RESOURCE__TOTAL));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getResourceAccess().getNameIDTerminalRuleCall_0_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getResourceAccess().getTotalINTTerminalRuleCall_2_0(), semanticObject.getTotal());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * <pre>
-	 * Contexts:
-	 *     WorkDefinitions returns WorkDefinition
-	 *     WorkDefinition returns WorkDefinition
-	 *
-	 * Constraint:
-	 *     name=ID
-	 * </pre>
-	 */
-	protected void sequence_WorkDefinition(ISerializationContext context, WorkDefinition semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, PDL3Package.Literals.WORK_DEFINITION__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PDL3Package.Literals.WORK_DEFINITION__NAME));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getWorkDefinitionAccess().getNameIDTerminalRuleCall_0(), semanticObject.getName());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * <pre>
-	 * Contexts:
-	 *     WorkSequences returns WorkSequence
-	 *     WorkSequence returns WorkSequence
-	 *
-	 * Constraint:
-	 *     (linkToPredecessor=[WorkDefinition|ID] linkType=WorkSequenceKind linkToSucessor=[WorkDefinition|ID])
-	 * </pre>
-	 */
-	protected void sequence_WorkSequence(ISerializationContext context, WorkSequence semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, PDL3Package.Literals.WORK_SEQUENCE__LINK_TO_PREDECESSOR) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PDL3Package.Literals.WORK_SEQUENCE__LINK_TO_PREDECESSOR));
-			if (transientValues.isValueTransient(semanticObject, PDL3Package.Literals.WORK_SEQUENCE__LINK_TYPE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PDL3Package.Literals.WORK_SEQUENCE__LINK_TYPE));
-			if (transientValues.isValueTransient(semanticObject, PDL3Package.Literals.WORK_SEQUENCE__LINK_TO_SUCESSOR) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PDL3Package.Literals.WORK_SEQUENCE__LINK_TO_SUCESSOR));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getWorkSequenceAccess().getLinkToPredecessorWorkDefinitionIDTerminalRuleCall_0_0_1(), semanticObject.eGet(PDL3Package.Literals.WORK_SEQUENCE__LINK_TO_PREDECESSOR, false));
-		feeder.accept(grammarAccess.getWorkSequenceAccess().getLinkTypeWorkSequenceKindEnumRuleCall_1_0(), semanticObject.getLinkType());
-		feeder.accept(grammarAccess.getWorkSequenceAccess().getLinkToSucessorWorkDefinitionIDTerminalRuleCall_2_0_1(), semanticObject.eGet(PDL3Package.Literals.WORK_SEQUENCE__LINK_TO_SUCESSOR, false));
-		feeder.finish();
-	}
-	
-	
+  @Inject private PDL3GrammarAccess grammarAccess;
+
+  @Override
+  public void sequence(ISerializationContext context, EObject semanticObject) {
+    EPackage epackage = semanticObject.eClass().getEPackage();
+    ParserRule rule = context.getParserRule();
+    Action action = context.getAssignedAction();
+    Set<Parameter> parameters = context.getEnabledBooleanParameters();
+    if (epackage == PDL3Package.eINSTANCE)
+      switch (semanticObject.eClass().getClassifierID()) {
+        case PDL3Package.PROCESS:
+          sequence_Process(context, (fr.n7.pDL3.Process) semanticObject);
+          return;
+        case PDL3Package.RESOURCE:
+          sequence_Resource(context, (Resource) semanticObject);
+          return;
+        case PDL3Package.RESOURCE_USAGE:
+          sequence_ResourceUsage(context, (ResourceUsage) semanticObject);
+          return;
+        case PDL3Package.WORK_DEFINITION:
+          sequence_WorkDefinition(context, (WorkDefinition) semanticObject);
+          return;
+        case PDL3Package.WORK_SEQUENCE:
+          sequence_WorkSequence(context, (WorkSequence) semanticObject);
+          return;
+      }
+    if (errorAcceptor != null)
+      errorAcceptor.accept(
+          diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
+  }
+
+  /**
+   *
+   *
+   * <pre>
+   * Contexts:
+   *     Process returns Process
+   *
+   * Constraint:
+   *     (name=ID processElements+=Resources* processElements+=WorkDefinitions* processElements+=ResourceUsages* processElements+=WorkSequences*)
+   * </pre>
+   */
+  protected void sequence_Process(
+      ISerializationContext context, fr.n7.pDL3.Process semanticObject) {
+    genericSequencer.createSequence(context, semanticObject);
+  }
+
+  /**
+   *
+   *
+   * <pre>
+   * Contexts:
+   *     ResourceUsages returns ResourceUsage
+   *     ResourceUsage returns ResourceUsage
+   *
+   * Constraint:
+   *     (workDefinition=[WorkDefinition|ID] resource=[Resource|ID] needed=INT)
+   * </pre>
+   */
+  protected void sequence_ResourceUsage(
+      ISerializationContext context, ResourceUsage semanticObject) {
+    if (errorAcceptor != null) {
+      if (transientValues.isValueTransient(
+              semanticObject, PDL3Package.Literals.RESOURCE_USAGE__WORK_DEFINITION)
+          == ValueTransient.YES)
+        errorAcceptor.accept(
+            diagnosticProvider.createFeatureValueMissing(
+                semanticObject, PDL3Package.Literals.RESOURCE_USAGE__WORK_DEFINITION));
+      if (transientValues.isValueTransient(
+              semanticObject, PDL3Package.Literals.RESOURCE_USAGE__RESOURCE)
+          == ValueTransient.YES)
+        errorAcceptor.accept(
+            diagnosticProvider.createFeatureValueMissing(
+                semanticObject, PDL3Package.Literals.RESOURCE_USAGE__RESOURCE));
+      if (transientValues.isValueTransient(
+              semanticObject, PDL3Package.Literals.RESOURCE_USAGE__NEEDED)
+          == ValueTransient.YES)
+        errorAcceptor.accept(
+            diagnosticProvider.createFeatureValueMissing(
+                semanticObject, PDL3Package.Literals.RESOURCE_USAGE__NEEDED));
+    }
+    SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+    feeder.accept(
+        grammarAccess
+            .getResourceUsageAccess()
+            .getWorkDefinitionWorkDefinitionIDTerminalRuleCall_0_0_1(),
+        semanticObject.eGet(PDL3Package.Literals.RESOURCE_USAGE__WORK_DEFINITION, false));
+    feeder.accept(
+        grammarAccess.getResourceUsageAccess().getResourceResourceIDTerminalRuleCall_2_0_1(),
+        semanticObject.eGet(PDL3Package.Literals.RESOURCE_USAGE__RESOURCE, false));
+    feeder.accept(
+        grammarAccess.getResourceUsageAccess().getNeededINTTerminalRuleCall_4_0(),
+        semanticObject.getNeeded());
+    feeder.finish();
+  }
+
+  /**
+   *
+   *
+   * <pre>
+   * Contexts:
+   *     Resources returns Resource
+   *     Resource returns Resource
+   *
+   * Constraint:
+   *     (name=ID total=INT)
+   * </pre>
+   */
+  protected void sequence_Resource(ISerializationContext context, Resource semanticObject) {
+    if (errorAcceptor != null) {
+      if (transientValues.isValueTransient(semanticObject, PDL3Package.Literals.RESOURCE__NAME)
+          == ValueTransient.YES)
+        errorAcceptor.accept(
+            diagnosticProvider.createFeatureValueMissing(
+                semanticObject, PDL3Package.Literals.RESOURCE__NAME));
+      if (transientValues.isValueTransient(semanticObject, PDL3Package.Literals.RESOURCE__TOTAL)
+          == ValueTransient.YES)
+        errorAcceptor.accept(
+            diagnosticProvider.createFeatureValueMissing(
+                semanticObject, PDL3Package.Literals.RESOURCE__TOTAL));
+    }
+    SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+    feeder.accept(
+        grammarAccess.getResourceAccess().getNameIDTerminalRuleCall_0_0(),
+        semanticObject.getName());
+    feeder.accept(
+        grammarAccess.getResourceAccess().getTotalINTTerminalRuleCall_2_0(),
+        semanticObject.getTotal());
+    feeder.finish();
+  }
+
+  /**
+   *
+   *
+   * <pre>
+   * Contexts:
+   *     WorkDefinitions returns WorkDefinition
+   *     WorkDefinition returns WorkDefinition
+   *
+   * Constraint:
+   *     name=ID
+   * </pre>
+   */
+  protected void sequence_WorkDefinition(
+      ISerializationContext context, WorkDefinition semanticObject) {
+    if (errorAcceptor != null) {
+      if (transientValues.isValueTransient(
+              semanticObject, PDL3Package.Literals.WORK_DEFINITION__NAME)
+          == ValueTransient.YES)
+        errorAcceptor.accept(
+            diagnosticProvider.createFeatureValueMissing(
+                semanticObject, PDL3Package.Literals.WORK_DEFINITION__NAME));
+    }
+    SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+    feeder.accept(
+        grammarAccess.getWorkDefinitionAccess().getNameIDTerminalRuleCall_0(),
+        semanticObject.getName());
+    feeder.finish();
+  }
+
+  /**
+   *
+   *
+   * <pre>
+   * Contexts:
+   *     WorkSequences returns WorkSequence
+   *     WorkSequence returns WorkSequence
+   *
+   * Constraint:
+   *     (linkToPredecessor=[WorkDefinition|ID] linkType=WorkSequenceKind linkToSucessor=[WorkDefinition|ID])
+   * </pre>
+   */
+  protected void sequence_WorkSequence(ISerializationContext context, WorkSequence semanticObject) {
+    if (errorAcceptor != null) {
+      if (transientValues.isValueTransient(
+              semanticObject, PDL3Package.Literals.WORK_SEQUENCE__LINK_TO_PREDECESSOR)
+          == ValueTransient.YES)
+        errorAcceptor.accept(
+            diagnosticProvider.createFeatureValueMissing(
+                semanticObject, PDL3Package.Literals.WORK_SEQUENCE__LINK_TO_PREDECESSOR));
+      if (transientValues.isValueTransient(
+              semanticObject, PDL3Package.Literals.WORK_SEQUENCE__LINK_TYPE)
+          == ValueTransient.YES)
+        errorAcceptor.accept(
+            diagnosticProvider.createFeatureValueMissing(
+                semanticObject, PDL3Package.Literals.WORK_SEQUENCE__LINK_TYPE));
+      if (transientValues.isValueTransient(
+              semanticObject, PDL3Package.Literals.WORK_SEQUENCE__LINK_TO_SUCESSOR)
+          == ValueTransient.YES)
+        errorAcceptor.accept(
+            diagnosticProvider.createFeatureValueMissing(
+                semanticObject, PDL3Package.Literals.WORK_SEQUENCE__LINK_TO_SUCESSOR));
+    }
+    SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+    feeder.accept(
+        grammarAccess
+            .getWorkSequenceAccess()
+            .getLinkToPredecessorWorkDefinitionIDTerminalRuleCall_0_0_1(),
+        semanticObject.eGet(PDL3Package.Literals.WORK_SEQUENCE__LINK_TO_PREDECESSOR, false));
+    feeder.accept(
+        grammarAccess.getWorkSequenceAccess().getLinkTypeWorkSequenceKindEnumRuleCall_1_0(),
+        semanticObject.getLinkType());
+    feeder.accept(
+        grammarAccess
+            .getWorkSequenceAccess()
+            .getLinkToSucessorWorkDefinitionIDTerminalRuleCall_2_0_1(),
+        semanticObject.eGet(PDL3Package.Literals.WORK_SEQUENCE__LINK_TO_SUCESSOR, false));
+    feeder.finish();
+  }
 }

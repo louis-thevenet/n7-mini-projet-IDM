@@ -69,16 +69,16 @@ Transformation des ressources :
   - De la place représentant la `Resource` utilisée à la transition `start` de la `WorkDefinition`
   - De la transition `finish` de la `WorkDefinition` à la place représentant la `Resource` utilisée
 
-
 === Fichier d'entrée
-Pour illustrer les transformations, nous utiliserons l'exemple de modèle de processus suivant.
+Pour illustrer les transformations, nous utiliserons l'exemple de modèle de
+processus suivant.
 #figure(
-  image("assets/pdl-exemple-place-ressource.svg"), caption: [Modèle de processus simple avec une ressource]) <pdl-exemple-dot>
+  image("assets/pdl-exemple-place-ressource.svg"), caption: [Modèle de processus simple avec une ressource],
+) <pdl-exemple-dot>
 
 === Java/EMF
 
 On réalise un premier programme de transformation en Java (voir #link("../livrables/SimplePDL2PetriNet.java")[`SimplePDL2PetriNet.java`])
-
 
 Lors de cette transformation, on traite les `ProcessElement` dans cet ordre :
 + `Resource`
@@ -86,7 +86,8 @@ Lors de cette transformation, on traite les `ProcessElement` dans cet ordre :
   - `ResourceUsage` (on traite les `ResourceUsage` attachés à la `WorkDefinition` courante)
 + `WorkSequence`
 
-La @output_simplePDL2PetriNet-java représente le réseau de Petri en sortie du programme.
+La @output_simplePDL2PetriNet-java représente le réseau de Petri en sortie du
+programme.
 
 #figure(
   image("assets/petrinet-exemple-place-ressource-java.svg"), caption: [Réseau de Petri résultant de la transformation par Java],
@@ -95,14 +96,14 @@ La @output_simplePDL2PetriNet-java représente le réseau de Petri en sortie du 
 On distingue aisément les différents sous-réseaux de Petri associés aux `WorkDefinition` ainsi
 que la `Ressource` et les arcs qui la relient au sous-réseau associé à _Programmer_
 
-
 === ATL
 On réalise également la même transformation à l'aide d'ATL (voir #link("../livrables/SimplePDL2PetriNet.atl")[`SimplePDL2PetriNet.atl`])
 #figure(
   image("assets/petrinet-exemple-place-ressource-atl.svg"), caption: [Réseau de Petri résultant de la transformation par ATL],
 )
 
-L'emplacement des noeuds n'est plus exactement le même mais les graphes sont bien identiques.
+L'emplacement des noeuds n'est plus exactement le même mais les graphes sont
+bien identiques.
 
 = Transformation Modèle à Texte
 Nous avons réalisé plusieurs transformations modèle à texte :
@@ -110,43 +111,51 @@ Nous avons réalisé plusieurs transformations modèle à texte :
 - `PetriNet2Tina`
 - `PetriNet2Dot`
 
-Les images précédentes ont été réalisées à partir des transformation vers le format DOT.
+Les images précédentes ont été réalisées à partir des transformation vers le
+format DOT.
 
 == `SimplePDL` vers Dot
-Pour chaque `Resource`, on déclare un `node` avec la forme `diamond`, le même nom et le nombre total de ressources.
+Pour chaque `Resource`, on déclare un `node` avec la forme `diamond`, le même
+nom et le nombre total de ressources.
 
-Pour chaque `WorkSequence` on déclare un arc entre le prédecesseur et le successeur (les `node` associés aux `WorkDefinition` seront générés automatiquement)
+Pour chaque `WorkSequence` on déclare un arc entre le prédecesseur et le
+successeur (les `node` associés aux `WorkDefinition` seront générés
+automatiquement)
 
-Pour chaque `ResourceUsage` on déclare un arc entre la ressource et la `WorkDefinition` et une tête avec la forme `diamond`.
+Pour chaque `ResourceUsage` on déclare un arc entre la ressource et la `WorkDefinition` et
+une tête avec la forme `diamond`.
 
 Voir @pdl-exemple-dot pour un exemple.
 
 == `PetriNet` vers Tina
-Le format NET est une traduction presque directe du méta-modèle `PetriNet`, ce qui rend la transformation très simple. (voir #link("../livrables/PetriNet2Tina.mtl")[`PetriNet2Tina.mtl`])
+Le format NET est une traduction presque directe du méta-modèle `PetriNet`, ce
+qui rend la transformation très simple. (voir #link("../livrables/PetriNet2Tina.mtl")[`PetriNet2Tina.mtl`])
 
-On parcourt d'abord les `Place` pour les déclarer, puis on déclare chaque transition en ajoutant si besoin les contraintes temporelles et en traitant le cas des read-arcs.
-
+On parcourt d'abord les `Place` pour les déclarer, puis on déclare chaque
+transition en ajoutant si besoin les contraintes temporelles et en traitant le
+cas des read-arcs.
 
 #figure(
- image("assets/petrinet-exemple-place-ressource-tina.png"), caption: [Capture d'écran de Tina affichant le fichier NET résultat],
+  image("assets/petrinet-exemple-place-ressource-tina.png"), caption: [Capture d'écran de Tina affichant le fichier NET résultat],
 )
 == `PetriNet` vers Dot
-Pour chaque `Place`, on déclare un `node` avec le même nom et le nombre de jetons associés.
+Pour chaque `Place`, on déclare un `node` avec le même nom et le nombre de
+jetons associés.
 
-Pour chaque `Transition`, on déclare un `node` avec le même nom et les éventuelles contraintes temporelles.
+Pour chaque `Transition`, on déclare un `node` avec le même nom et les
+éventuelles contraintes temporelles.
 
 On déclare ensuite les arcs en traitant les read-arcs.
 
 #figure(
- image("assets/petrinet-exemple-temporel-dot.svg"), caption: [Sortie : réseau de Petri résultant de la transformation en DOT],
+  image("assets/petrinet-exemple-temporel-dot.svg"), caption: [Sortie : réseau de Petri résultant de la transformation en DOT],
 )
 
 = Transformation Texte à Modèle de `SimplePDL`
-Nous avons décidé de partir de la troisième grammaire du sujet de TP et d'y ajouter le support pour les ressources.
+Nous avons décidé de partir de la troisième grammaire du sujet de TP et d'y
+ajouter le support pour les ressources.
 
-#figure(
-
-sourcecode()[
+#figure(sourcecode()[
 ```yaml
 process : ex1
 
@@ -154,13 +163,14 @@ resources: Humains:5; Ordis:5;
 workdefinitions : a; b; c;
 resourceusages: a:Humains=5; b:Humains=5; b:Ordis=2;
 worksequences : a s2s b; b f2f c; c s2s a;
-```],caption: "Exemple de fichier conforme à la grammaire")
+```
+], caption: "Exemple de fichier conforme à la grammaire")
 
-On réalise ensuite la transformation du méta-modèle `SimplePDL3` issu de la grammaire en `SimplePDL`. 
+On réalise ensuite la transformation du méta-modèle `SimplePDL3` issu de la
+grammaire en `SimplePDL`.
 
 #figure(
- image("assets/pdl-pdl3-ex1.svg"), caption: [Résultat de `SimplePDL3` $arrow$ `SimplePDL` $arrow$ `DOT`],
+  image("assets/pdl-pdl3-ex1.svg"), caption: [Résultat de `SimplePDL3` $arrow$ `SimplePDL` $arrow$ `DOT`],
 )
-
 
 = Vérification de terminaison et invariants

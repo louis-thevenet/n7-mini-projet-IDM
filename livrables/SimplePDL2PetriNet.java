@@ -78,7 +78,6 @@ public class SimplePDL2PetriNet {
     // ******************
     Process process = load_process_model(args[0]);
 
-    
     // ************************
     // Create new EMF Resource
     // ************************
@@ -180,12 +179,11 @@ public class SimplePDL2PetriNet {
                 ArcType.ARC,
                 LinkDirection.TRANSITION_TO_PLACE);
 
-
         // ************************************************
         // Transform ResourceUsage of this WorkDefinition
         // ************************************************
         for (ResourceUsage rs_usage : wd.getResourceUsed()) {
-        	// Look for the actual Resource 
+          // Look for the actual Resource
           for (Object netObject : net.getNetElements()) {
 
             if (netObject instanceof Place
@@ -237,7 +235,6 @@ public class SimplePDL2PetriNet {
       }
     }
 
-
     // ***************************
     // Transform WorkWorkSequence
     // ***************************
@@ -265,13 +262,13 @@ public class SimplePDL2PetriNet {
         } else {
           nextNameMatch = next + "_start";
         }
-        
+
         // Create the read-arc
         Arc arc = petriNetFactory.createArc();
         arc.setArcType(ArcType.READ_ARC);
         arc.setLinkDirection(LinkDirection.PLACE_TO_TRANSITION);
         arc.setName(pred + "To" + next);
-        
+
         // Look for predecessor and successor
         for (Object netObject : net.getNetElements()) {
           if (netObject instanceof Place) {

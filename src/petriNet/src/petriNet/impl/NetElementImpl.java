@@ -7,6 +7,7 @@ import petriNet.NetElement;
 import petriNet.PetriNetPackage;
 
 /**
+ *
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Net Element</b></em>'.
  * <!-- end-user-doc -->
@@ -15,21 +16,25 @@ import petriNet.PetriNetPackage;
  */
 public abstract class NetElementImpl extends MinimalEObjectImpl.Container implements NetElement {
   /**
-	 * <!-- begin-user-doc -->
+   *
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   *
+   * @generated
+   */
   protected NetElementImpl() {
-		super();
-	}
+    super();
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   *
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   *
+   * @generated
+   */
   @Override
   protected EClass eStaticClass() {
-		return PetriNetPackage.Literals.NET_ELEMENT;
-	}
+    return PetriNetPackage.Literals.NET_ELEMENT;
+  }
 } // NetElementImpl
