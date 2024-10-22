@@ -26,4 +26,4 @@
   + L'ouvrir
 - Transformation `PetriNet` $arrow$ `LTL`
   + tina fichier.net fichier.ktz
-  + selt -p fichier.ktz -prelude fichier.ltl
+  + `selt -p fichier.ktz -prelude fichier.ltl`

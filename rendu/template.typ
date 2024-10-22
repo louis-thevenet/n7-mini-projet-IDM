@@ -46,6 +46,7 @@
 
   pagebreak()
   if toc {
+    pagebreak()
     outline(depth: 2, indent: true)
     pagebreak()
   }// Main body.

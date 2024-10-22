@@ -20,7 +20,6 @@ Une `WorkDefinition` utilise une `Resource` en ajoutant une référence à une `
 contient :
 - référence à la `Resource` en question
 - la quantité demandée (`need`)
-
 == PetriNet
 
 #figure(
@@ -174,11 +173,24 @@ grammaire en `SimplePDL`.
 )
 
 = Vérification de terminaison et invariants
-Nous nous sommes auppuyés sur le TP et le TP concernant Tina pour pouvoir définir la terminaison et l'invariant des processus :
-- Un processus se termine si toutes ses activités se terminent ie dans le réseau de Pétri il y a un jeton dans chaque place `wd_finished` (wd étant le nom de la `WorkDefinition` correspondante).
+
+- Un processus se termine si toutes ses activités se terminent, c'est-à-dire qu'il y a un jeton dans chaque place `finished` associées aux `WorkDefinition`
+#sourcecode()[
+  ```mli
+op finished = (Programmer_finished  /\ Concevoir_finished  /\  T);
+[] (finished => dead);
+[] <> dead;
+[] dead => finished;
+- <> finished;
+  ```
+]
 - Les invariants de processus sont les mêmes que ceux de réseaux de Pétri. Un processus ne peut être en cours et en même temps avoir fini, ses états sont donc exclusifs.
 
-Se référer aux fichier `SimplePDL-finish.mtl` et `SimplePDL-invarariant.mtl` pour obtenir la transormation de SimplePDL vers LTL pour la terminaison et invariance.
+#sourcecode()[
+  ```mli
+[] (Programmer_finished + Programmer_running + Programmer_ready = 1);
+[] (Concevoir_finished + Concevoir_running + Concevoir_ready = 1);
+  ```
+]
 
-== Exemple
-En utilisant la @petrinet-exemple-place-ressource-tina
+
