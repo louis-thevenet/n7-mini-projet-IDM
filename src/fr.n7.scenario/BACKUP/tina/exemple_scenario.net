@@ -1,0 +1,24 @@
+
+net exemple_scenario
+pl a_ready (1)
+pl a_started (0)
+pl a_running (0)
+pl a_finished (0)
+pl b_ready (1)
+pl b_started (0)
+pl b_running (0)
+pl b_finished (0)
+pl c_ready (1)
+pl c_started (0)
+pl c_running (0)
+pl c_finished (0)
+pl Humains (5)
+pl Ordis (5)
+tr a_start  a_ready*1 c_started?1 Humains*5 -> a_running*1 a_started*1 
+tr a_finish  a_running*1 -> a_finished*1 Humains*5 
+tr b_start  b_ready*1 a_started?1 Humains*5 Ordis*2 -> b_running*1 b_started*1 
+tr b_finish  b_running*1 -> b_finished*1 Humains*5 Ordis*2 
+tr c_start  c_ready*1 -> c_running*1 c_started*1 
+tr c_finish  c_running*1 b_finished?1 -> c_finished*1 
+
+

@@ -1,0 +1,50 @@
+digraph exemple_scenario {
+label=exemple_scenario
+
+Humains [xlabel=5];
+Ordis [xlabel=5];
+a_ready [xlabel=1];
+a_started ;
+a_running ;
+a_finished ;
+a_start [shape=rectangle] ;
+a_finish [shape=rectangle] ;
+b_ready [xlabel=1];
+b_started ;
+b_running ;
+b_finished ;
+b_start [shape=rectangle] ;
+b_finish [shape=rectangle] ;
+c_ready [xlabel=1];
+c_started ;
+c_running ;
+c_finished ;
+c_start [shape=rectangle] ;
+c_finish [shape=rectangle] ;
+
+Humains -> a_start  [arrowhead=vee]  [label=5];
+a_finish -> Humains  [arrowhead=vee]  [label=5];
+a_ready -> a_start  [arrowhead=vee]  ;
+a_start -> a_running  [arrowhead=vee]  ;
+a_start -> a_started  [arrowhead=vee]  ;
+a_running -> a_finish  [arrowhead=vee]  ;
+a_finish -> a_finished  [arrowhead=vee]  ;
+Humains -> b_start  [arrowhead=vee]  [label=5];
+b_finish -> Humains  [arrowhead=vee]  [label=5];
+Ordis -> b_start  [arrowhead=vee]  [label=2];
+b_finish -> Ordis  [arrowhead=vee]  [label=2];
+b_ready -> b_start  [arrowhead=vee]  ;
+b_start -> b_running  [arrowhead=vee]  ;
+b_start -> b_started  [arrowhead=vee]  ;
+b_running -> b_finish  [arrowhead=vee]  ;
+b_finish -> b_finished  [arrowhead=vee]  ;
+c_ready -> c_start  [arrowhead=vee]  ;
+c_start -> c_running  [arrowhead=vee]  ;
+c_start -> c_started  [arrowhead=vee]  ;
+c_running -> c_finish  [arrowhead=vee]  ;
+c_finish -> c_finished  [arrowhead=vee]  ;
+a_started -> b_start [dir=both]   [arrowhead=vee] [arrowtail=dot]  ;
+b_finished -> c_finish [dir=both]   [arrowhead=vee] [arrowtail=dot]  ;
+c_started -> a_start [dir=both]   [arrowhead=vee] [arrowtail=dot]  ;
+
+}

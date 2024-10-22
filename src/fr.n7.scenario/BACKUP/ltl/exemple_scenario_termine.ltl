@@ -1,0 +1,5 @@
+op finished = (a_finished  /\ b_finished  /\ c_finished  /\  T);
+[] (finished => dead);
+[] <> dead;
+[] dead => finished;
+- <> finished;
