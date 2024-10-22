@@ -1,0 +1,5 @@
+op finished = (Programmer_finished  /\ Concevoir_finished  /\  T);
+[] (finished => dead);
+[] <> dead;
+[] dead => finished;
+- <> finished;
