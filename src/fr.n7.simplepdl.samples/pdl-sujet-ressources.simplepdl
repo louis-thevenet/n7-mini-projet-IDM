@@ -24,7 +24,7 @@
   <processElements xsi:type="simplepdl:ResourceUsage" need="1" resource="//@processElements.13" linkToWorkDefinition="//@processElements.0"/>
   <processElements xsi:type="simplepdl:Guidance" text="Conception a besoin de 2 machines alors que RedactionDoc1" elements="//@processElements.1 //@processElements.3"/>
   <processElements xsi:type="simplepdl:WorkDefinition" linksToPredecessors="//@processElements.24" name="Déploiement" resourceUsed="//@processElements.27"/>
-  <processElements xsi:type="simplepdl:WorkSequence" linkType="finishToStart" predecessor="//@processElements.3" successor="//@processElements.23"/>
+  <processElements xsi:type="simplepdl:WorkSequence" linkType="startToFinish" predecessor="//@processElements.3" successor="//@processElements.23"/>
   <processElements xsi:type="simplepdl:Guidance" text="Commencer à déployer quand tout est fini" elements="//@processElements.23"/>
   <processElements xsi:type="simplepdl:Resource" name="deployeur" total="3"/>
   <processElements xsi:type="simplepdl:ResourceUsage" need="5" resource="//@processElements.26" linkToWorkDefinition="//@processElements.23"/>
