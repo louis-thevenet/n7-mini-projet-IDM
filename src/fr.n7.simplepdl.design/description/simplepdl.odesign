@@ -19,7 +19,7 @@
           </style>
         </nodeMappings>
         <nodeMappings name="RNode" domainClass="simplepdl::Resource">
-          <style xsi:type="style:LozengeNodeDescription" labelSize="12" showIcon="false" labelPosition="node" resizeKind="NSEW">
+          <style xsi:type="style:LozengeNodeDescription" labelSize="12" showIcon="false" labelExpression="[name.concat('  : ').concat(total.toString())/]" labelPosition="node" resizeKind="NSEW">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>

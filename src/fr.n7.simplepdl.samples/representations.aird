@@ -4,7 +4,7 @@
     <semanticResources>pdl-sujet-ressources.simplepdl</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_BmyMAI0oEe-2tLiJI1AHFw">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/resource/fr.n7.simplepdl.design/description/simplepdl.odesign#//@ownedViewpoints[name='simplepdlViewpoint']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_FLArQI0pEe-2tLiJI1AHFw" name="ExempleSujetRessources ProcessDiagram" repPath="#_FK4IYI0pEe-2tLiJI1AHFw" changeId="1729593095922">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_FLArQI0pEe-2tLiJI1AHFw" name="ExempleSujetRessources ProcessDiagram" repPath="#_FK4IYI0pEe-2tLiJI1AHFw" changeId="1729597117795">
         <description xmi:type="description_1:DiagramDescription" href="platform:/resource/fr.n7.simplepdl.design/description/simplepdl.odesign#//@ownedViewpoints[name='simplepdlViewpoint']/@ownedRepresentations[name='ProcessDiagram']"/>
         <target xmi:type="simplepdl:Process" href="pdl-sujet-ressources.simplepdl#/"/>
       </ownedRepresentationDescriptors>
@@ -566,7 +566,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/fr.n7.simplepdl.design/description/simplepdl.odesign#//@ownedViewpoints[name='simplepdlViewpoint']/@ownedRepresentations[name='ProcessDiagram']/@defaultLayer/@nodeMappings[name='GNode']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNode" uid="_gCHTw40tEe-2tLiJI1AHFw" name="concepteur" outgoingEdges="_ODG7GI0uEe-2tLiJI1AHFw" width="3" height="3" resizeKind="NSEW">
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_gCHTw40tEe-2tLiJI1AHFw" name="concepteur  : 3" outgoingEdges="_ODG7GI0uEe-2tLiJI1AHFw" width="3" height="3" resizeKind="NSEW">
       <target xmi:type="simplepdl:Resource" href="pdl-sujet-ressources.simplepdl#//@processElements.9"/>
       <semanticElements xmi:type="simplepdl:Resource" href="pdl-sujet-ressources.simplepdl#//@processElements.9"/>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -577,7 +577,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/fr.n7.simplepdl.design/description/simplepdl.odesign#//@ownedViewpoints[name='simplepdlViewpoint']/@ownedRepresentations[name='ProcessDiagram']/@defaultLayer/@nodeMappings[name='RNode']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNode" uid="_gCH60o0tEe-2tLiJI1AHFw" name="developpeur" outgoingEdges="_ODHiJY0uEe-2tLiJI1AHFw" width="3" height="3" resizeKind="NSEW">
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_gCH60o0tEe-2tLiJI1AHFw" name="developpeur  : 2" outgoingEdges="_ODHiJY0uEe-2tLiJI1AHFw" width="3" height="3" resizeKind="NSEW">
       <target xmi:type="simplepdl:Resource" href="pdl-sujet-ressources.simplepdl#//@processElements.10"/>
       <semanticElements xmi:type="simplepdl:Resource" href="pdl-sujet-ressources.simplepdl#//@processElements.10"/>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -588,7 +588,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/fr.n7.simplepdl.design/description/simplepdl.odesign#//@ownedViewpoints[name='simplepdlViewpoint']/@ownedRepresentations[name='ProcessDiagram']/@defaultLayer/@nodeMappings[name='RNode']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNode" uid="_gCH61Y0tEe-2tLiJI1AHFw" name="machine" outgoingEdges="_ODG7HY0uEe-2tLiJI1AHFw _ODG7Io0uEe-2tLiJI1AHFw _ODHiKo0uEe-2tLiJI1AHFw _ODHiL40uEe-2tLiJI1AHFw" width="3" height="3" resizeKind="NSEW">
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_gCH61Y0tEe-2tLiJI1AHFw" name="machine  : 4" outgoingEdges="_ODG7HY0uEe-2tLiJI1AHFw _ODG7Io0uEe-2tLiJI1AHFw _ODHiKo0uEe-2tLiJI1AHFw _ODHiL40uEe-2tLiJI1AHFw" width="3" height="3" resizeKind="NSEW">
       <target xmi:type="simplepdl:Resource" href="pdl-sujet-ressources.simplepdl#//@processElements.11"/>
       <semanticElements xmi:type="simplepdl:Resource" href="pdl-sujet-ressources.simplepdl#//@processElements.11"/>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -599,7 +599,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/fr.n7.simplepdl.design/description/simplepdl.odesign#//@ownedViewpoints[name='simplepdlViewpoint']/@ownedRepresentations[name='ProcessDiagram']/@defaultLayer/@nodeMappings[name='RNode']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNode" uid="_gCH62I0tEe-2tLiJI1AHFw" name="redacteur" outgoingEdges="_ODHiII0uEe-2tLiJI1AHFw" width="3" height="3" resizeKind="NSEW">
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_gCH62I0tEe-2tLiJI1AHFw" name="redacteur  : 1" outgoingEdges="_ODHiII0uEe-2tLiJI1AHFw" width="3" height="3" resizeKind="NSEW">
       <target xmi:type="simplepdl:Resource" href="pdl-sujet-ressources.simplepdl#//@processElements.12"/>
       <semanticElements xmi:type="simplepdl:Resource" href="pdl-sujet-ressources.simplepdl#//@processElements.12"/>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -610,7 +610,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/fr.n7.simplepdl.design/description/simplepdl.odesign#//@ownedViewpoints[name='simplepdlViewpoint']/@ownedRepresentations[name='ProcessDiagram']/@defaultLayer/@nodeMappings[name='RNode']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNode" uid="_gCH6240tEe-2tLiJI1AHFw" name="testeur" outgoingEdges="_ODHiNI0uEe-2tLiJI1AHFw" width="3" height="3" resizeKind="NSEW">
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_gCH6240tEe-2tLiJI1AHFw" name="testeur  : 2" outgoingEdges="_ODHiNI0uEe-2tLiJI1AHFw" width="3" height="3" resizeKind="NSEW">
       <target xmi:type="simplepdl:Resource" href="pdl-sujet-ressources.simplepdl#//@processElements.13"/>
       <semanticElements xmi:type="simplepdl:Resource" href="pdl-sujet-ressources.simplepdl#//@processElements.13"/>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -621,7 +621,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/fr.n7.simplepdl.design/description/simplepdl.odesign#//@ownedViewpoints[name='simplepdlViewpoint']/@ownedRepresentations[name='ProcessDiagram']/@defaultLayer/@nodeMappings[name='RNode']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNode" uid="_lSWggI08Ee-2tLiJI1AHFw" name="deployeur" outgoingEdges="_ZvGDYI09Ee-2tLiJI1AHFw" width="3" height="3" resizeKind="NSEW">
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_lSWggI08Ee-2tLiJI1AHFw" name="deployeur  : 3" outgoingEdges="_ZvGDYI09Ee-2tLiJI1AHFw" width="3" height="3" resizeKind="NSEW">
       <target xmi:type="simplepdl:Resource" href="pdl-sujet-ressources.simplepdl#//@processElements.26"/>
       <semanticElements xmi:type="simplepdl:Resource" href="pdl-sujet-ressources.simplepdl#//@processElements.26"/>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
