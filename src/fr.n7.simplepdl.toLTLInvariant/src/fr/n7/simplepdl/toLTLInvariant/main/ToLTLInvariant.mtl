@@ -4,7 +4,7 @@
 
 [template public toLTL(aProcess : Process)]
 [comment @main/]
-[file (aProcess.name+'.ltl', false, 'UTF-8')]
+[file (aProcess.name+'_invariant.ltl', false, 'UTF-8')]
 [let pes : OrderedSet(WorkSequence) = aProcess.processElements ] 
 	[if (pes->size() > 0)]
 [for (pe : ProcessElement | pes)][if (pe.oclIsKindOf(WorkDefinition))][let wd: WorkDefinition = pe.oclAsType(WorkDefinition)]['[]'/] ([wd.name + '_finished '/]+ [wd.name + '_running '/]+ [wd.name + '_ready '/]= 1);[/let]

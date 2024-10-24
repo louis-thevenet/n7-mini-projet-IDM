@@ -1,0 +1,4 @@
+process : Sujet_TD
+
+workdefinitions : Conception; RedactionDoc; Programmation; RedactionTests;
+worksequences : Conception f2f RedactionDoc; Conception s2s RedactionDoc; Conception f2s Programmation; Conception s2s RedactionTests; Programmation f2f RedactionTests;
