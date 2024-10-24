@@ -16,7 +16,7 @@
 ) = {
   set document(author: authors, title: title)
   set page(numbering: "1", number-align: center)
-  set text(font: "New Computer Modern", lang: "en")
+  set text(font: "New Computer Modern", lang: "fr")
   set heading(numbering: "1.1.")
   show math.equation: set text(weight: 400)
 
