@@ -2,4 +2,4 @@ op finished = (Redactiontests_finished  /\ Conception_finished  /\ Programmation
 [] (finished => dead);
 [] <> dead;
 [] dead => finished;
-- <> finished;
+[] <> finished;

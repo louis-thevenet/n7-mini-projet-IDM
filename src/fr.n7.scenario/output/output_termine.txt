@@ -1,0 +1,20 @@
+TRUE
+TRUE
+TRUE
+FALSE
+  state 0: Conception_ready Programmation_ready RedactionDoc_ready Redactiontests_ready concepteur*3 developpeur*2 machine*4 redacteur testeur*2
+  -Conception_start->
+  state 1: Conception_running Conception_started Programmation_ready RedactionDoc_ready Redactiontests_ready concepteur developpeur*2 machine*2 redacteur testeur*2
+  -Conception_finish->
+  state 2: Conception_finished Conception_started Programmation_ready RedactionDoc_ready Redactiontests_ready concepteur*3 developpeur*2 machine*4 redacteur testeur*2
+  -RedactionDoc_start->
+  state 26: Conception_finished Conception_started Programmation_ready RedactionDoc_running RedactionDoc_started Redactiontests_ready concepteur*3 developpeur*2 machine*3 testeur*2
+  -RedactionDoc_finish->
+  state 27: Conception_finished Conception_started Programmation_ready RedactionDoc_finished RedactionDoc_started Redactiontests_ready concepteur*3 developpeur*2 machine*4 redacteur testeur*2
+  -Redactiontests_start->
+  state 28: L.dead Conception_finished Conception_started Programmation_ready RedactionDoc_finished RedactionDoc_started Redactiontests_running Redactiontests_started concepteur*3 developpeur*2 machine*2 redacteur testeur
+  -L.deadlock->
+* [accepting] state 29: L.dead Conception_finished Conception_started Programmation_ready RedactionDoc_finished RedactionDoc_started Redactiontests_running Redactiontests_started concepteur*3 developpeur*2 machine*2 redacteur testeur
+  -L.deadlock->
+  state 29: L.dead Conception_finished Conception_started Programmation_ready RedactionDoc_finished RedactionDoc_started Redactiontests_running Redactiontests_started concepteur*3 developpeur*2 machine*2 redacteur testeur
+0.005s
