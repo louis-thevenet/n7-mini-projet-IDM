@@ -8,7 +8,7 @@
 = Méta-Modèles
 == SimplePDL
 #figure(
-  image("../livrables/SimplePDL.svg", height: 50%, width: 115%, fit: "stretch"), caption: [Méta-Modèle de SimplePDL],
+  image("assets/SimplePDL.svg", height: 50%, width: 115%, fit: "stretch"), caption: [Méta-Modèle de SimplePDL],
 )
 
 A partir du méta-modèle fourni, nous avons rajouté l'utilisation des ressources.
@@ -23,7 +23,7 @@ contient :
 == PetriNet
 
 #figure(
-  image("../livrables/PetriNet.svg", height: 50%, width: 115%, fit: "stretch"), caption: [Méta-Modèle de PetriNet],
+  image("assets/PetriNet.svg", height: 50%, width: 115%, fit: "stretch"), caption: [Méta-Modèle de PetriNet],
 )
 
 Un `PetriNet` est constitué de `NetElement`. Ces éléments sont les `EClass` `Place`, `Transition` et `Arc`.
@@ -174,6 +174,8 @@ grammaire en `SimplePDL`.
 
 = Vérification de terminaison et invariants
 
+Pour vérifier si un processus se termine bien et qu'il respecte certaines propriétés, il faut les exprimer en LTL. Ces propriétés seront vérifiées sur le réseau de Péttri associé au processus.
+
 - Un processus se termine si toutes ses activités se terminent, c'est-à-dire qu'il y a un jeton dans chaque place `finished` associées aux `WorkDefinition`
 #sourcecode()[
   ```mli
@@ -194,3 +196,7 @@ op finished = (Programmer_finished  /\ Concevoir_finished  /\  T);
 ]
 
 - Il aurait été intéréssant de vérifier que dès qu'une place `started` possède un jeton, celui y reste pour toujours. Ou qu'une place modélisant une `Resource` récupérera forcémment les jetons qu'elle donne un jour.
+
+= Conclusion
+Nous avons vu différtentes méthodes de transformation : M2M, T2M, M2T et graphique. La combinaison des méthodes nous a donc permis de partir d'une certaine représentation de processus puis de le transformer succintement pour vérifier les propriétés et s'assurer de la terminaison et de la consitance de la représentation.
+
