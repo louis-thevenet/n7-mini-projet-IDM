@@ -14,7 +14,7 @@
         A mon avis c'est ça le but du sujet du mini-projet ?
 - [x] Faire la transfo simplePDLToPetri avec ATL
 - [x] Faire l'éditeur graphique simplePDL
-- [ ] Faire la transfo `PetriNet` -> `LTL`
+- [x] Faire la transfo `PetriNet` -> `LTL`
   - [x] Terminaison
   - [x] Invariant
 - [x] Avoir un scénario de 10min
