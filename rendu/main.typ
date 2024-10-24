@@ -193,4 +193,4 @@ op finished = (Programmer_finished  /\ Concevoir_finished  /\  T);
   ```
 ]
 
-
+- Il aurait été intéréssant de vérifier que dès qu'une place `started` possède un jeton, celui y reste pour toujours. Ou qu'une place modélisant une `Resource` récupérera forcémment les jetons qu'elle donne un jour.
