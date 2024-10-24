@@ -47,7 +47,7 @@
 
   - [x] 04/10/2024 #n7
     - [x] `PetriNet2Tina.mtl` : la transformation de modèles `PetriNet` dans la syntaxe concrète de Tina (.net),
-    - [x] `pdl-sujet.net` : le résultat de la transformation appliquée sur l’exemple du sujet,
+    - [ ] `pdl-sujet.net` : le résultat de la transformation appliquée sur l’exemple du sujet,
     - [x] `simplePDL.odesign` : le fichier de définition de l’éditeur graphique pour `SimplePDL`,
     - [x] `simplePDL-editor.png` : l’exportation d’un modèle de processus saisi avec l’éditeur graphique (il doit démontrer les possibilités de l’éditeur proposé en terme de visualisation d’un modèle de processus).
   - [x] `Xtext` 15/10/2024 #n7

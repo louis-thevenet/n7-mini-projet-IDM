@@ -4,7 +4,7 @@
 
 [template public toLTL(aProcess : Process)]
 [comment @main/]
-[file (aProcess.name+'.ltl', false, 'UTF-8')]
+[file (aProcess.name+'_termine.ltl', false, 'UTF-8')]
 [let pes : OrderedSet(WorkSequence) = aProcess.processElements ] 
 	[if (pes->size() > 0)]
 ['op finished'/] = ([for (pe : ProcessElement | pes)][if (pe.oclIsKindOf(WorkDefinition))][let wd: WorkDefinition = pe.oclAsType(WorkDefinition)][wd.name + '_finished '/][/let] /\ [/if][/for] T);
@@ -12,7 +12,7 @@
 ['[] (finished => dead)'/];
 ['[]'/] <> dead;
 ['[]'/] ['dead => finished'/];
-['-'/] <> finished;
+ <> ['[]'/] finished;
 [/let]
 [/file]
 [/template]
