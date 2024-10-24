@@ -1,0 +1,42 @@
+
+digraph ExempleSujetRessources {
+label=ExempleSujetRessources
+
+
+concepteur [shape=diamond] [xlabel=3];
+developpeur [shape=diamond] [xlabel=2];
+machine [shape=diamond] [xlabel=4];
+redacteur [shape=diamond] [xlabel=1];
+testeur [shape=diamond] [xlabel=2];
+
+				Conception -> RedactionDoc [arrowhead=vee label=finishToFinish];
+
+				Conception -> RedactionDoc [arrowhead=vee label=startToStart];
+
+				Conception -> Programmation [arrowhead=vee label=finishToStart];
+
+				Conception -> Redactiontests [arrowhead=vee label=startToStart];
+
+				Programmation -> Redactiontests [arrowhead=vee label=finishToFinish];
+
+				concepteur -> Conception [arrowhead=diamond label=2];
+
+				machine -> Conception [arrowhead=diamond label=2];
+
+				machine -> RedactionDoc [arrowhead=diamond label=1];
+
+				redacteur -> RedactionDoc [arrowhead=diamond label=1];
+
+				developpeur -> Programmation [arrowhead=diamond label=2];
+
+				machine -> Programmation [arrowhead=diamond label=3];
+
+				machine -> Redactiontests [arrowhead=diamond label=2];
+
+				testeur -> Redactiontests [arrowhead=diamond label=1];
+
+	  
+
+
+}
+
