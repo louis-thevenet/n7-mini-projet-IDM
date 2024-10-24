@@ -21,7 +21,7 @@ pl [pl.name/] ([pl.tokens/])
 	[for (ne : NetElement | nes)]
 		[if (ne.oclIsKindOf(Transition))]
 			[let tr: Transition = ne.oclAsType(Transition)]
-tr [tr.name/] [if (tr.tempsMax>0)]['['/][tr.tempsMin/],[tr.tempsMax/]['] '/][/if] [for (arc : Arc | tr.arcs)][if ((arc.arcType=(ArcType::readArc)))][arc.linkToPlace.name/]?[arc.weight/] [/if][if ((arc.linkDirection=(LinkDirection::placeToTransition)))][arc.linkToPlace.name/]*[arc.weight/] [/if][/for]-> [for (arc : Arc | tr.arcs)][if (arc.linkDirection=(LinkDirection::transitionToPlace))][arc.linkToPlace.name/]*[arc.weight/] [/if][/for]
+tr [tr.name/] [if (tr.tempsMax>0)]['['/][tr.tempsMin/],[tr.tempsMax/]['] '/][/if] [for (arc : Arc | tr.arcs)][if ((arc.arcType=(ArcType::readArc)))][arc.linkToPlace.name/]?[arc.weight/] [elseif ((arc.linkDirection=(LinkDirection::placeToTransition)))][arc.linkToPlace.name/]*[arc.weight/] [/if][/for]-> [for (arc : Arc | tr.arcs)][if (arc.linkDirection=(LinkDirection::transitionToPlace))][arc.linkToPlace.name/]*[arc.weight/] [/if][/for]
 			[/let]
 		[/if]
 	[/for]
