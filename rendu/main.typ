@@ -238,7 +238,7 @@ op finished = (Redactiontests_finished  /\ Conception_finished  /\ Programmation
 [] (finished => dead);
 [] <> dead;
 [] dead => finished;
-- <> finished;
+<> [] finished;
 ```
 ])
 
@@ -253,27 +253,31 @@ op finished = (Redactiontests_finished  /\ Conception_finished  /\ Programmation
 ])
 
 
-Une fois lancé avec la commande `selt -p Sujet_TD.ktz -prelude Sujet_TD_termine.ltl` nous obtenons le résultat souhaité : à savoir que le réseau de Pétri finira toujours.
+Une fois lancé avec la commande `selt -p ExempleSujetRessources.ktz -prelude ExempleSujetRessources.ltl` nous obtenons le résultat souhaité : à savoir que les propriétés de ce réseau de Pétri sont toujours vraies.
 
-Cependant pour les invariants, la sortie nous montre qu'il est possible d'être dans un état dans lequel les invariants ne sont pas respectés. Exemple pour la seconde propriété : 
+Cependant pour la terminaison , la sortie nous montre qu'il est possible d'obtenir une succession d'états dans laquelle le réseau ne termine pas : 
 #sourcecode([
   ```mli
-  FALSE
-  state 0: Conception_ready Programmation_ready RedactionDoc_ready Redactiontests_ready
+TRUE
+TRUE
+TRUE
+FALSE
+  state 0: Conception_ready Programmation_ready RedactionDoc_ready Redactiontests_ready concepteur*3 developpeur*2 machine*4 redacteur testeur*2
   -Conception_start->
-  state 1: Conception_running Conception_started Programmation_ready RedactionDoc_ready Redactiontests_ready
+  state 1: Conception_running Conception_started Programmation_ready RedactionDoc_ready Redactiontests_ready concepteur developpeur*2 machine*2 redacteur testeur*2
   -Conception_finish->
-  state 2: Conception_finished Conception_started Programmation_ready RedactionDoc_ready Redactiontests_ready
-  -Programmation_start->
-  state 3: Conception_started Programmation_running Programmation_started RedactionDoc_ready Redactiontests_ready
-  -Programmation_finish->
-  state 4: Conception_started Programmation_finished Programmation_started RedactionDoc_ready Redactiontests_ready
+  state 2: Conception_finished Conception_started Programmation_ready RedactionDoc_ready Redactiontests_ready concepteur*3 developpeur*2 machine*4 redacteur testeur*2
   -RedactionDoc_start->
-  state 5: L.dead Programmation_finished Programmation_started RedactionDoc_running RedactionDoc_started Redactiontests_ready
+  state 26: Conception_finished Conception_started Programmation_ready RedactionDoc_running RedactionDoc_started Redactiontests_ready concepteur*3 developpeur*2 machine*3 testeur*2
+  -RedactionDoc_finish->
+  state 27: Conception_finished Conception_started Programmation_ready RedactionDoc_finished RedactionDoc_started Redactiontests_ready concepteur*3 developpeur*2 machine*4 redacteur testeur*2
+  -Redactiontests_start->
+  state 28: L.dead Conception_finished Conception_started Programmation_ready RedactionDoc_finished RedactionDoc_started Redactiontests_running Redactiontests_started concepteur*3 developpeur*2 machine*2 redacteur testeur
   -L.deadlock->
-  state 6: L.dead Programmation_finished Programmation_started RedactionDoc_running RedactionDoc_started Redactiontests_ready
-  [accepting all]
+* [accepting] state 29: L.dead Conception_finished Conception_started Programmation_ready RedactionDoc_finished RedactionDoc_started Redactiontests_running Redactiontests_started concepteur*3 developpeur*2 machine*2 redacteur testeur
+  -L.deadlock->
+  state 29: L.dead Conception_finished Conception_started Programmation_ready RedactionDoc_finished RedactionDoc_started Redactiontests_running Redactiontests_started concepteur*3 developpeur*2 machine*2 redacteur testeur
   ```
 ])
 
-Lors de ce mini-projet nous avons donc réussi à transformer des modèles et vérifier leur terminaison et consistance (ou pas). Nous avons compris qu'il pouvait être long et de se rendre compte de la véracité d'un modèle sans le transformer dans un autre aux propriétés plus simples. De plus, même des exemples simples peuvent ne pas obtenir un résultat vérifiant des propriétés 'simple'.
+Lors de ce mini-projet nous avons donc réussi à transformer des modèles et vérifier leur terminaison et consistance (ou pas). Nous avons compris qu'il pouvait être long et compliqué de se rendre compte de la véracité d'un modèle sans le transformer dans un autre aux propriétés plus simples. 
