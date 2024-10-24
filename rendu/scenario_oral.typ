@@ -1,6 +1,6 @@
 = Scénario Oral
 
-- Montrer exemple `exemple.pdl3` 
+- Montrer exemple `exemple.pdl3`
   + En plain texte
   + En Ecore
 
