@@ -177,9 +177,19 @@ grammaire en `SimplePDL`.
 Pour obtenir une visualisation et une édition plus agréable des modèles, nous avons développé une syntaxe graphique à l'aide de Sirius. 
 
 L'éditeur ainsi obtenu nous permet de modifier des processus (`SimplePDL`) par édition graphique et ainsi rendre l'expérience utilisateur plus agréable. 
+- Les `WorkDefinition` sont représentées par des ovales gris
+- Les `WorkSequence` sont représentées par flèches de couleurs différentes selon `WorkSequenceType`
+- Les `Resource` sont représentées par des losanges bleus
+- Les `ResourceUsage` sont représentées par des flèches bleues
+- Les `Guidance` et leurs liens sont représentées par des rectangles et flèches oranges
 
 #figure(
-  image("assets/sirius.svg"), caption: [Résultat de `SimplePDL3` $arrow$ `SimplePDL` $arrow$ `DOT`],
+  image("assets/sirius.svg",), caption: [Edition de `pdl-sujet-ressources.xmi` avec Sirius],
+  
+)
+
+#figure(
+  image("assets/Palette_Sirius.png", height: 25%,), caption: [Palette de création dans Sirius],
 )
 
 = Vérification de terminaison et invariants
