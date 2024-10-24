@@ -21,13 +21,13 @@ pl developpeur (2)
 pl machine (4)
 pl redacteur (1)
 pl testeur (2)
-tr Redactiontests_start  Redactiontests_ready*1 Conception_started?1 Conception_started*1 machine*2 testeur*1 -> Redactiontests_running*1 Redactiontests_started*1 
-tr Redactiontests_finish  Redactiontests_running*1 Programmation_finished?1 Programmation_finished*1 -> Redactiontests_finished*1 machine*2 testeur*1 
+tr Redactiontests_start  Redactiontests_ready*1 Conception_started?1 machine*2 testeur*1 -> Redactiontests_running*1 Redactiontests_started*1 
+tr Redactiontests_finish  Redactiontests_running*1 Programmation_finished?1 -> Redactiontests_finished*1 machine*2 testeur*1 
 tr Conception_start  Conception_ready*1 concepteur*2 machine*2 -> Conception_running*1 Conception_started*1 
 tr Conception_finish  Conception_running*1 -> Conception_finished*1 concepteur*2 machine*2 
-tr Programmation_start  Programmation_ready*1 Conception_finished?1 Conception_finished*1 developpeur*2 machine*3 -> Programmation_running*1 Programmation_started*1 
+tr Programmation_start  Programmation_ready*1 Conception_finished?1 developpeur*2 machine*3 -> Programmation_running*1 Programmation_started*1 
 tr Programmation_finish  Programmation_running*1 -> Programmation_finished*1 developpeur*2 machine*3 
-tr RedactionDoc_start  RedactionDoc_ready*1 Conception_started?1 Conception_started*1 machine*1 redacteur*1 -> RedactionDoc_running*1 RedactionDoc_started*1 
-tr RedactionDoc_finish  RedactionDoc_running*1 Conception_finished?1 Conception_finished*1 -> RedactionDoc_finished*1 machine*1 redacteur*1 
+tr RedactionDoc_start  RedactionDoc_ready*1 Conception_started?1 machine*1 redacteur*1 -> RedactionDoc_running*1 RedactionDoc_started*1 
+tr RedactionDoc_finish  RedactionDoc_running*1 Conception_finished?1 -> RedactionDoc_finished*1 machine*1 redacteur*1 
 
 

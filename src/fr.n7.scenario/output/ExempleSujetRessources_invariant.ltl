@@ -2,3 +2,4 @@
 [] (Conception_finished + Conception_running + Conception_ready = 1);
 [] (Programmation_finished + Programmation_running + Programmation_ready = 1);
 [] (RedactionDoc_finished + RedactionDoc_running + RedactionDoc_ready = 1);
+<> ([](Conception_started = 1)) 
