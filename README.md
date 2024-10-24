@@ -6,10 +6,10 @@
 
 - [ ] Renommer les projets qui ont pas la convention `fr.n7.___`
       Vérifier ce que les TPs disaient p-ê
-- [ ] (re)Générer les livrables
-- [ ] Finir le rapport fri
-  - [ ] Eventuellement mieux présenter LTL
-  - [ ] Pour conclure le rapport on devrait discuter du fait que le LTL n'est PAS vérifié sur le process du sujet
+- [x] (re)Générer les livrables
+- [x] Finir le rapport
+  - [x] Eventuellement mieux présenter LTL
+  - [x] Pour conclure le rapport on devrait discuter du fait que le LTL n'est PAS vérifié sur le process du sujet
         c-à-d montrer chaque étape des transfos, et pour finir bah on a réussi à montrer que le process marchait pas
         A mon avis c'est ça le but du sujet du mini-projet ?
 - [x] Faire la transfo simplePDLToPetri avec ATL
@@ -24,7 +24,7 @@
 > [!note]
 > Mettre les livrables dans le dossier `livrables` sans structure particulière, bien respecter les conventions de nommage.
 
-- [ ] Rendu du rapport 25/10/2024 #n7
+- [x] Rendu du rapport 25/10/2024 #n7
       Il explique ce que vous avez fait, vos choix, les exemples réalisés, etc. Il doit être synthétique.
       Il est le point d’entrée sur le travail fait. Ne pas le négliger !
       Il est bien sûr conseillé de le rédiger au fur et à mesure de vos avancées. N’attendez pas la fin.
@@ -47,7 +47,7 @@
 
   - [x] 04/10/2024 #n7
     - [x] `PetriNet2Tina.mtl` : la transformation de modèles `PetriNet` dans la syntaxe concrète de Tina (.net),
-    - [ ] `pdl-sujet.net` : le résultat de la transformation appliquée sur l’exemple du sujet,
+    - [x] `pdl-sujet.net` : le résultat de la transformation appliquée sur l’exemple du sujet,
     - [x] `simplePDL.odesign` : le fichier de définition de l’éditeur graphique pour `SimplePDL`,
     - [x] `simplePDL-editor.png` : l’exportation d’un modèle de processus saisi avec l’éditeur graphique (il doit démontrer les possibilités de l’éditeur proposé en terme de visualisation d’un modèle de processus).
   - [x] `Xtext` 15/10/2024 #n7
