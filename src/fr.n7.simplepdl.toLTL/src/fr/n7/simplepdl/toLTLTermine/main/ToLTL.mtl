@@ -12,7 +12,7 @@
 ['[] (finished => dead)'/];
 ['[]'/] <> dead;
 ['[]'/] ['dead => finished'/];
-['-'/] <> finished;
+ <> ['[]'/] finished;
 [/let]
 [/file]
 [/template]
