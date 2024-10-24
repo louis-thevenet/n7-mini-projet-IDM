@@ -172,6 +172,16 @@ grammaire en `SimplePDL`.
   image("assets/pdl-pdl3-ex1.svg"), caption: [Résultat de `SimplePDL3` $arrow$ `SimplePDL` $arrow$ `DOT`],
 )
 
+= Edition graphique
+
+Pour obtenir une visualisation et une édition plus agréable des modèles, nous avons développé une syntaxe graphique à l'aide de Sirius. 
+
+L'éditeur ainsi obtenu nous permet de modifier des processus (`SimplePDL`) par édition graphique et ainsi rendre l'expérience utilisateur plus agréable. 
+
+#figure(
+  image("assets/sirius.svg"), caption: [Résultat de `SimplePDL3` $arrow$ `SimplePDL` $arrow$ `DOT`],
+)
+
 = Vérification de terminaison et invariants
 
 Pour vérifier si un processus se termine bien et qu'il respecte certaines propriétés, il faut les exprimer en LTL. Ces propriétés seront vérifiées sur le réseau de Péttri associé au processus.
