@@ -1,0 +1,25 @@
+
+digraph exemple_scenario {
+label=exemple_scenario
+
+
+Humains [shape=diamond] [xlabel=5];
+Ordis [shape=diamond] [xlabel=5];
+
+				Humains -> a [arrowhead=diamond label=5];
+
+				Humains -> b [arrowhead=diamond label=5];
+
+				Ordis -> b [arrowhead=diamond label=2];
+
+				a -> b [arrowhead=vee label=startToStart];
+
+				b -> c [arrowhead=vee label=finishToFinish];
+
+				c -> a [arrowhead=vee label=startToStart];
+
+	  
+
+
+}
+

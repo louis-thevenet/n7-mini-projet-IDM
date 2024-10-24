@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<petriNet:PetriNet xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:petriNet="http://petrinet" name="ex1">
+  <netElements xsi:type="petriNet:Place" tokens="1" arcs="//@netElements.6" name="a_ready"/>
+  <netElements xsi:type="petriNet:Place" arcs="//@netElements.8 //@netElements.33" name="a_started"/>
+  <netElements xsi:type="petriNet:Place" arcs="//@netElements.7 //@netElements.9" name="a_running"/>
+  <netElements xsi:type="petriNet:Place" arcs="//@netElements.10" name="a_finished"/>
+  <netElements xsi:type="petriNet:Transition" arcs="//@netElements.6 //@netElements.7 //@netElements.8 //@netElements.35 //@netElements.38" name="a_start"/>
+  <netElements xsi:type="petriNet:Transition" arcs="//@netElements.9 //@netElements.10 //@netElements.39" name="a_finish"/>
+  <netElements xsi:type="petriNet:Arc" linkToPlace="//@netElements.0" linkToTransition="//@netElements.4" name="a_ready_to_start"/>
+  <netElements xsi:type="petriNet:Arc" linkDirection="transitionToPlace" linkToPlace="//@netElements.2" linkToTransition="//@netElements.4" name="a_start_to_running"/>
+  <netElements xsi:type="petriNet:Arc" linkDirection="transitionToPlace" linkToPlace="//@netElements.1" linkToTransition="//@netElements.4" name="a_start_to_started"/>
+  <netElements xsi:type="petriNet:Arc" linkToPlace="//@netElements.2" linkToTransition="//@netElements.5" name="a_running_to_sinish"/>
+  <netElements xsi:type="petriNet:Arc" linkDirection="transitionToPlace" linkToPlace="//@netElements.3" linkToTransition="//@netElements.5" name="a_finish_to_finished"/>
+  <netElements xsi:type="petriNet:Place" tokens="1" arcs="//@netElements.17" name="b_ready"/>
+  <netElements xsi:type="petriNet:Place" arcs="//@netElements.19" name="b_started"/>
+  <netElements xsi:type="petriNet:Place" arcs="//@netElements.18 //@netElements.20" name="b_running"/>
+  <netElements xsi:type="petriNet:Place" arcs="//@netElements.21 //@netElements.34" name="b_finished"/>
+  <netElements xsi:type="petriNet:Transition" arcs="//@netElements.17 //@netElements.18 //@netElements.19 //@netElements.33 //@netElements.40 //@netElements.42" name="b_start"/>
+  <netElements xsi:type="petriNet:Transition" arcs="//@netElements.20 //@netElements.21 //@netElements.41 //@netElements.43" name="b_finish"/>
+  <netElements xsi:type="petriNet:Arc" linkToPlace="//@netElements.11" linkToTransition="//@netElements.15" name="b_ready_to_start"/>
+  <netElements xsi:type="petriNet:Arc" linkDirection="transitionToPlace" linkToPlace="//@netElements.13" linkToTransition="//@netElements.15" name="b_start_to_running"/>
+  <netElements xsi:type="petriNet:Arc" linkDirection="transitionToPlace" linkToPlace="//@netElements.12" linkToTransition="//@netElements.15" name="b_start_to_started"/>
+  <netElements xsi:type="petriNet:Arc" linkToPlace="//@netElements.13" linkToTransition="//@netElements.16" name="b_running_to_sinish"/>
+  <netElements xsi:type="petriNet:Arc" linkDirection="transitionToPlace" linkToPlace="//@netElements.14" linkToTransition="//@netElements.16" name="b_finish_to_finished"/>
+  <netElements xsi:type="petriNet:Place" tokens="1" arcs="//@netElements.28" name="c_ready"/>
+  <netElements xsi:type="petriNet:Place" arcs="//@netElements.30 //@netElements.35" name="c_started"/>
+  <netElements xsi:type="petriNet:Place" arcs="//@netElements.29 //@netElements.31" name="c_running"/>
+  <netElements xsi:type="petriNet:Place" arcs="//@netElements.32" name="c_finished"/>
+  <netElements xsi:type="petriNet:Transition" arcs="//@netElements.28 //@netElements.29 //@netElements.30" name="c_start"/>
+  <netElements xsi:type="petriNet:Transition" arcs="//@netElements.31 //@netElements.32 //@netElements.34" name="c_finish"/>
+  <netElements xsi:type="petriNet:Arc" linkToPlace="//@netElements.22" linkToTransition="//@netElements.26" name="c_ready_to_start"/>
+  <netElements xsi:type="petriNet:Arc" linkDirection="transitionToPlace" linkToPlace="//@netElements.24" linkToTransition="//@netElements.26" name="c_start_to_running"/>
+  <netElements xsi:type="petriNet:Arc" linkDirection="transitionToPlace" linkToPlace="//@netElements.23" linkToTransition="//@netElements.26" name="c_start_to_started"/>
+  <netElements xsi:type="petriNet:Arc" linkToPlace="//@netElements.24" linkToTransition="//@netElements.27" name="c_running_to_sinish"/>
+  <netElements xsi:type="petriNet:Arc" linkDirection="transitionToPlace" linkToPlace="//@netElements.25" linkToTransition="//@netElements.27" name="c_finish_to_finished"/>
+  <netElements xsi:type="petriNet:Arc" arcType="readArc" linkToPlace="//@netElements.1" linkToTransition="//@netElements.15" name="a_to_b"/>
+  <netElements xsi:type="petriNet:Arc" arcType="readArc" linkToPlace="//@netElements.14" linkToTransition="//@netElements.27" name="b_to_c"/>
+  <netElements xsi:type="petriNet:Arc" arcType="readArc" linkToPlace="//@netElements.23" linkToTransition="//@netElements.4" name="c_to_a"/>
+  <netElements xsi:type="petriNet:Place" tokens="5" arcs="//@netElements.38 //@netElements.39 //@netElements.40 //@netElements.41" name="Humains"/>
+  <netElements xsi:type="petriNet:Place" tokens="5" arcs="//@netElements.42 //@netElements.43" name="Ordis"/>
+  <netElements xsi:type="petriNet:Arc" weight="5" linkToPlace="//@netElements.36" linkToTransition="//@netElements.4" name="Humains_to_a"/>
+  <netElements xsi:type="petriNet:Arc" weight="5" linkDirection="transitionToPlace" linkToPlace="//@netElements.36" linkToTransition="//@netElements.5" name="a_to_Humains"/>
+  <netElements xsi:type="petriNet:Arc" weight="5" linkToPlace="//@netElements.36" linkToTransition="//@netElements.15" name="Humains_to_b"/>
+  <netElements xsi:type="petriNet:Arc" weight="5" linkDirection="transitionToPlace" linkToPlace="//@netElements.36" linkToTransition="//@netElements.16" name="b_to_Humains"/>
+  <netElements xsi:type="petriNet:Arc" weight="2" linkToPlace="//@netElements.37" linkToTransition="//@netElements.15" name="Ordis_to_b"/>
+  <netElements xsi:type="petriNet:Arc" weight="2" linkDirection="transitionToPlace" linkToPlace="//@netElements.37" linkToTransition="//@netElements.16" name="b_to_Ordis"/>
+</petriNet:PetriNet>

@@ -1,0 +1,3 @@
+[] (a_finished + a_running + a_ready = 1);
+[] (b_finished + b_running + b_ready = 1);
+[] (c_finished + c_running + c_ready = 1);
