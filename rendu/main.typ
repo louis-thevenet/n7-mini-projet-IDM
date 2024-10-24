@@ -200,3 +200,60 @@ op finished = (Programmer_finished  /\ Concevoir_finished  /\  T);
 = Conclusion
 Nous avons vu différtentes méthodes de transformation : M2M, T2M, M2T et graphique. La combinaison des méthodes nous a donc permis de partir d'une certaine représentation de processus puis de le transformer succintement pour vérifier les propriétés et s'assurer de la terminaison et de la consitance de la représentation.
 
+Pour ce faire nous avons testé l'exemple vu en TD :
+#figure(
+  image("assets/Sujet_TD.svg"), caption: [Résultat de `SimplePDL3` $arrow$ `SimplePDL` $arrow$ `DOT`],
+) <dot_sujet_td>
+
+Nous avons commencé par la syntaxe textuelle pour la transformation T2M à l'aide de `Xtext` en SimplePDL (vu sous forme de dot  @dot_sujet_td)
+
+Ensuite avec une transformation M2M avec `Java` ou `ATL` nous avons pu transformer ce `Process` en un `PetriNet`. 
+
+C'est enfin que la transformation M2T nous a permi d'engendrer le réseau de Pétri sous syntaxe `Tina` pour pouvoir obtenir le `PetriNet` correspondant.
+
+Ensuite, nous avons créé nos propriétés LTL à partir de nos deux templates : 
+#sourcecode([
+  ```mli 
+op finished = (Redactiontests_finished  /\ Conception_finished  /\ Programmation_finished  /\ RedactionDoc_finished  /\  T);
+[] (finished => dead);
+[] <> dead;
+[] dead => finished;
+- <> finished;
+```
+])
+
+#sourcecode([
+  ```mli
+[] (Redactiontests_finished + Redactiontests_running + Redactiontests_ready = 1);
+[] (Conception_finished + Conception_running + Conception_ready = 1);
+[] (Programmation_finished + Programmation_running + Programmation_ready = 1);
+[] (RedactionDoc_finished + RedactionDoc_running + RedactionDoc_ready = 1);
+
+  ```
+])
+
+
+Une fois lancé avec la commande `selt -p Sujet_TD.ktz -prelude Sujet_TD_termine.ltl` nous obtenons le résultat souhaité : à savoir que le réseau de Pétri finira toujours.
+
+Cependant pour les invariants, la sortie nous montre qu'il est possible d'être dans un état dans lequel les invariants ne sont pas respectés. Exemple pour la seconde propriété : 
+#sourcecode([
+  ```mli
+  FALSE
+  state 0: Conception_ready Programmation_ready RedactionDoc_ready Redactiontests_ready
+  -Conception_start->
+  state 1: Conception_running Conception_started Programmation_ready RedactionDoc_ready Redactiontests_ready
+  -Conception_finish->
+  state 2: Conception_finished Conception_started Programmation_ready RedactionDoc_ready Redactiontests_ready
+  -Programmation_start->
+  state 3: Conception_started Programmation_running Programmation_started RedactionDoc_ready Redactiontests_ready
+  -Programmation_finish->
+  state 4: Conception_started Programmation_finished Programmation_started RedactionDoc_ready Redactiontests_ready
+  -RedactionDoc_start->
+  state 5: L.dead Programmation_finished Programmation_started RedactionDoc_running RedactionDoc_started Redactiontests_ready
+  -L.deadlock->
+  state 6: L.dead Programmation_finished Programmation_started RedactionDoc_running RedactionDoc_started Redactiontests_ready
+  [accepting all]
+  ```
+])
+
+Lors de ce mini-projet nous avons donc réussi à transformer des modèles et vérifier leur terminaison et consistance (ou pas). Nous avons compris qu'il pouvait être long et de se rendre compte de la véracité d'un modèle sans le transformer dans un autre aux propriétés plus simples. De plus, même des exemples simples peuvent ne pas obtenir un résultat vérifiant des propriétés 'simple'.
